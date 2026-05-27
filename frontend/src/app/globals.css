@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Warm paper background + ISTQB red/navy palette, expressed as HSL tokens. */
+    --background: 40 33% 98%;
+    --foreground: 222 16% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 16% 20%;
+
+    --primary: 216 64% 30%;          /* navy */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 40 30% 94%;
+    --secondary-foreground: 222 16% 20%;
+
+    --muted: 40 20% 92%;
+    --muted-foreground: 222 10% 45%;
+
+    --accent: 355 72% 46%;           /* red */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 355 72% 46%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 18% 87%;
+    --input: 40 18% 87%;
+    --ring: 216 64% 30%;
+
+    --radius: 0.625rem;
+  }
+
+  .dark {
+    --background: 222 32% 9%;
+    --foreground: 40 33% 96%;
+
+    --card: 222 28% 13%;
+    --card-foreground: 40 33% 96%;
+
+    --primary: 216 70% 62%;
+    --primary-foreground: 222 32% 9%;
+
+    --secondary: 222 20% 18%;
+    --secondary-foreground: 40 33% 96%;
+
+    --muted: 222 18% 20%;
+    --muted-foreground: 40 10% 65%;
+
+    --accent: 355 75% 60%;
+    --accent-foreground: 222 32% 9%;
+
+    --destructive: 355 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 18% 24%;
+    --input: 222 18% 24%;
+    --ring: 216 70% 62%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Soft background ornamentation echoing the style inspiration. */
+.bg-ornament {
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(200, 32, 47, 0.04) 0, transparent 40%),
+    radial-gradient(circle at 88% 92%, rgba(27, 61, 122, 0.05) 0, transparent 42%);
+}

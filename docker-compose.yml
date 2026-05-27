@@ -1,0 +1,15 @@
+# Local convenience: run the API in a container against your Supabase database.
+# Supply secrets via a .env file next to this compose file (see backend/appsettings.Development.json keys).
+services:
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__Default: ${CONNECTION_STRING}
+      Supabase__Url: ${SUPABASE_URL}
+      Database__SeedOnStartup: "true"
+      Cors__AllowedOrigins__0: "http://localhost:3000"

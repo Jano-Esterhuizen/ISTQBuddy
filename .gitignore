@@ -1,0 +1,29 @@
+# ---- .NET ----
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+.vs/
+artifacts/
+*.nupkg
+TestResults/
+
+# ---- Node / Next.js ----
+node_modules/
+.next/
+out/
+.vercel/
+*.tsbuildinfo
+next-env.d.ts
+
+# ---- Env / secrets ----
+.env
+.env.local
+.env.*.local
+appsettings.Development.json
+appsettings.Local.json
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+*.log
