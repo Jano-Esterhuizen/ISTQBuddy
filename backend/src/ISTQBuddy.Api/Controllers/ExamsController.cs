@@ -11,8 +11,11 @@ public class ExamsController(ICurrentUser currentUser, IExamService exams) : Bas
     public async Task<ActionResult<IReadOnlyList<ExamSummaryDto>>> List(CancellationToken ct)
         => Ok(await exams.GetExamsAsync(CurrentUserId, ct));
 
-    /// <summary>Full exam for taking. Returns 403 if the user lacks access (freemium gate).</summary>
+    /// <summary>
+    /// Full exam for taking. Returns 403 if the user lacks access (freemium gate).
+    /// Pass includeAnswers=true for study mode (instant per-question feedback).
+    /// </summary>
     [HttpGet("{id:guid}")]
-    public async Task<ActionResult<ExamDetailDto>> Get(Guid id, CancellationToken ct)
-        => Ok(await exams.GetExamDetailAsync(CurrentUserId, id, ct));
+    public async Task<ActionResult<ExamDetailDto>> Get(Guid id, [FromQuery] bool includeAnswers, CancellationToken ct)
+        => Ok(await exams.GetExamDetailAsync(CurrentUserId, id, includeAnswers, ct));
 }

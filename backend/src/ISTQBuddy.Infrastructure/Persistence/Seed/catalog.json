@@ -1,0 +1,42 @@
+{
+  "certifications": [
+    { "slug": "istqb-foundation", "name": "ISTQB Foundation", "category": "Core", "code": "CTFL", "version": "4.0" },
+    { "slug": "istqb-advanced-agile-tester", "name": "ISTQB Advanced Agile Tester V2.0", "category": "Core" },
+    { "slug": "istqb-advanced-test-analyst", "name": "ISTQB Advanced Test Analyst", "category": "Core" },
+    { "slug": "istqb-advanced-test-management", "name": "ISTQB Advanced Test Management", "category": "Core" },
+    { "slug": "istqb-advanced-technical-test-analyst", "name": "ISTQB Advanced Technical Test Analyst", "category": "Core" },
+    { "slug": "istqb-advanced-test-automation-engineering", "name": "ISTQB Advanced Test Automation Engineering", "category": "Core" },
+
+    { "slug": "istqb-testing-with-generative-ai", "name": "ISTQB Testing With Generative AI", "category": "Specialist" },
+    { "slug": "istqb-ai-testing", "name": "ISTQB AI Testing", "category": "Specialist" },
+    { "slug": "istqb-agile-tester", "name": "ISTQB Agile Tester V1.0", "category": "Specialist" },
+    { "slug": "istqb-usability-tester", "name": "ISTQB Usability Tester", "category": "Specialist" },
+    { "slug": "istqb-mobile-application-testing", "name": "ISTQB Mobile Application Testing", "category": "Specialist" },
+    { "slug": "istqb-performance-testing", "name": "ISTQB Performance Testing", "category": "Specialist" },
+    { "slug": "istqb-model-based-testing", "name": "ISTQB Model Based Testing", "category": "Specialist" },
+    { "slug": "istqb-acceptance-testing", "name": "ISTQB Acceptance Testing", "category": "Specialist" },
+    { "slug": "istqb-automotive-tester", "name": "ISTQB Automotive Tester", "category": "Specialist" },
+    { "slug": "istqb-security-tester", "name": "ISTQB Security Tester", "category": "Specialist" },
+    { "slug": "istqb-agile-technical-tester", "name": "ISTQB Agile Technical Tester", "category": "Specialist" },
+    { "slug": "istqb-agile-test-leadership-at-scale", "name": "ISTQB Agile Test Leadership At Scale", "category": "Specialist" },
+    { "slug": "istqb-test-automation-strategy", "name": "ISTQB Test Automation Strategy", "category": "Specialist" },
+    { "slug": "istqb-security-test-engineer", "name": "ISTQB Security Test Engineer", "category": "Specialist" },
+    { "slug": "istqb-gambling-industry-tester", "name": "ISTQB Gambling Industry Tester", "category": "Specialist" },
+    { "slug": "istqb-game-testing", "name": "ISTQB Game Testing", "category": "Specialist" },
+
+    { "slug": "istqb-assessing-test-processes", "name": "ISTQB Assessing Test Processes", "category": "Expert" },
+    { "slug": "istqb-operational-test-management", "name": "ISTQB Operational Test Management", "category": "Expert" },
+    { "slug": "istqb-strategic-test-management", "name": "ISTQB Strategic Test Management", "category": "Expert" },
+    { "slug": "istqb-managing-the-test-team", "name": "ISTQB Managing The Test Team", "category": "Expert" },
+    { "slug": "istqb-implementing-test-process-improvement", "name": "ISTQB Implementing Test Process Improvement", "category": "Expert" },
+
+    { "slug": "ireb-foundation", "name": "IREB Foundation", "category": "Other" },
+    { "slug": "ireb-advanced-elicitation", "name": "IREB Advanced Level – Elicitation", "category": "Other" },
+    { "slug": "ireb-advanced-modeling", "name": "IREB Advanced Level – Modeling", "category": "Other" },
+    { "slug": "ireb-advanced-management", "name": "IREB Advanced Level – Management", "category": "Other" },
+    { "slug": "tmmi-foundation", "name": "TMMi Foundation", "category": "Other" },
+    { "slug": "astqb-mobile", "name": "ASTQB Mobile", "category": "Other" },
+    { "slug": "a4q-design-thinking", "name": "A4Q Design Thinking", "category": "Other" },
+    { "slug": "a4q-selenium-tester", "name": "A4Q Selenium Tester", "category": "Other" }
+  ]
+}

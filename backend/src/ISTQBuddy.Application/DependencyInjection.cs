@@ -1,4 +1,5 @@
 using ISTQBuddy.Application.Attempts;
+using ISTQBuddy.Application.Certifications;
 using ISTQBuddy.Application.Common.Interfaces;
 using ISTQBuddy.Application.Entitlements;
 using ISTQBuddy.Application.Exams;
@@ -12,6 +13,7 @@ public static class DependencyInjection
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
         services.AddScoped<IEntitlementService, EntitlementService>();
+        services.AddScoped<ICertificationService, CertificationService>();
         services.AddScoped<IExamService, ExamService>();
         services.AddScoped<IAttemptService, AttemptService>();
         services.AddScoped<IProfileService, ProfileService>();

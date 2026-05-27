@@ -8,6 +8,27 @@ export interface ProfileDto {
   hasFullAccess: boolean;
 }
 
+export type CertificationCategory = "Core" | "Specialist" | "Expert" | "Other";
+
+export interface CatalogCertificationDto {
+  id: string;
+  slug: string;
+  name: string;
+  category: CertificationCategory;
+  version: string;
+  examCount: number;
+  hasFreeSample: boolean;
+  isLocked: boolean;
+}
+
+export interface CertificationDetailDto {
+  id: string;
+  slug: string;
+  name: string;
+  category: CertificationCategory;
+  exams: ExamSummaryDto[];
+}
+
 export interface ExamSummaryDto {
   id: string;
   title: string;
@@ -26,6 +47,9 @@ export interface OptionDto {
   label: string;
   text: string;
   orderIndex: number;
+  // Populated only in study mode (includeAnswers).
+  isCorrect?: boolean | null;
+  rationale?: string | null;
 }
 
 export interface QuestionDto {
@@ -46,7 +70,9 @@ export interface ExamDetailDto {
   title: string;
   slug: string;
   description: string | null;
+  certificationName: string;
   passPercentage: number;
+  includesAnswers: boolean;
   questions: QuestionDto[];
 }
 

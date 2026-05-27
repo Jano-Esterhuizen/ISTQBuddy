@@ -4,6 +4,7 @@ using ISTQBuddy.Infrastructure.Email;
 using ISTQBuddy.Infrastructure.Persistence;
 using ISTQBuddy.Infrastructure.Persistence.Seed;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -17,7 +18,11 @@ public static class DependencyInjection
             ?? throw new InvalidOperationException("Missing connection string 'Default'.");
 
         services.AddDbContext<AppDbContext>(options =>
-            options.UseNpgsql(connectionString, npgsql => npgsql.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)));
+            options
+                .UseNpgsql(connectionString, npgsql => npgsql.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName))
+                // Loading questions + their options in one query is intentional: on a high-latency
+                // link a single round-trip beats split queries. Silence the default warning.
+                .ConfigureWarnings(w => w.Ignore(RelationalEventId.MultipleCollectionIncludeWarning)));
 
         services.AddScoped<IAppDbContext>(sp => sp.GetRequiredService<AppDbContext>());
 
@@ -26,6 +31,7 @@ public static class DependencyInjection
 
         services.AddHttpClient<IEmailSender, ResendEmailSender>();
 
+        services.AddScoped<CatalogSeeder>();
         services.AddScoped<ExamSeeder>();
 
         return services;

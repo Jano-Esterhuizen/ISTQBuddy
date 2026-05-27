@@ -17,14 +17,19 @@ public record ExamSummaryDto
     public bool IsLocked { get; init; }
 }
 
-/// <summary>Full exam for taking. Options deliberately omit correctness and rationale.</summary>
+/// <summary>
+/// Full exam for taking. In exam mode the option correctness/rationale are null;
+/// in study mode (includeAnswers) they are populated so the client can grade instantly.
+/// </summary>
 public record ExamDetailDto
 {
     public Guid Id { get; init; }
     public string Title { get; init; } = string.Empty;
     public string Slug { get; init; } = string.Empty;
     public string? Description { get; init; }
+    public string CertificationName { get; init; } = string.Empty;
     public int PassPercentage { get; init; }
+    public bool IncludesAnswers { get; init; }
     public IReadOnlyList<QuestionDto> Questions { get; init; } = [];
 }
 
@@ -48,4 +53,8 @@ public record OptionDto
     public string Label { get; init; } = string.Empty;
     public string Text { get; init; } = string.Empty;
     public int OrderIndex { get; init; }
+
+    /// <summary>Populated only in study mode (includeAnswers); null otherwise.</summary>
+    public bool? IsCorrect { get; init; }
+    public string? Rationale { get; init; }
 }

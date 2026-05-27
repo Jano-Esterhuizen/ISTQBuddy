@@ -34,6 +34,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${sans.variable} ${serif.variable} ${mono.variable} h-full`}
     >
       <body className="min-h-full flex flex-col font-sans">

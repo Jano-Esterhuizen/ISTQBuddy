@@ -50,6 +50,15 @@ public class ExamSeeder(AppDbContext db, ILogger<ExamSeeder> logger)
             .Include(e => e.Questions).ThenInclude(q => q.Options)
             .FirstOrDefaultAsync(e => e.Slug == data.Exam.Slug, ct);
 
+        // Already seeded with the expected number of questions → no-op. This keeps normal
+        // restarts cheap (a single SELECT) and avoids a large delete/re-insert on the pooler.
+        if (exam is not null && exam.Questions.Count == data.Questions.Count)
+        {
+            logger.LogInformation("Exam '{Title}' already seeded ({Count} questions); skipping.",
+                exam.Title, exam.Questions.Count);
+            return;
+        }
+
         if (exam is null)
         {
             exam = new Exam { Slug = data.Exam.Slug, CertificationId = cert.Id };
@@ -57,7 +66,7 @@ public class ExamSeeder(AppDbContext db, ILogger<ExamSeeder> logger)
         }
         else
         {
-            // Replace existing questions to keep the seed authoritative and idempotent.
+            // Content changed (e.g. the seed file was updated) — replace the question set.
             db.QuestionOptions.RemoveRange(exam.Questions.SelectMany(q => q.Options));
             db.Questions.RemoveRange(exam.Questions);
         }

@@ -45,12 +45,21 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 builder.Services.AddAuthorization();
 
-// --- CORS (Vercel origins + localhost) ---
+// --- CORS ---
+// Dev: allow any localhost origin (the Next.js dev port varies: 3000, 3100, ...).
+// Prod: lock to the configured origins (e.g. the Vercel domain).
 const string CorsPolicy = "frontend";
 var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>()
     ?? ["http://localhost:3000"];
 builder.Services.AddCors(o => o.AddPolicy(CorsPolicy, p =>
-    p.WithOrigins(allowedOrigins).AllowAnyHeader().AllowAnyMethod()));
+{
+    p.AllowAnyHeader().AllowAnyMethod();
+    if (builder.Environment.IsDevelopment())
+        p.SetIsOriginAllowed(origin =>
+            new Uri(origin).Host is "localhost" or "127.0.0.1");
+    else
+        p.WithOrigins(allowedOrigins);
+}));
 
 // --- Swagger with bearer auth ---
 builder.Services.AddSwaggerGen(c =>
@@ -103,8 +112,9 @@ static async Task ApplyStartupTasksAsync(WebApplication app)
 
     if (config.GetValue<bool>("Database:SeedOnStartup"))
     {
-        var seeder = scope.ServiceProvider.GetRequiredService<ExamSeeder>();
-        await seeder.SeedAsync();
+        // Catalog first so exams can link to their certification.
+        await scope.ServiceProvider.GetRequiredService<CatalogSeeder>().SeedAsync();
+        await scope.ServiceProvider.GetRequiredService<ExamSeeder>().SeedAsync();
     }
 }
 

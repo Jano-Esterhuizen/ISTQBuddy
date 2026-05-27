@@ -35,3 +35,12 @@ public enum EntitlementSource
     System = 0,
     LemonSqueezy = 1
 }
+
+/// <summary>Top-level grouping for the certification catalog.</summary>
+public enum CertificationCategory
+{
+    Core = 0,
+    Specialist = 1,
+    Expert = 2,
+    Other = 3
+}

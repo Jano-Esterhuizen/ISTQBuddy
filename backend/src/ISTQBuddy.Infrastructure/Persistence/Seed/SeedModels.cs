@@ -43,3 +43,18 @@ public class SeedOption
     public string Letter { get; set; } = string.Empty;    // -> Label
     public string Text { get; set; } = string.Empty;
 }
+
+/// <summary>Root of catalog.json — the full certification catalog.</summary>
+public class CatalogFile
+{
+    public List<CatalogCert> Certifications { get; set; } = new();
+}
+
+public class CatalogCert
+{
+    public string Slug { get; set; } = string.Empty;
+    public string Name { get; set; } = string.Empty;
+    public string Category { get; set; } = "Core";
+    public string? Code { get; set; }      // defaults to Slug
+    public string? Version { get; set; }   // defaults to "1.0"
+}

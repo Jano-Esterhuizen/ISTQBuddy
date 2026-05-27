@@ -35,11 +35,13 @@ public class ExamService(IAppDbContext db, IEntitlementService entitlements) : I
         return result;
     }
 
-    public async Task<ExamDetailDto> GetExamDetailAsync(Guid userId, Guid examId, CancellationToken ct = default)
+    public async Task<ExamDetailDto> GetExamDetailAsync(Guid userId, Guid examId, bool includeAnswers = false, CancellationToken ct = default)
     {
         var exam = await db.Exams
+            .Include(e => e.Certification)
             .Include(e => e.Questions.OrderBy(q => q.OrderIndex))
                 .ThenInclude(q => q.Options.OrderBy(o => o.OrderIndex))
+            .AsNoTracking()
             .FirstOrDefaultAsync(e => e.Id == examId, ct)
             ?? throw new NotFoundException($"Exam {examId} not found.");
 
@@ -52,7 +54,9 @@ public class ExamService(IAppDbContext db, IEntitlementService entitlements) : I
             Title = exam.Title,
             Slug = exam.Slug,
             Description = exam.Description,
+            CertificationName = exam.Certification.Name,
             PassPercentage = exam.PassPercentage,
+            IncludesAnswers = includeAnswers,
             Questions = exam.Questions
                 .OrderBy(q => q.OrderIndex)
                 .Select(q => new QuestionDto
@@ -73,7 +77,9 @@ public class ExamService(IAppDbContext db, IEntitlementService entitlements) : I
                             Id = o.Id,
                             Label = o.Label,
                             Text = o.Text,
-                            OrderIndex = o.OrderIndex
+                            OrderIndex = o.OrderIndex,
+                            IsCorrect = includeAnswers ? o.IsCorrect : null,
+                            Rationale = includeAnswers ? o.Rationale : null
                         })
                         .ToList()
                 })

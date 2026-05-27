@@ -13,6 +13,9 @@ public class CertificationConfiguration : IEntityTypeConfiguration<Certification
         b.Property(c => c.Code).HasMaxLength(50).IsRequired();
         b.Property(c => c.Name).HasMaxLength(200).IsRequired();
         b.Property(c => c.Version).HasMaxLength(20).IsRequired();
+        b.Property(c => c.Slug).HasMaxLength(120).IsRequired();
+        b.Property(c => c.Category).HasConversion<string>().HasMaxLength(20);
+        b.HasIndex(c => c.Slug).IsUnique();
         b.HasIndex(c => new { c.Code, c.Version }).IsUnique();
     }
 }
