@@ -13,6 +13,8 @@ public record CatalogCertificationDto
     public int ExamCount { get; init; }
     public bool HasFreeSample { get; init; }
     public bool IsLocked { get; init; }
+    /// <summary>True if the user has a FullAccess entitlement covering this cert (global or scoped).</summary>
+    public bool IsOwned { get; init; }
 }
 
 /// <summary>A single certification with its exams.</summary>
@@ -22,5 +24,6 @@ public record CertificationDetailDto
     public string Slug { get; init; } = string.Empty;
     public string Name { get; init; } = string.Empty;
     public string Category { get; init; } = string.Empty;
+    public bool IsOwned { get; init; }
     public IReadOnlyList<ExamSummaryDto> Exams { get; init; } = [];
 }

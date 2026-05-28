@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Lock, Search } from "lucide-react";
+import { ArrowRight, CheckCircle2, Search, ShoppingCart } from "lucide-react";
 import { getCertifications } from "@/lib/api";
 import type { CatalogCertificationDto, CertificationCategory } from "@/types";
 import { cn } from "@/lib/utils";
@@ -111,15 +111,16 @@ export function CertificationCatalog() {
 
 function CertCard({ cert }: { cert: CatalogCertificationDto }) {
   const comingSoon = cert.examCount === 0;
+  const showBuyNow = !comingSoon && !cert.isOwned && !cert.hasFreeSample && cert.isLocked;
 
-  const status = comingSoon ? (
+  const staticBadge = comingSoon ? (
     <Badge>Coming soon</Badge>
+  ) : cert.isOwned ? (
+    <Badge variant="green">
+      <CheckCircle2 className="h-3 w-3" /> Owned
+    </Badge>
   ) : cert.hasFreeSample ? (
     <Badge variant="green">Free sample</Badge>
-  ) : cert.isLocked ? (
-    <Badge variant="red">
-      <Lock className="h-3 w-3" /> Locked
-    </Badge>
   ) : (
     <Badge variant="green">Available</Badge>
   );
@@ -127,14 +128,14 @@ function CertCard({ cert }: { cert: CatalogCertificationDto }) {
   const inner = (
     <Card
       className={cn(
-        "flex h-full flex-col gap-3 p-5 transition-all",
+        "relative flex h-full flex-col gap-3 overflow-hidden p-5 transition-all",
         comingSoon
           ? "opacity-60"
           : "hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(27,61,122,0.10)]",
       )}
     >
       <div className="flex items-start justify-between gap-2">
-        {status}
+        {showBuyNow ? <span className="h-[26px]" /> : staticBadge}
         {!comingSoon && <ArrowRight className="h-4 w-4 text-muted-foreground" />}
       </div>
       <h3 className="font-serif text-base font-semibold leading-snug">{cert.name}</h3>
@@ -143,12 +144,34 @@ function CertCard({ cert }: { cert: CatalogCertificationDto }) {
           ? "Content in progress"
           : `${cert.examCount} exam${cert.examCount === 1 ? "" : "s"}`}
       </p>
+
+      {showBuyNow && (
+        // The pill animates from its top-left "anchor" position to the centre of
+        // the card on group-hover. Absolute positioning lets us translate freely
+        // without affecting layout flow.
+        <div
+          className={cn(
+            "pointer-events-none absolute left-5 top-5 z-10 origin-top-left transform",
+            "transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+            "group-hover:left-1/2 group-hover:top-1/2",
+            "group-hover:-translate-x-1/2 group-hover:-translate-y-1/2",
+            "group-hover:scale-[1.8]",
+          )}
+        >
+          <Badge
+            variant="red"
+            className="shadow-[0_2px_8px_rgba(200,32,47,0.18)] transition-shadow duration-500 group-hover:shadow-[0_8px_24px_rgba(200,32,47,0.35)]"
+          >
+            <ShoppingCart className="h-3 w-3" /> Buy now
+          </Badge>
+        </div>
+      )}
     </Card>
   );
 
   if (comingSoon) return inner;
   return (
-    <Link href={`/certifications/${cert.slug}`} className="block">
+    <Link href={`/certifications/${cert.slug}`} className="group block">
       {inner}
     </Link>
   );

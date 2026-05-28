@@ -19,6 +19,7 @@ export interface CatalogCertificationDto {
   examCount: number;
   hasFreeSample: boolean;
   isLocked: boolean;
+  isOwned: boolean;
 }
 
 export interface CertificationDetailDto {
@@ -26,6 +27,7 @@ export interface CertificationDetailDto {
   slug: string;
   name: string;
   category: CertificationCategory;
+  isOwned: boolean;
   exams: ExamSummaryDto[];
 }
 
@@ -71,6 +73,7 @@ export interface ExamDetailDto {
   slug: string;
   description: string | null;
   certificationName: string;
+  certificationSlug: string;
   passPercentage: number;
   includesAnswers: boolean;
   questions: QuestionDto[];

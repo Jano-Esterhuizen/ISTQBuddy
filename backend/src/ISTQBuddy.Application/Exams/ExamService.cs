@@ -55,6 +55,7 @@ public class ExamService(IAppDbContext db, IEntitlementService entitlements) : I
             Slug = exam.Slug,
             Description = exam.Description,
             CertificationName = exam.Certification.Name,
+            CertificationSlug = exam.Certification.Slug,
             PassPercentage = exam.PassPercentage,
             IncludesAnswers = includeAnswers,
             Questions = exam.Questions

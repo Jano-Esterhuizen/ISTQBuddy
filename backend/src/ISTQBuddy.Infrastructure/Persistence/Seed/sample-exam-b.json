@@ -1,0 +1,898 @@
+{
+  "certification": {
+    "code": "CTFL",
+    "name": "Certified Tester Foundation Level",
+    "version": "4.0"
+  },
+  "exam": {
+    "title": "Sample Exam B",
+    "slug": "sample-exam-b",
+    "description": "The official ISTQB CTFL v4.0 Sample Exam set B — 40 questions across all six chapters, with K-levels, Learning Objectives, and full per-option rationales.",
+    "isFreeSample": false,
+    "passPercentage": 65
+  },
+  "questions": [
+    {
+      "id": "1",
+      "section": "main",
+      "lo": "FL-1.2.1",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Which of the following is an example of why testing is necessary?",
+      "options": [
+        { "letter": "a", "text": "Dynamic testing increases quality by causing test objects to fail in ways that could never be achieved by the users" },
+        { "letter": "b", "text": "Static testing is used by developers to identify failures in their code earlier than can be achieved through dynamic testing" },
+        { "letter": "c", "text": "Static analysis provides evidence to customers that the elements of the system that provide no outputs are fit for release" },
+        { "letter": "d", "text": "Reviews increase the quality of requirements specifications and lead to fewer changes being needed in derived work products" }
+      ],
+      "correct": ["d"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Causing a test object to fail in ways that could never occur with real users is not valuable, since testing is ultimately aimed at improving the work product for the end users.",
+        "b": "Incorrect. Static testing (static analysis) detects defects, not failures — failures are found by dynamic testing. The use of the term 'failures' makes this option wrong.",
+        "c": "Incorrect. Static analysis directly detects defects in code, and this is normally information for the developer, not the customer.",
+        "d": "Correct. Reviews are a form of static testing applied from the very start of the SDLC, finding defects that can be removed before later activities waste effort on faulty requirements."
+      }
+    },
+    {
+      "id": "2",
+      "section": "main",
+      "lo": "FL-1.2.2",
+      "kLevel": "K1",
+      "points": 1,
+      "stem": "Which of the following statements about quality assurance (QA) and/or quality control (QC) is correct?",
+      "options": [
+        { "letter": "a", "text": "QA is performed as part of testing" },
+        { "letter": "b", "text": "Testing is performed as part of QC" },
+        { "letter": "c", "text": "Testing is another term for QC" },
+        { "letter": "d", "text": "Testing is performed as part of QA" }
+      ],
+      "correct": ["b"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. QA concentrates on process improvement using a preventive approach; testing is a form of QC used to detect defects.",
+        "b": "Correct. QC aims to achieve appropriate quality by identifying and correcting product defects, and testing is a significant part of QC that helps uncover these defects.",
+        "c": "Incorrect. Testing is a significant part of QC, but QC also uses other (non-testing) techniques such as formal methods, model checking, simulation and prototyping.",
+        "d": "Incorrect. QA concentrates on process improvement and prevention; testing is a form of QC, not part of QA."
+      }
+    },
+    {
+      "id": "3",
+      "section": "main",
+      "lo": "FL-1.3.1",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "One of the 'principles of testing' states that exhaustive testing is impossible. Which of the following is an example of addressing this principle in practice?",
+      "options": [
+        { "letter": "a", "text": "Creating test cases that cover every possible specified output" },
+        { "letter": "b", "text": "Documenting all possible test input variations and prioritizing these based on importance" },
+        { "letter": "c", "text": "Starting testing as early as possible with reviews and other static testing approaches" },
+        { "letter": "d", "text": "Using equivalence partitioning and boundary value analysis to generate test cases" }
+      ],
+      "correct": ["d"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Testing every possible expected result does not address the problem, as there can be a practically infinite number of inputs and results.",
+        "b": "Incorrect. Documenting all possible input variations is impractical, as for non-trivial systems there is a practically infinite number.",
+        "c": "Incorrect. Starting early with reviews relates to the 'early testing saves time and money' principle, not to the infeasibility of exhaustive testing.",
+        "d": "Correct. Equivalence partitioning and boundary value analysis provide a systematic way to derive a finite subset of all possible test cases."
+      }
+    },
+    {
+      "id": "4",
+      "section": "main",
+      "lo": "FL-1.4.1",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Which test activity involves working with test data requirements, test conditions, test environment requirements and test cases?",
+      "options": [
+        { "letter": "a", "text": "Test design" },
+        { "letter": "b", "text": "Test execution" },
+        { "letter": "c", "text": "Test analysis" },
+        { "letter": "d", "text": "Test implementation" }
+      ],
+      "correct": ["a"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Correct. Test design uses test conditions to create test cases and other testware, such as test data requirements and test environment requirements.",
+        "b": "Incorrect. Test execution runs test cases but does not cover the other testware mentioned, such as test data and environment requirements and test conditions.",
+        "c": "Incorrect. Test analysis defines test conditions but does not cover test data requirements, environment requirements and test cases.",
+        "d": "Incorrect. Test implementation creates test procedures and data and builds the environment, but does not cover test conditions."
+      }
+    },
+    {
+      "id": "5",
+      "section": "main",
+      "lo": "FL-1.4.2",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Which of the following is MOST likely to impact how testing is performed for a given test object?",
+      "options": [
+        { "letter": "a", "text": "The average level of experience of the organization's marketing team" },
+        { "letter": "b", "text": "The knowledge of users that a new system is being developed for them" },
+        { "letter": "c", "text": "The number of years' experience of the members of the test team" },
+        { "letter": "d", "text": "The end user's organizational structure for a commercial music streaming application" }
+      ],
+      "correct": ["c"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. The marketing team is unlikely to perform much testing, so its level of experience does not affect how testing is performed.",
+        "b": "Incorrect. Users' knowledge that a system is being built for them is unlikely to affect how testing is performed.",
+        "c": "Correct. The experience of the test team members determines the capabilities and knowledge (e.g. of tools and defect types) they apply when testing.",
+        "d": "Incorrect. The end users' organizational structure varies and may not even be known during testing, so it has little effect on how testing is performed."
+      }
+    },
+    {
+      "id": "6",
+      "section": "main",
+      "lo": "FL-1.4.4",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Which of the following statements is a CORRECT example of the value of traceability?",
+      "options": [
+        { "letter": "a", "text": "Traceability between the mitigated risks and test cases that passed provides a means of determining the level of residual risk" },
+        { "letter": "b", "text": "Traceability between user requirements and test results provides a means of measuring project progress against business goals" },
+        { "letter": "c", "text": "Traceability between testers and test cases that failed provides a means of determining the skill level of the testers" },
+        { "letter": "d", "text": "Traceability between the identified risks and written test conditions provides a means of determining which risks are worth testing" }
+      ],
+      "correct": ["b"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. To assess residual risk you need traceability between ALL risks and test results, so the risks without a passing test can be identified.",
+        "b": "Correct. Traceability between user requirements and test results indicates which requirements have been tested, measuring project progress against business goals.",
+        "c": "Incorrect. Passed/failed test cases do not indicate tester skill, and measuring testers this way can be counter-productive.",
+        "d": "Incorrect. Determining which risks are worth testing is part of risk management/mitigation, not the value of this traceability."
+      }
+    },
+    {
+      "id": "7",
+      "section": "main",
+      "lo": "FL-1.5.1",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Which of the following is MOST likely to be an example of a tester using a generic skill when testing?",
+      "options": [
+        { "letter": "a", "text": "The tester's deep knowledge of a variety of computer games meant that they got on well with one of the developers who was also into gaming" },
+        { "letter": "b", "text": "The tester was a former pilot and was better able to understand the acceptance criteria for the helicopter control system" },
+        { "letter": "c", "text": "The tester previously worked as a programmer and used their skills in this area to better communicate with the business analysts" },
+        { "letter": "d", "text": "The tester was very careful not to make mistakes when they methodically generated test cases prior to starting their exploratory testing session" }
+      ],
+      "correct": ["b"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Getting on with a developer through a shared games hobby is not an example of a generic skill useful to testers.",
+        "b": "Correct. Domain knowledge used to understand and communicate about the test object (here, piloting experience for a helicopter control system) is a generic tester skill.",
+        "c": "Incorrect. Programming skill is technical knowledge; it is unlikely to improve communication with business analysts.",
+        "d": "Incorrect. One of the main tenets of exploratory testing is that test cases are generated during testing, not scripted in advance."
+      }
+    },
+    {
+      "id": "8",
+      "section": "main",
+      "lo": "FL-1.5.2",
+      "kLevel": "K1",
+      "points": 1,
+      "stem": "Which of the following is an advantage of the whole-team approach?",
+      "options": [
+        { "letter": "a", "text": "It allows team members to take on any role at any time" },
+        { "letter": "b", "text": "It only needs a single team to support the complete development project" },
+        { "letter": "c", "text": "It embeds business representatives alongside developers in the same team" },
+        { "letter": "d", "text": "It generates a team synergy that benefits the entire project" }
+      ],
+      "correct": ["d"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Members typically only take on roles in which they are competent; the approach does not let anyone do any role at any time.",
+        "b": "Incorrect. The whole-team approach describes how a single team works; it does not cover how multiple teams work on larger projects.",
+        "c": "Incorrect. While business representatives may be involved, this is not the defining advantage the question asks for.",
+        "d": "Correct. By leveraging each member's diverse skills, the whole-team approach fosters superior dynamics and a team synergy that benefits the entire project."
+      }
+    },
+    {
+      "id": "9",
+      "section": "main",
+      "lo": "FL-2.1.1",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Which of the following statements about the chosen software development lifecycle is CORRECT?",
+      "options": [
+        { "letter": "a", "text": "If agile software development is used, automation of system tests replaces the need for regression testing" },
+        { "letter": "b", "text": "If a sequential development model is used, then the dynamic testing is typically restricted to later in the lifecycle" },
+        { "letter": "c", "text": "If an iterative development model is used, then component testing is typically performed manually by developers" },
+        { "letter": "d", "text": "If an incremental development model is used, then static testing is done in early increments and dynamic testing in later increments" }
+      ],
+      "correct": ["b"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Frequent delivery of increments necessitates extensive regression testing, which cannot be replaced by automation of system tests.",
+        "b": "Correct. In a sequential model, no code is available early so static testing is performed; dynamic testing becomes possible later when code is available.",
+        "c": "Incorrect. In iterative models, component tests are run frequently for regression, so there is a strong argument for automating rather than manually running them.",
+        "d": "Incorrect. In most incremental models each increment requires both static and dynamic testing at all test levels."
+      }
+    },
+    {
+      "id": "10",
+      "section": "main",
+      "lo": "FL-2.1.2",
+      "kLevel": "K1",
+      "points": 1,
+      "stem": "Which of the following is a good testing practice that applies to all software development lifecycles?",
+      "options": [
+        { "letter": "a", "text": "Testers should review work products as part of the next development phase" },
+        { "letter": "b", "text": "Testers should review work products as soon as drafts are available" },
+        { "letter": "c", "text": "Testers should review work products before test analysis and test design begin" },
+        { "letter": "d", "text": "Testers should review work products immediately after they are published" }
+      ],
+      "correct": ["b"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Waiting until the next phase risks starting unnecessary development and test work on unreviewed, flawed work products.",
+        "b": "Correct. Testers should review work products as soon as drafts are available, enabling early testing as part of a shift-left approach.",
+        "c": "Incorrect. Testers typically review work products forming the test basis as part of test analysis, not before it.",
+        "d": "Incorrect. Waiting until they are published means any defects a tester's review could find will already be in the published document."
+      }
+    },
+    {
+      "id": "11",
+      "section": "main",
+      "lo": "FL-2.1.3",
+      "kLevel": "K1",
+      "points": 1,
+      "stem": "Which of the following is an example of a test-first approach to development?",
+      "options": [
+        { "letter": "a", "text": "Test-Driven Development" },
+        { "letter": "b", "text": "Coverage-Driven Development" },
+        { "letter": "c", "text": "Quality-Driven Development" },
+        { "letter": "d", "text": "Feature-Driven Development" }
+      ],
+      "correct": ["a"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Correct. Test-Driven Development (TDD) is a well-known example of a test-first approach to development.",
+        "b": "Incorrect. Coverage-Driven Development is not a recognised example of a test-first approach.",
+        "c": "Incorrect. Quality-Driven Development is not a recognised example of a test-first approach.",
+        "d": "Incorrect. Feature-Driven Development is an agile methodology based on delivering features, not a test-first approach."
+      }
+    },
+    {
+      "id": "12",
+      "section": "main",
+      "lo": "FL-2.1.4",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Which of the following statements about DevOps is CORRECT?",
+      "options": [
+        { "letter": "a", "text": "To speed up releases, continuous integration is used to encourage developers to submit code quickly without the need to complete component testing" },
+        { "letter": "b", "text": "To be able to update and release systems on a more frequent basis, many automated regression tests are required to reduce the risk of regression" },
+        { "letter": "c", "text": "To treat both developers and operations equally, the testers will allocate more effort to release testing by operations using a shift-right approach" },
+        { "letter": "d", "text": "To create increased synergy between testers, developers and operations, the testing must become fully automated with no manual testing" }
+      ],
+      "correct": ["b"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. With continuous integration developers submit component tests with their code, which must pass — so they do need to complete component testing.",
+        "b": "Correct. DevOps relies on extensive automated regression testing to minimise regression risk while releasing more frequently.",
+        "c": "Incorrect. Testers do not treat developers and operations equally by spending more time on release testing; a shift-right approach may be used but this is not the point.",
+        "d": "Incorrect. CI/CD reduces the need for manual testing, but there is a risk of overlooking the importance of manual testing, especially from a user's perspective."
+      }
+    },
+    {
+      "id": "13",
+      "section": "main",
+      "lo": "FL-2.2.1",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Which of the following is MOST likely to be performed as part of system testing?",
+      "options": [
+        { "letter": "a", "text": "Security testing of a credit management system by an independent test team" },
+        { "letter": "b", "text": "Testing the interface of a currency exchange system with an external banking system" },
+        { "letter": "c", "text": "Beta testing of a remote learning system by courseware developers" },
+        { "letter": "d", "text": "Testing interactions between the user interface and database of a human resources system" }
+      ],
+      "correct": ["a"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Correct. System testing examines the complete system and covers non-functional quality characteristics such as security, often by an independent test team.",
+        "b": "Incorrect. Testing interfaces with other systems and external services is system integration testing.",
+        "c": "Incorrect. Beta testing is a type of acceptance testing performed at an external site by roles outside the development organization.",
+        "d": "Incorrect. Testing interactions between components such as the user interface and database is component integration testing."
+      }
+    },
+    {
+      "id": "14",
+      "section": "main",
+      "lo": "FL-2.2.3",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Which of the following statements is CORRECT?",
+      "options": [
+        { "letter": "a", "text": "Regression tests increase in number as the project progresses, whereas the number of confirmation tests decreases as the project progresses" },
+        { "letter": "b", "text": "Regression tests are created and run when the test object is fixed, whereas confirmation tests are run whenever the test object is enhanced" },
+        { "letter": "c", "text": "Regression testing is concerned with checking that the operational environment remains unchanged, whereas confirmation testing is concerned with testing changes to the test object" },
+        { "letter": "d", "text": "Regression testing is concerned with adverse effects in unchanged code, whereas confirmation testing is concerned with testing changed code" }
+      ],
+      "correct": ["d"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Both regression and confirmation tests typically increase in number as the project progresses.",
+        "b": "Incorrect. It is the other way round: confirmation tests run when the object is fixed; regression tests run whenever the object is changed.",
+        "c": "Incorrect. Regression testing checks that changes do not negatively affect unchanged software; it does not check that the operational environment is unchanged.",
+        "d": "Correct. Regression testing ensures changes do not have negative effects on unchanged software; confirmation testing verifies that a defect has been fixed (changed code)."
+      }
+    },
+    {
+      "id": "15",
+      "section": "main",
+      "lo": "FL-3.1.3",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Which of the following is an example of a defect that can be found by static testing but NOT by dynamic testing?",
+      "options": [
+        { "letter": "a", "text": "Lack of usability provided through the user interface" },
+        { "letter": "b", "text": "Code with no path that reaches it" },
+        { "letter": "c", "text": "Poor response times for most of the expected users" },
+        { "letter": "d", "text": "Required features that are not implemented in the code" }
+      ],
+      "correct": ["b"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Lack of usability can be found by a review but also by getting typical users to dynamically test the user interface.",
+        "b": "Correct. A code review can detect unreachable code, but dynamic tests can only exercise reachable code and cannot prove code is unreachable in practice.",
+        "c": "Incorrect. Poor response times are hard to find without executing the code, so dynamic testing is more likely to find this than static testing.",
+        "d": "Incorrect. Missing required features can be detected by both a review and dynamic testing."
+      }
+    },
+    {
+      "id": "16",
+      "section": "main",
+      "lo": "FL-3.2.1",
+      "kLevel": "K1",
+      "points": 1,
+      "stem": "Which of the following is a benefit of early and frequent stakeholder feedback?",
+      "options": [
+        { "letter": "a", "text": "Managers are aware of which developers are less productive" },
+        { "letter": "b", "text": "It allows project managers to prioritize their stakeholder interactions" },
+        { "letter": "c", "text": "It facilitates early communication of potential quality issues" },
+        { "letter": "d", "text": "End users better understand why the delivery of the work product is delayed" }
+      ],
+      "correct": ["c"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. The feedback is from stakeholders, not about developers, so it does not inform managers which developers are productive.",
+        "b": "Incorrect. Early, frequent feedback is not used by project managers to prioritize stakeholder interactions.",
+        "c": "Correct. Early and frequent feedback facilitates early communication of potential quality issues, prevents misunderstandings and gets changes implemented sooner.",
+        "d": "Incorrect. Ideally there should be no delay; also feedback is from stakeholders (including end users), not to them."
+      }
+    },
+    {
+      "id": "17",
+      "section": "main",
+      "lo": "FL-3.2.2",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Given the following task descriptions:\n1. The quality characteristics to be evaluated and the exit criteria are selected\n2. Everyone has access to the work product\n3. Anomalies are identified in the work product\n4. Anomalies are discussed\nAnd the following review activities:\nA. Individual review\nB. Review initiation\nC. Planning\nD. Communication and analysis\nWhich of the following BEST matches the task descriptions and activities?",
+      "options": [
+        { "letter": "a", "text": "1B, 2C, 3D, 4A" },
+        { "letter": "b", "text": "1B, 2D, 3C, 4A" },
+        { "letter": "c", "text": "1C, 2A, 3B, 4D" },
+        { "letter": "d", "text": "1C, 2B, 3A, 4D" }
+      ],
+      "correct": ["d"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect mapping.",
+        "b": "Incorrect mapping.",
+        "c": "Incorrect mapping.",
+        "d": "Correct. 1→C (Planning: selecting quality characteristics and exit criteria), 2→B (Review initiation: ensuring access), 3→A (Individual review: identifying anomalies), 4→D (Communication and analysis: discussing anomalies)."
+      }
+    },
+    {
+      "id": "18",
+      "section": "main",
+      "lo": "FL-3.2.3",
+      "kLevel": "K1",
+      "points": 1,
+      "stem": "Given the following roles in reviews:\n1. Scribe\n2. Review leader\n3. Facilitator\n4. Manager\nAnd the following responsibilities in reviews:\nA. Ensures the effective running of review meetings and the setting up of a safe review environment\nB. Records review information, such as decisions and new anomalies found during the review meeting\nC. Decides what is to be reviewed and provides resources, such as staff and time for the review\nD. Takes overall responsibility for the review such as organizing when and where the review will take place\nWhich of the following BEST matches the roles and responsibilities?",
+      "options": [
+        { "letter": "a", "text": "1A, 2B, 3D, 4C" },
+        { "letter": "b", "text": "1A, 2C, 3B, 4D" },
+        { "letter": "c", "text": "1B, 2D, 3A, 4C" },
+        { "letter": "d", "text": "1B, 2D, 3C, 4A" }
+      ],
+      "correct": ["c"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect mapping.",
+        "b": "Incorrect mapping.",
+        "c": "Correct. 1→B (Scribe records review information), 2→D (Review leader takes overall responsibility), 3→A (Facilitator ensures effective meetings and a safe environment), 4→C (Manager decides what is reviewed and provides resources).",
+        "d": "Incorrect mapping."
+      }
+    },
+    {
+      "id": "19",
+      "section": "main",
+      "lo": "FL-4.1.1",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Which of the following statements BEST describes the difference between decision table testing and branch testing?",
+      "options": [
+        { "letter": "a", "text": "In decision table testing, the test cases are derived from the decision statements in the code. In branch testing, the test cases are derived from knowledge of the control flow of the test object." },
+        { "letter": "b", "text": "In decision table testing, the test cases are derived from the specification that describes the business logic. In branch testing the test cases are based on anticipation of potential defects in the source code." },
+        { "letter": "c", "text": "In decision table testing, the test cases are derived from knowledge of the control flow of the test object. In branch testing, test cases are derived from the specification that describes the business logic." },
+        { "letter": "d", "text": "In decision table testing, the test cases are independent of how the software is implemented. In branch testing, test cases can be created only after the design or implementation of the code." }
+      ],
+      "correct": ["d"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Decision table testing is black-box; its test cases are not based on decisions in the source code.",
+        "b": "Incorrect. Anticipating potential defects is error guessing (experience-based), not branch testing.",
+        "c": "Incorrect. This reverses the two: control-flow-based is white-box (branch) and business-logic-based is black-box (decision table).",
+        "d": "Correct. Decision table testing (black-box) is independent of implementation; branch testing (white-box) depends on the design/code and can only be created afterwards."
+      }
+    },
+    {
+      "id": "20",
+      "section": "main",
+      "lo": "FL-4.2.1",
+      "kLevel": "K3",
+      "points": 1,
+      "stem": "Customers of the TestWash car wash chain have cards recording the number of washes bought so far (initial value 0). After entering the car wash, the system increases the number on the card by one; this value is the number of the current wash and determines the discount. For every tenth wash the system gives a 10% discount, and for every twentieth wash it gives a further 40% discount (i.e. a 50% discount in total). Which of the following sets of input data (numbers of the current wash) achieves the highest equivalence partition coverage?",
+      "options": [
+        { "letter": "a", "text": "19, 20, 30" },
+        { "letter": "b", "text": "11, 12, 20" },
+        { "letter": "c", "text": "1, 10, 50" },
+        { "letter": "d", "text": "10, 29, 30, 31" }
+      ],
+      "correct": ["a"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Correct. 19 covers the 'no discount' partition, 20 covers the '50% discount' partition, and 30 covers the '10% discount' partition — all three valid partitions.",
+        "b": "Incorrect. 11 and 12 cover 'no discount' and 20 covers '50%', so only two of the three partitions are covered.",
+        "c": "Incorrect. 1 covers 'no discount' and 10 and 50 cover '10%'; the '50% discount' partition is not covered.",
+        "d": "Incorrect. 29 and 31 cover 'no discount' and 10 and 30 cover '10%'; the '50% discount' partition is not covered."
+      }
+    },
+    {
+      "id": "21",
+      "section": "main",
+      "lo": "FL-4.2.2",
+      "kLevel": "K3",
+      "points": 1,
+      "stem": "You are testing a form that verifies the length of a password. A password is correct if it has between 6 and 12 characters inclusive; otherwise it is incorrect. Initially the form is empty (password length = 0). You apply boundary value analysis to the 'password length' variable. Your tests already achieve 100% 2-value boundary value coverage. Due to the high risk of this component, the team wants 100% 3-value boundary value coverage. Which additional password lengths should be tested to achieve this?",
+      "options": [
+        { "letter": "a", "text": "4, 5, 13, 14" },
+        { "letter": "b", "text": "7, 11" },
+        { "letter": "c", "text": "1, 5, 13" },
+        { "letter": "d", "text": "1, 4, 7, 11, 14" }
+      ],
+      "correct": ["d"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Does not give the full set of additional 3-value boundary values.",
+        "b": "Incorrect. Does not give the full set of additional 3-value boundary values.",
+        "c": "Incorrect. Does not give the full set of additional 3-value boundary values.",
+        "d": "Correct. The 3-value boundaries are 0,1,4,5,6,7,11,12,13,14; 2-value already covered 0,5,6,12,13, so the additional lengths needed are 1, 4, 7, 11 and 14."
+      }
+    },
+    {
+      "id": "22",
+      "section": "main",
+      "lo": "FL-4.2.3",
+      "kLevel": "K3",
+      "points": 1,
+      "stem": "A decision table determines the risk of atherosclerosis with five rules. Rule 1: Cholesterol ≤124 and Blood pressure ≤140 → very low. Rule 2: Cholesterol ≤124 and Blood pressure >140 → low. Rule 3: Cholesterol 125–200 and Blood pressure ≤140 → medium. Rule 4: Cholesterol 125–200 and Blood pressure >140 → high. Rule 5: Cholesterol ≥201 (blood pressure irrelevant) → very high.\nYou designed these test cases:\nTC1: Cholesterol = 125, Blood pressure = 141\nTC2: Cholesterol = 200, Blood pressure = 201\nTC3: Cholesterol = 124, Blood pressure = 201\nTC4: Cholesterol = 109, Blood pressure = 200\nTC5: Cholesterol = 201, Blood pressure = 140\nWhat is the decision table coverage achieved by these test cases?",
+      "options": [
+        { "letter": "a", "text": "40%" },
+        { "letter": "b", "text": "60%" },
+        { "letter": "c", "text": "80%" },
+        { "letter": "d", "text": "100%" }
+      ],
+      "correct": ["b"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. More than two rules are covered.",
+        "b": "Correct. TC1 and TC2 both cover Rule 4, TC3 and TC4 both cover Rule 2, and TC5 covers Rule 5 — three of the five rules, giving (3/5)*100% = 60%.",
+        "c": "Incorrect. Only three distinct rules are exercised, not four.",
+        "d": "Incorrect. Rules 1 and 3 are not covered, so coverage is not 100%."
+      }
+    },
+    {
+      "id": "23",
+      "section": "main",
+      "lo": "FL-4.2.4",
+      "kLevel": "K3",
+      "points": 1,
+      "stem": "A storage system stores up to three elements (N = number currently stored) and is modeled by a state transition diagram with states START, NOT FULL and FULL and valid transitions: E1 = Add/N:=1 (START→NOT FULL); E2 = Add[N<2]/N:=N+1 (NOT FULL→NOT FULL); E3 = Remove[N>0]/N:=N−1 (NOT FULL→NOT FULL); E4 = Add[N=2]/N:=N+1 (NOT FULL→FULL); E5 = Remove/N:=N−1 (FULL→NOT FULL). Which of the following test cases, as sequences of events, achieves the highest level of valid transitions coverage?",
+      "options": [
+        { "letter": "a", "text": "Add, Remove, Add, Add, Add" },
+        { "letter": "b", "text": "Add, Add, Add, Add, Remove, Remove" },
+        { "letter": "c", "text": "Add, Add, Add, Remove, Remove" },
+        { "letter": "d", "text": "Add, Add, Add, Remove, Add" }
+      ],
+      "correct": ["c"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. This sequence (E1, E3, E3, E2, E4) covers 4 of 5 valid transitions (80%).",
+        "b": "Incorrect. This sequence is infeasible — after three Adds the system is FULL and there is no Add transition from FULL; only 60% is achieved.",
+        "c": "Correct. This sequence (E1, E2, E4, E5, E3) covers all 5 valid transitions (100%).",
+        "d": "Incorrect. This sequence (E1, E2, E4, E5, E4) covers 4 of 5 valid transitions (80%)."
+      }
+    },
+    {
+      "id": "24",
+      "section": "main",
+      "lo": "FL-4.3.1",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "You run two test cases, T1 and T2, on the same code. T1 achieved 40% statement coverage and T2 achieved 65% statement coverage. Which of the following sentences must necessarily be true?",
+      "options": [
+        { "letter": "a", "text": "The test suite composed of tests T1 and T2 achieves 105% statement coverage" },
+        { "letter": "b", "text": "There exists at least one statement that must have been executed by both T1 and T2" },
+        { "letter": "c", "text": "At least 5% of the statements in the code that was tested are non-executable" },
+        { "letter": "d", "text": "The test suite composed of tests T1 and T2 achieves full branch coverage" }
+      ],
+      "correct": ["b"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Coverage is a percentage of covered elements and cannot exceed 100%.",
+        "b": "Correct. If the statements were disjoint the combined coverage would be 105% (impossible), so at least 5% must have been executed by both T1 and T2.",
+        "c": "Incorrect. Statement coverage tells us nothing about the number of non-executable statements.",
+        "d": "Incorrect. Full statement coverage does not imply full branch coverage."
+      }
+    },
+    {
+      "id": "25",
+      "section": "main",
+      "lo": "FL-4.3.2",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Let the branch coverage metric be defined as BCov = (X / Y) * 100%. What do X and Y represent in this formula?",
+      "options": [
+        { "letter": "a", "text": "X = number of decision outcomes exercised by the test cases; Y = total number of decision outcomes in the code" },
+        { "letter": "b", "text": "X = number of conditional branches exercised by the test cases; Y = total number of branches in the code" },
+        { "letter": "c", "text": "X = number of branches exercised by the test cases; Y = total number of branches in the code" },
+        { "letter": "d", "text": "X = number of conditional branches exercised by the test cases; Y = total number of decision outcomes in the code" }
+      ],
+      "correct": ["c"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. A decision outcome is a conditional branch; branch testing counts both conditional and unconditional branches.",
+        "b": "Incorrect. Branch coverage counts not only conditional but also unconditional branches.",
+        "c": "Correct. Branch coverage is the number of branches exercised by the test cases divided by the total number of branches, expressed as a percentage.",
+        "d": "Incorrect. Both X and Y here count only conditional branches/outcomes and ignore unconditional branches."
+      }
+    },
+    {
+      "id": "26",
+      "section": "main",
+      "lo": "FL-4.4.2",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Which TWO of the following statements provide the BEST rationale for using exploratory testing?",
+      "options": [
+        { "letter": "a", "text": "Testers have not been allocated enough time for test design and test execution" },
+        { "letter": "b", "text": "The existing test strategy requires that testers use formal, black-box test techniques" },
+        { "letter": "c", "text": "The specification is written in a formal language that can be processed by a tool" },
+        { "letter": "d", "text": "Testers are the members of an agile team and have good programming skills" },
+        { "letter": "e", "text": "Testers are experienced in the business domain and have good analytical skills" }
+      ],
+      "correct": ["a", "e"],
+      "selectCount": 2,
+      "rationales": {
+        "a": "Correct. Exploratory testing is useful when there is significant time pressure on the testing or when there are few/inadequate specifications.",
+        "b": "Incorrect. Exploratory testing is not a formal black-box test technique.",
+        "c": "Incorrect. A formal, tool-processable specification is not a rationale for exploratory testing.",
+        "d": "Incorrect. Programming skills are not, in principle, related to exploratory testing.",
+        "e": "Correct. Exploratory testing is more effective when the tester is experienced, has domain knowledge, and has strong analytical skills, curiosity and creativeness."
+      }
+    },
+    {
+      "id": "27",
+      "section": "main",
+      "lo": "FL-4.4.3",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Which of the following BEST fits as an element of the checklist used in checklist-based testing?",
+      "options": [
+        { "letter": "a", "text": "\"The developer made an error when implementing the code\"" },
+        { "letter": "b", "text": "\"The achieved statement coverage exceeds 85%\"" },
+        { "letter": "c", "text": "\"The program works correctly regarding functional and non-functional requirements\"" },
+        { "letter": "d", "text": "\"The error messages are written in language that the user can understand\"" }
+      ],
+      "correct": ["d"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. This is an example of an error, not a test condition, and is too general.",
+        "b": "Incorrect. This is an example of an exit criterion, not a checklist item.",
+        "c": "Incorrect. This is too general and practically describes a test objective.",
+        "d": "Correct. This is an example of a test condition that can be checked by a human."
+      }
+    },
+    {
+      "id": "28",
+      "section": "main",
+      "lo": "FL-4.5.2",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Consider the following acceptance criteria for a user story written from the perspective of an online store owner:\nGiven that the user is logged in and on the homepage,\nWhen the user clicks on the \"Add Item\" button,\nThen the \"Create Item\" form should appear,\nAnd the user should be able to input a name and price for the new item.\nIn what format is this acceptance criteria written?",
+      "options": [
+        { "letter": "a", "text": "Rule-oriented" },
+        { "letter": "b", "text": "Scenario-oriented" },
+        { "letter": "c", "text": "Product-oriented" },
+        { "letter": "d", "text": "Process-oriented" }
+      ],
+      "correct": ["b"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Rule-oriented formats use bullet lists or tabulated input-output mappings; Given/When/Then describes a scenario.",
+        "b": "Correct. This is a Given/When/Then format, which is scenario-oriented.",
+        "c": "Incorrect. There is no 'product-oriented' format of acceptance criteria.",
+        "d": "Incorrect. There is no 'process-oriented' format of acceptance criteria."
+      }
+    },
+    {
+      "id": "29",
+      "section": "main",
+      "lo": "FL-4.5.3",
+      "kLevel": "K3",
+      "points": 1,
+      "stem": "Your team analyzes the following user story to define acceptance criteria: \"As a registered customer, I want to be able to view my previous orders on the company's website, so that I can keep track of my purchases.\" Which of the following test cases will NOT be relevant for this user story?",
+      "options": [
+        { "letter": "a", "text": "Input: the customer logs in and clicks the 'see order history' button. Expected: the system shows a list of all previous orders, including date, order number and total cost" },
+        { "letter": "b", "text": "Input: the customer clicks on an order from the order list. Expected: the system displays the individual items purchased, along with their prices and quantities" },
+        { "letter": "c", "text": "Input: the customer clicks 'Sort ascending' on the order history screen. Expected: the system shows the order history sorted by order number in ascending order" },
+        { "letter": "d", "text": "Input: an unregistered customer registers as a new customer with a valid e-mail address not already in the database. Expected: the system accepts the registration and creates the account" }
+      ],
+      "correct": ["d"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect (it IS relevant). This test case relates to viewing previous orders in the order history.",
+        "b": "Incorrect (it IS relevant). This test case relates to viewing previous orders.",
+        "c": "Incorrect (it IS relevant). This test case relates to viewing previous orders in the order history.",
+        "d": "Correct. This test case relates to the registration process, which is not discussed in the user story about viewing previous orders."
+      }
+    },
+    {
+      "id": "30",
+      "section": "main",
+      "lo": "FL-5.1.3",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Your team follows a DevOps delivery pipeline whose first three steps are: (1) Code development; (2) Submit code into a version control system and merge it into the 'test' branch; (3) Perform component testing for the submitted code. Which of the following is BEST suited to be the entry criterion for step (2) of this pipeline?",
+      "options": [
+        { "letter": "a", "text": "Static analysis returns no high severity warnings for the submitted code" },
+        { "letter": "b", "text": "System version control reports no conflicts when merging code into the 'test' branch" },
+        { "letter": "c", "text": "Component tests are compiled and ready to be executed" },
+        { "letter": "d", "text": "Statement coverage is at least 80%" }
+      ],
+      "correct": ["a"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Correct. This can (and should) be checked before the code is submitted to version control, making it a suitable entry criterion for step (2).",
+        "b": "Incorrect. Merge conflict reporting can only be done after the code is submitted and merged, i.e. after step (2).",
+        "c": "Incorrect. This fits better as the entry criterion for step (3).",
+        "d": "Incorrect. This fits better as the exit criterion for step (3)."
+      }
+    },
+    {
+      "id": "31",
+      "section": "main",
+      "lo": "FL-5.1.4",
+      "kLevel": "K3",
+      "points": 1,
+      "stem": "You estimate test effort using estimation based on ratios, calculating the test-to-development effort ratio from four historical projects: P1 development $800,000 / test $40,000; P2 $1,200,000 / $130,000; P3 $600,000 / $70,000; P4 $1,000,000 / $120,000. The estimated development effort for the new project is $800,000. What is your estimate of the test effort?",
+      "options": [
+        { "letter": "a", "text": "$40,000" },
+        { "letter": "b", "text": "$80,000" },
+        { "letter": "c", "text": "$81,250" },
+        { "letter": "d", "text": "$82,500" }
+      ],
+      "correct": ["b"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. This ignores the averaged ratio across the four historical projects.",
+        "b": "Correct. The average development effort is $900,000 and the average test effort is $90,000, a 10% ratio; 10% of $800,000 = $80,000.",
+        "c": "Incorrect. This does not follow from the averaged 1:10 test-to-development ratio.",
+        "d": "Incorrect. This does not follow from the averaged 1:10 test-to-development ratio."
+      }
+    },
+    {
+      "id": "32",
+      "section": "main",
+      "lo": "FL-5.1.5",
+      "kLevel": "K3",
+      "points": 1,
+      "stem": "You are testing a web application that lets users SEARCH for products, VIEW product details, ADD products to a shopping cart, and place an ORDER. You have seven test cases to execute, with priorities (1 = highest): TC1 SEARCH product A (4); TC2 SEARCH product B (4); TC3 VIEW product A details (3); TC4 VIEW product B details (2); TC5 ADD product A to cart (3); TC6 ADD product B to cart (1); TC7 place an ORDER (5). Logical dependencies: SEARCH before VIEW, VIEW before ADD, ADD before ORDER. The tests should be executed in the best order based on priority while respecting dependencies. Which test case should be executed as the fourth one?",
+      "options": [
+        { "letter": "a", "text": "TC3" },
+        { "letter": "b", "text": "TC1" },
+        { "letter": "c", "text": "TC7" },
+        { "letter": "d", "text": "TC2" }
+      ],
+      "correct": ["b"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. TC1 must be executed before TC3, so TC3 cannot be fourth.",
+        "b": "Correct. The order is TC2 → TC4 → TC6 → TC1 → TC3 → TC5 → TC7 (product B's higher-priority flow first), making TC1 the fourth test executed.",
+        "c": "Incorrect. TC7 (ORDER) depends on everything else and is executed last.",
+        "d": "Incorrect. TC2 is executed first (product B is prioritized), not fourth."
+      }
+    },
+    {
+      "id": "33",
+      "section": "main",
+      "lo": "FL-5.1.7",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "According to the testing quadrants model, which of the following falls into quadrant Q1 ('technology facing' and 'support the team')?",
+      "options": [
+        { "letter": "a", "text": "Usability testing" },
+        { "letter": "b", "text": "Functional testing" },
+        { "letter": "c", "text": "User acceptance testing" },
+        { "letter": "d", "text": "Component integration testing" }
+      ],
+      "correct": ["d"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Usability testing is business facing and critiques the product (Q3).",
+        "b": "Incorrect. Functional testing is business facing (Q2).",
+        "c": "Incorrect. User acceptance testing is business facing and critiques the product (Q3).",
+        "d": "Correct. Component integration testing is technology facing and supports the team / guides development (Q1)."
+      }
+    },
+    {
+      "id": "34",
+      "section": "main",
+      "lo": "FL-5.2.4",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Given the following risks:\n1. Ineffective loop implementation causes long system responses\n2. Consumers change their preferences\n3. Flooding of the server room\n4. Patients above a certain age receive inaccurate reports\nAnd the following mitigation activities:\nA. Risk acceptance\nB. Testing for performance efficiency\nC. Using boundary value analysis as the test technique\nD. Risk transfer\nWhich of the following BEST matches the risks with the mitigation activities?",
+      "options": [
+        { "letter": "a", "text": "1C, 2D, 3A, 4B" },
+        { "letter": "b", "text": "1B, 2D, 3A, 4C" },
+        { "letter": "c", "text": "1B, 2A, 3D, 4C" },
+        { "letter": "d", "text": "1C, 2A, 3D, 4B" }
+      ],
+      "correct": ["c"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect mapping.",
+        "b": "Incorrect mapping.",
+        "c": "Correct. 1→B (long responses tested via performance efficiency), 2→A (changing preferences accepted), 3→D (flooding transferred, e.g. insurance), 4→C (age boundary detected with BVA).",
+        "d": "Incorrect mapping."
+      }
+    },
+    {
+      "id": "35",
+      "section": "main",
+      "lo": "FL-5.3.1",
+      "kLevel": "K1",
+      "points": 1,
+      "stem": "Which of the following is a product quality metric?",
+      "options": [
+        { "letter": "a", "text": "Mean time to failure" },
+        { "letter": "b", "text": "Number of defects found" },
+        { "letter": "c", "text": "Requirements coverage" },
+        { "letter": "d", "text": "Defect detection percentage" }
+      ],
+      "correct": ["a"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Correct. Product quality metrics measure quality characteristics; mean time to failure measures maturity, so it is a product quality metric.",
+        "b": "Incorrect. Number of defects found is a defect metric, not a product quality metric.",
+        "c": "Incorrect. Requirements coverage is a coverage metric, not a product quality metric.",
+        "d": "Incorrect. Defect detection percentage is a defect metric, not a product quality metric."
+      }
+    },
+    {
+      "id": "36",
+      "section": "main",
+      "lo": "FL-5.3.3",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "You are a member of a test team located in North America, developing a product for a client located in Europe. The team is agile, follows the DevOps approach and uses a continuous integration/continuous delivery pipeline. Which of the following is the LEAST effective way to communicate test progress to the customer?",
+      "options": [
+        { "letter": "a", "text": "Face-to-face" },
+        { "letter": "b", "text": "Dashboards" },
+        { "letter": "c", "text": "Email" },
+        { "letter": "d", "text": "Video conferencing" }
+      ],
+      "correct": ["a"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Correct. The client is in a different location and time zone, so face-to-face communication is the least effective option.",
+        "b": "Incorrect. Dashboards are available to any user at any time, so the time-zone difference is not a hindrance.",
+        "c": "Incorrect. Email is asynchronous, so the several-hour time difference causes little inconvenience.",
+        "d": "Incorrect. Video conferencing is convenient; although timing across continents can be awkward, it is far less of an inconvenience than face-to-face."
+      }
+    },
+    {
+      "id": "37",
+      "section": "main",
+      "lo": "FL-5.4.1",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Which of the following BEST describes an example of how configuration management (CM) supports testing?",
+      "options": [
+        { "letter": "a", "text": "Having the version number of the environment, the CM tool can retrieve the version numbers of libraries, stubs and drivers used in that environment" },
+        { "letter": "b", "text": "Having a record of the values of the inputs, the CM tool can execute the test cases for these configurations and calculate the coverage" },
+        { "letter": "c", "text": "Having data about the date of purchase of a software license, the CM tool automatically generates information about the fact that the product license is coming to an end" },
+        { "letter": "d", "text": "Having the version number of the test case, the CM tool can automatically generate test data for this test case" }
+      ],
+      "correct": ["a"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Correct. For a complex configuration item (e.g. a test environment), CM records the items it consists of, their relationships and versions.",
+        "b": "Incorrect. CM tools do not execute test cases and do not calculate coverage.",
+        "c": "Incorrect. A CM tool is not a license management tool.",
+        "d": "Incorrect. CM tools do not generate test data."
+      }
+    },
+    {
+      "id": "38",
+      "section": "main",
+      "lo": "FL-5.5.1",
+      "kLevel": "K3",
+      "points": 1,
+      "stem": "You are testing a sort function that gets a set of numbers as input and returns the same set sorted in ascending order. The test execution log shows:\nTC1 Input: 3 → Output: 3 → passed\nTC2 Input: 3 11 6 5 → Output: 3 5 6 11 → passed\nTC3 Input: 8 7 3 7 1 → Output: 1 3 7 8 → failed\nTC4 Input: -2 -2 -2 -3 -3 → Output: -3 -2 → failed\nTC5 Input: 0 -2 0 3 4 4 → Output: -2 0 3 4 → failed\nWhich of the following provides the BEST description of the failure for a defect report?",
+      "options": [
+        { "letter": "a", "text": "The system fails to sort several sets of numbers. Reference: TC3, TC4, TC5." },
+        { "letter": "b", "text": "The system seems to disregard duplicates while sorting. Reference: TC3, TC4, TC5." },
+        { "letter": "c", "text": "The system fails to sort negative numbers. Reference: TC4, TC5." },
+        { "letter": "d", "text": "TC3, TC4 and TC5 have defects (duplicate input data) and should be corrected." }
+      ],
+      "correct": ["b"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. While true, this does not provide much value for the developer.",
+        "b": "Correct. The outputs show the system ignores duplicates, which is the likely cause of the failures in TC3, TC4 and TC5 — useful information for the developer.",
+        "c": "Incorrect. The system does not fail at negative numbers; the problem is disregarding duplicates.",
+        "d": "Incorrect. TC3, TC4 and TC5 fail, but there is no evidence the test cases themselves are defective."
+      }
+    },
+    {
+      "id": "39",
+      "section": "main",
+      "lo": "FL-6.1.1",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Given the following descriptions:\n1. Support workflow tracking\n2. Facilitate communication\n3. Virtual machines\n4. Support reviews\nAnd the following test tool categories:\nA. Static testing tools\nB. Tools supporting scalability and deployment standardization\nC. DevOps tools\nD. Collaboration tools\nWhich of the following BEST matches the descriptions and categories?",
+      "options": [
+        { "letter": "a", "text": "1A, 2B, 3C, 4D" },
+        { "letter": "b", "text": "1B, 2D, 3C, 4A" },
+        { "letter": "c", "text": "1C, 2D, 3B, 4A" },
+        { "letter": "d", "text": "1D, 2C, 3A, 4B" }
+      ],
+      "correct": ["c"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect mapping.",
+        "b": "Incorrect mapping.",
+        "c": "Correct. 1→C (DevOps tools support workflow tracking and the delivery pipeline), 2→D (Collaboration tools facilitate communication), 3→B (scalability/deployment tools include virtual machines), 4→A (Static testing tools support reviews).",
+        "d": "Incorrect mapping."
+      }
+    },
+    {
+      "id": "40",
+      "section": "main",
+      "lo": "FL-6.2.1",
+      "kLevel": "K1",
+      "points": 1,
+      "stem": "Which of the following is MOST likely to be a benefit of test automation?",
+      "options": [
+        { "letter": "a", "text": "It provides coverage measures that are too complicated for humans to derive" },
+        { "letter": "b", "text": "It shares responsibility for the testing with the tool vendor" },
+        { "letter": "c", "text": "It removes the need for critical thinking when analyzing test results" },
+        { "letter": "d", "text": "It generates test cases from an analysis of the program code" }
+      ],
+      "correct": ["a"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Correct. Test automation can provide measures too complicated for humans to derive, such as white-box coverage measures for all but the most trivial code.",
+        "b": "Incorrect. Responsibility for testing is not shared with the tool vendor; it remains the tester's responsibility.",
+        "c": "Incorrect. Testers still need critical thinking when analyzing anomalies in the test results.",
+        "d": "Incorrect. Test cases cannot be generated from code alone, as the code provides no information about expected results."
+      }
+    }
+  ]
+}

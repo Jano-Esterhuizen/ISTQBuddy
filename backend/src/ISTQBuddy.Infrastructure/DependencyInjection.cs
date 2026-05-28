@@ -33,6 +33,7 @@ public static class DependencyInjection
 
         services.AddScoped<CatalogSeeder>();
         services.AddScoped<ExamSeeder>();
+        services.AddScoped<AccessGrantSeeder>();
 
         return services;
     }

@@ -1,0 +1,192 @@
+{
+  "certification": {
+    "code": "CTAL-AT",
+    "name": "Certified Tester Advanced Level Agile Tester",
+    "version": "2.0"
+  },
+  "exam": {
+    "title": "CTAL-AT Sample Exam A",
+    "slug": "sample-exam-ctal-at-a",
+    "description": "A sample practice quiz covering test types, regression approaches, the testing quadrants, biases, user story slicing, exploratory testing mnemonics, assisted testing, and test smells for CTAL-AT v2.0.",
+    "isFreeSample": true,
+    "passPercentage": 65
+  },
+  "questions": [
+    {
+      "id": "1",
+      "section": "main",
+      "lo": "CTAL-AT-1.1.1",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "An Agile team is deciding which test types to run during versus after an iteration. Which statement best reflects how non-functional testing is typically distributed?",
+      "options": [
+        { "letter": "a", "text": "Full non-functional testing happens during the iteration on new features; only smoke tests run after the iteration." },
+        { "letter": "b", "text": "Non-functional testing is typically limited to basic checks (e.g. performance, usability, security) on new features during the iteration, with full non-functional testing performed after the iteration on integrated or pre-production environments." },
+        { "letter": "c", "text": "Non-functional testing is exclusively a post-iteration activity and should never start during the iteration." },
+        { "letter": "d", "text": "Non-functional testing is replaced entirely by automated regression tests in Agile software development." }
+      ],
+      "correct": ["b"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Full non-functional testing typically happens after the iteration on integrated/pre-production environments, not during the iteration on new features.",
+        "b": "Correct. The CTAL-AT syllabus states that during the iteration, non-functional testing is typically limited to basic performance efficiency, usability, or security checks on new features; full non-functional testing is performed after the iteration.",
+        "c": "Incorrect. It is sometimes appropriate for non-functional testing to start early in the SDLC, including during the iteration.",
+        "d": "Incorrect. Non-functional testing has its own role and is not replaced by regression testing."
+      }
+    },
+    {
+      "id": "2",
+      "section": "main",
+      "lo": "CTAL-AT-1.4.1",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "A team weaves smoke tests into their CI/CD pipeline as quality gates and runs high-priority regression tests automatically post-deployment in pre-production. They also rely on observability and monitoring in production. Which regression test approach does this best describe?",
+      "options": [
+        { "letter": "a", "text": "Incremental regression testing" },
+        { "letter": "b", "text": "Risk-based regression testing" },
+        { "letter": "c", "text": "DevOps-oriented regression testing" },
+        { "letter": "d", "text": "Collaborative regression testing" }
+      ],
+      "correct": ["c"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Incremental regression testing focuses on a subset triggered by each commit, selected by risk impact, likelihood, location, and dependencies of the change.",
+        "b": "Incorrect. Risk-based regression testing uses risk assessment workshops or team discussions to identify change-prone areas.",
+        "c": "Correct. DevOps-oriented regression testing weaves regression into the CI/CD pipeline, with smoke tests acting as quality gates, post-deployment regression in pre-production or production, and observability/monitoring potentially replacing traditional regression.",
+        "d": "Incorrect. Collaborative regression testing includes activities like bug bashes or whole-team walkthroughs."
+      }
+    },
+    {
+      "id": "3",
+      "section": "main",
+      "lo": "CTAL-AT-3.1.2",
+      "kLevel": "K4",
+      "points": 2,
+      "stem": "A team uses exploratory testing, usability testing, and user acceptance testing — mostly manually, focused on validating how well the product works for users. According to the testing quadrants model, which quadrant does this best match?",
+      "options": [
+        { "letter": "a", "text": "Q1 — technology-facing, supports the team" },
+        { "letter": "b", "text": "Q2 — business-facing, supports the team" },
+        { "letter": "c", "text": "Q3 — business-facing, critiques the product" },
+        { "letter": "d", "text": "Q4 — technology-facing, critiques the product" }
+      ],
+      "correct": ["c"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Q1 contains component tests, component integration tests, and API tests — automated, in CI.",
+        "b": "Incorrect. Q2 contains functional tests, examples, user story tests, prototypes, and simulations that guide development.",
+        "c": "Correct. Q3 contains business-facing tests that critique the product — exploratory testing, usability testing, and user acceptance testing — and is typically user-oriented and manual.",
+        "d": "Incorrect. Q4 contains smoke tests and non-functional tests (except usability), tool-supported and often automated."
+      }
+    },
+    {
+      "id": "4",
+      "section": "main",
+      "lo": "CTAL-AT-4.1.4",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "A tester designs and runs tests that only verify the expected behaviour of a feature, neglecting potential failure paths or unusual conditions. The team has implicit assumptions baked into their development decisions that go unchallenged. Which bias does this best illustrate?",
+      "options": [
+        { "letter": "a", "text": "Confirmation bias" },
+        { "letter": "b", "text": "Anchoring effect" },
+        { "letter": "c", "text": "Conformity bias" },
+        { "letter": "d", "text": "Hindsight bias" }
+      ],
+      "correct": ["a"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Correct. Confirmation bias leads to designing and executing tests that only verify expected behaviour, neglecting failure paths and unusual conditions — narrowing the scope and letting defects survive in complex systems.",
+        "b": "Incorrect. The anchoring effect occurs when early requirements or stakeholder expectations fixate teams on specific interpretations.",
+        "c": "Incorrect. Conformity bias occurs when testers copy each other's behaviour or defer to dominant voices.",
+        "d": "Incorrect. Hindsight bias is not among the three biases highlighted by the CTAL-AT syllabus as particularly relevant to Agile testing."
+      }
+    },
+    {
+      "id": "5",
+      "section": "main",
+      "lo": "CTAL-AT-4.1.5",
+      "kLevel": "K3",
+      "points": 2,
+      "stem": "An Agile team has a large user story that covers a checkout flow. They decide to first implement and test a slice that assumes the user is already authenticated, and create a separate slice on the backlog to handle authentication failures. Which user story slicing strategy are they using?",
+      "options": [
+        { "letter": "a", "text": "Workflow slicing" },
+        { "letter": "b", "text": "Slicing by data complexity" },
+        { "letter": "c", "text": "Vertical slicing" },
+        { "letter": "d", "text": "Slicing based on constraints" }
+      ],
+      "correct": ["d"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Workflow slicing decomposes the user story by user tasks or steps in a business process.",
+        "b": "Incorrect. Slicing by data complexity starts with a happy-path example using the simplest data, then moves alternative data conditions and edge cases to separate user stories.",
+        "c": "Incorrect. Vertical slicing ensures each slice includes a complete thin slice of functionality from database to UI.",
+        "d": "Correct. Slicing based on constraints focuses first on general assumptions (e.g. the user is authenticated) and then handles conditions derived from constraints (authentication failures) as separate slices — isolating test conditions and improving boundary clarity."
+      }
+    },
+    {
+      "id": "6",
+      "section": "main",
+      "lo": "CTAL-AT-5.1.2",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Which test mnemonic supports the identification and application of test oracles by observing inconsistencies across categories such as Familiarity, Explainability, World, History, Image, Comparable products, Claims, Users' desires, Product, Purpose, and Statutes?",
+      "options": [
+        { "letter": "a", "text": "SFDIPOT" },
+        { "letter": "b", "text": "RCRCRC" },
+        { "letter": "c", "text": "FEW HICCUPPS" },
+        { "letter": "d", "text": "TERMS" }
+      ],
+      "correct": ["c"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. SFDIPOT (Structure, Function, Data, Interfaces, Platform, Operations, Time) supports general analysis of the system under test.",
+        "b": "Incorrect. RCRCRC (Recent, Core, Risky, Configuration, Repaired, Chronic) supports regression testing coverage decisions.",
+        "c": "Correct. FEW HICCUPPS supports the identification and application of test oracles by observing different types of inconsistencies (Bolton, 2012).",
+        "d": "Incorrect. TERMS (Tools and Technology, Execution, Requirements and Risks, Maintenance, Security) is a test automation mnemonic."
+      }
+    },
+    {
+      "id": "7",
+      "section": "main",
+      "lo": "CTAL-AT-5.2.1",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "In mob testing, which role typically implements the team's collective instructions at the keyboard, but does not take the lead on test strategy — ensuring that ideas pass through another person's mind first?",
+      "options": [
+        { "letter": "a", "text": "Moderator" },
+        { "letter": "b", "text": "Navigator" },
+        { "letter": "c", "text": "Driver" },
+        { "letter": "d", "text": "Mob" }
+      ],
+      "correct": ["c"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. The Moderator coordinates the session, oversees flow, ensures role adherence, manages time, and fosters balanced participation.",
+        "b": "Incorrect. The Navigator is the primary tester who makes final decisions on actions, incorporating insights and guidance from the mob.",
+        "c": "Correct. The Driver is the typist implementing the team's collective instructions and does not typically take the lead on strategy — ideas pass through another person's mind first.",
+        "d": "Incorrect. The Mob is the group of observers who monitor progress and contribute insights as needed."
+      }
+    },
+    {
+      "id": "8",
+      "section": "main",
+      "lo": "CTAL-AT-5.3.1",
+      "kLevel": "K3",
+      "points": 2,
+      "stem": "While reviewing a manual test case, you notice it has many test steps that touch multiple features, and it includes the full navigation path before each small action. Which test smell does this best illustrate, and what is an appropriate fix?",
+      "options": [
+        { "letter": "a", "text": "God Test Case — design small, focused, independent test cases organised into test suites." },
+        { "letter": "b", "text": "Overly Long or Detailed Test Case — break it into smaller test cases, modularise reusable parts, remove repeated navigation, and use preconditions effectively." },
+        { "letter": "c", "text": "Ambiguous Steps — use specific, objective language with concrete terms and data." },
+        { "letter": "d", "text": "Hidden Dependencies — make all dependencies explicit and controlled." }
+      ],
+      "correct": ["b"],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. God Test Case describes a single test case used to test multiple alternative scenarios or even the whole system — not specifically about long navigation paths.",
+        "b": "Correct. The Overly Long or Detailed Test Case smell describes test cases with many test steps touching multiple features, or that include the full navigation path before each small action. The recommended solution is to break them down, modularise reusable parts, remove repeated navigation, and use preconditions effectively.",
+        "c": "Incorrect. Ambiguous Steps refers to vague or open-to-interpretation instructions.",
+        "d": "Incorrect. Hidden Dependencies refers to the test relying on data or configuration changes not specified in the preconditions."
+      }
+    }
+  ]
+}

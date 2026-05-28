@@ -48,7 +48,8 @@ public class CertificationService(IAppDbContext db, IEntitlementService entitlem
                 Version = c.Version,
                 ExamCount = certExams.Count,
                 HasFreeSample = hasFree,
-                IsLocked = certExams.Count > 0 && !hasFree && !hasAccess
+                IsLocked = certExams.Count > 0 && !hasFree && !hasAccess,
+                IsOwned = hasAccess
             };
         }).ToList();
     }
@@ -60,6 +61,13 @@ public class CertificationService(IAppDbContext db, IEntitlementService entitlem
             .Include(c => c.Exams)
             .FirstOrDefaultAsync(c => c.Slug == slug, ct)
             ?? throw new NotFoundException($"Certification '{slug}' not found.");
+
+        var now = DateTimeOffset.UtcNow;
+        var hasOwnership = await db.Entitlements.AnyAsync(e =>
+            e.UserId == userId
+            && e.Type == EntitlementType.FullAccess
+            && (e.ExpiresAt == null || e.ExpiresAt > now)
+            && (e.CertificationId == null || e.CertificationId == cert.Id), ct);
 
         var exams = new List<ExamSummaryDto>(cert.Exams.Count);
         foreach (var e in cert.Exams.OrderByDescending(x => x.IsFreeSample).ThenBy(x => x.Title))
@@ -86,6 +94,7 @@ public class CertificationService(IAppDbContext db, IEntitlementService entitlem
             Slug = cert.Slug,
             Name = cert.Name,
             Category = cert.Category.ToString(),
+            IsOwned = hasOwnership,
             Exams = exams
         };
     }

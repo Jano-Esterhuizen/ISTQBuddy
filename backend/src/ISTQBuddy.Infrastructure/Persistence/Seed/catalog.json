@@ -1,7 +1,7 @@
 {
   "certifications": [
     { "slug": "istqb-foundation", "name": "ISTQB Foundation", "category": "Core", "code": "CTFL", "version": "4.0" },
-    { "slug": "istqb-advanced-agile-tester", "name": "ISTQB Advanced Agile Tester V2.0", "category": "Core" },
+    { "slug": "istqb-advanced-agile-tester", "name": "ISTQB Advanced Agile Tester V2.0", "category": "Core", "code": "CTAL-AT", "version": "2.0" },
     { "slug": "istqb-advanced-test-analyst", "name": "ISTQB Advanced Test Analyst", "category": "Core" },
     { "slug": "istqb-advanced-test-management", "name": "ISTQB Advanced Test Management", "category": "Core" },
     { "slug": "istqb-advanced-technical-test-analyst", "name": "ISTQB Advanced Technical Test Analyst", "category": "Core" },

@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { toast } from "sonner";
 import { AxiosError } from "axios";
-import { BookOpen, GraduationCap } from "lucide-react";
+import { ArrowLeft, BookOpen, GraduationCap } from "lucide-react";
 import { getExam, startAttempt, submitAttempt } from "@/lib/api";
 import type { AttemptResultDto, ExamDetailDto, QuestionDto } from "@/types";
 import { cn } from "@/lib/utils";
@@ -216,9 +216,16 @@ export function QuizRunner({ examId }: { examId: string }) {
     );
   }
 
+  const backHref = exam ? `/certifications/${exam.certificationSlug}` : "/dashboard";
+
   if (phase === "intro") {
     return (
       <div className="animate-fade-up space-y-6">
+        <Button asChild variant="ghost" size="sm" className="-ml-2">
+          <Link href={backHref}>
+            <ArrowLeft className="h-4 w-4" /> Back to {exam.certificationName}
+          </Link>
+        </Button>
         <Masthead exam={exam} counts={counts} />
         <Card>
           <CardContent className="space-y-5 pt-6">
@@ -256,6 +263,11 @@ export function QuizRunner({ examId }: { examId: string }) {
 
   return (
     <div className="space-y-6">
+      <Button asChild variant="ghost" size="sm" className="-ml-2">
+        <Link href={backHref}>
+          <ArrowLeft className="h-4 w-4" /> Back to {exam.certificationName}
+        </Link>
+      </Button>
       <Masthead exam={exam} counts={counts} mode={mode} />
 
       {/* Controls */}

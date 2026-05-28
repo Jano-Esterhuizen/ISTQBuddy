@@ -116,6 +116,9 @@ static async Task ApplyStartupTasksAsync(WebApplication app)
         await scope.ServiceProvider.GetRequiredService<CatalogSeeder>().SeedAsync();
         await scope.ServiceProvider.GetRequiredService<ExamSeeder>().SeedAsync();
     }
+
+    // Grant full access to configured accounts (e.g. comping/dev before payments exist).
+    await scope.ServiceProvider.GetRequiredService<AccessGrantSeeder>().SeedAsync();
 }
 
 // Exposed for WebApplicationFactory in integration tests.

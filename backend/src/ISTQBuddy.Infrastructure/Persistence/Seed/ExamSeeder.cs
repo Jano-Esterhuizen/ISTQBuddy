@@ -7,8 +7,9 @@ using Microsoft.Extensions.Logging;
 namespace ISTQBuddy.Infrastructure.Persistence.Seed;
 
 /// <summary>
-/// Idempotent seeder for the bundled "Sample Exam A". Upserts the certification and exam by their
-/// natural keys (cert Code+Version, exam Slug) and replaces the exam's questions so re-running is safe.
+/// Idempotent seeder for the bundled exams. Loads every <c>sample-exam-*.json</c> file under
+/// Persistence/Seed, upserting each by its natural keys (cert Code+Version, exam Slug) and replacing
+/// the exam's questions when the content changes. Adding an exam = drop in a new JSON file.
 /// </summary>
 public class ExamSeeder(AppDbContext db, ILogger<ExamSeeder> logger)
 {
@@ -19,16 +20,29 @@ public class ExamSeeder(AppDbContext db, ILogger<ExamSeeder> logger)
 
     public async Task SeedAsync(CancellationToken ct = default)
     {
-        var path = Path.Combine(AppContext.BaseDirectory, "Persistence", "Seed", "sample-exam-a.json");
-        if (!File.Exists(path))
+        var seedDir = Path.Combine(AppContext.BaseDirectory, "Persistence", "Seed");
+        if (!Directory.Exists(seedDir))
         {
-            logger.LogWarning("Seed file not found at {Path}; skipping seed.", path);
+            logger.LogWarning("Seed directory not found at {Path}; skipping exam seed.", seedDir);
             return;
         }
 
+        var files = Directory.GetFiles(seedDir, "sample-exam-*.json").OrderBy(f => f).ToArray();
+        if (files.Length == 0)
+        {
+            logger.LogWarning("No exam seed files (sample-exam-*.json) found in {Path}.", seedDir);
+            return;
+        }
+
+        foreach (var file in files)
+            await SeedFileAsync(file, ct);
+    }
+
+    private async Task SeedFileAsync(string path, CancellationToken ct)
+    {
         var json = await File.ReadAllTextAsync(path, ct);
         var data = JsonSerializer.Deserialize<SeedFile>(json, JsonOptions)
-                   ?? throw new InvalidOperationException("Failed to parse sample-exam-a.json.");
+                   ?? throw new InvalidOperationException($"Failed to parse {Path.GetFileName(path)}.");
 
         // --- Certification (upsert by Code + Version) ---
         var cert = await db.Certifications.FirstOrDefaultAsync(

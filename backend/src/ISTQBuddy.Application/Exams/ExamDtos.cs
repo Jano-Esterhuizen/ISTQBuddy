@@ -28,6 +28,7 @@ public record ExamDetailDto
     public string Slug { get; init; } = string.Empty;
     public string? Description { get; init; }
     public string CertificationName { get; init; } = string.Empty;
+    public string CertificationSlug { get; init; } = string.Empty;
     public int PassPercentage { get; init; }
     public bool IncludesAnswers { get; init; }
     public IReadOnlyList<QuestionDto> Questions { get; init; } = [];
