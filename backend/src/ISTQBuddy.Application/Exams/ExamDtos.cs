@@ -43,6 +43,7 @@ public record QuestionDto
     public string KLevel { get; init; } = string.Empty;
     public int Points { get; init; }
     public string Stem { get; init; } = string.Empty;
+    public string? Diagram { get; init; }
     public int SelectCount { get; init; }
     public int OrderIndex { get; init; }
     public IReadOnlyList<OptionDto> Options { get; init; } = [];

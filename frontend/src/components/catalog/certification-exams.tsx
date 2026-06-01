@@ -318,7 +318,7 @@ function PracticeView({ exams }: { exams: ExamSummaryDto[] }) {
                   ) : (
                     <Button asChild className="w-full">
                       <Link href={`/exams/${exam.id}`}>
-                        Start exam <ArrowRight className="h-4 w-4" />
+                        Practice questions <ArrowRight className="h-4 w-4" />
                       </Link>
                     </Button>
                   )}

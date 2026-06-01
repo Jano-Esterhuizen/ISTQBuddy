@@ -18,6 +18,11 @@ public class Question : BaseEntity
     public int Points { get; set; } = 1;
 
     public string Stem { get; set; } = string.Empty;
+
+    /// <summary>Optional Markdown rendered below the stem. Supports GFM tables and ```mermaid``` fences
+    /// (state diagrams, flowcharts) so questions with diagrams/tables read clearly.</summary>
+    public string? Diagram { get; set; }
+
     public int SelectCount { get; set; } = 1;
     public int OrderIndex { get; set; }
 

@@ -1,0 +1,1677 @@
+{
+  "certification": {
+    "code": "CTAL-TA",
+    "name": "Certified Tester Advanced Level Test Analyst",
+    "version": "4.0"
+  },
+  "exam": {
+    "title": "CTAL-TA Sample Exam A",
+    "slug": "sample-exam-ctal-ta-a",
+    "description": "The official ISTQB CTAL-TA v4.1 sample exam (compatible with Syllabus v4.0): 45 questions, 78 points, 65% to pass. Covers the test analyst's tasks in the test process and risk-based testing, data-/behavior-/rule-based and experience-based test techniques, testing quality characteristics, and software defect prevention.",
+    "isFreeSample": true,
+    "passPercentage": 65
+  },
+  "questions": [
+    {
+      "id": "1",
+      "section": "main",
+      "lo": "TA-1.1.1",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Why does a test analyst carry out the same activities in every increment of an incremental development model?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "Because development is also done in cycles consisting of the same activities in every increment"
+        },
+        {
+          "letter": "b",
+          "text": "Because the activities of the test analyst in each increment are limited to test analysis and test design"
+        },
+        {
+          "letter": "c",
+          "text": "Because in each increment, the test analyst is involved as soon as the development begins"
+        },
+        {
+          "letter": "d",
+          "text": "Because each increment develops a new part of the software, which needs to be tested"
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. In incremental development models, development is not necessarily cyclical.",
+        "b": "Incorrect. The test analyst usually needs to perform test analysis, design, implementation, and execution for each increment.",
+        "c": "Incorrect. The test analyst's work may be organized differently for each increment, so the initial time of involvement may vary per increment.",
+        "d": "Correct. Each increment is developed and tested independently, so the test analyst performs the same test activities (analysis, design, implementation, execution) for each increment."
+      }
+    },
+    {
+      "id": "2",
+      "section": "main",
+      "lo": "TA-1.2.2",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "During test analysis, the test analyst decides to use the 2-value boundary value analysis technique for a domain \"age\" representing a client's age, which is used to determine the client's discount. Which of the following tasks should the test analyst perform during test design?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "Define the test condition: \"The system assigns a discount for a child less than 18 and a senior older than 64.\""
+        },
+        {
+          "letter": "b",
+          "text": "Determine whether or not the test cases should document the specific amount of the expected discounts"
+        },
+        {
+          "letter": "c",
+          "text": "Store the identified boundary values for clients' ages in a test data repository to support automated test execution"
+        },
+        {
+          "letter": "d",
+          "text": "Write an automated test script using keyword-driven testing: \"SetAge(18); VerifyDiscountIsNotAssigned().\""
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Test conditions are defined during test analysis, not test design.",
+        "b": "Correct. During test design, the test analyst determines in which areas low-level test cases or high-level test cases are appropriate. Indicating specific amounts is low-level while indicating whether the discount is applied is high-level.",
+        "c": "Incorrect. Test data is created and prepared for test execution during test implementation.",
+        "d": "Incorrect. Test scripts are written during test implementation."
+      }
+    },
+    {
+      "id": "3",
+      "section": "main",
+      "lo": "TA-1.2.3",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Based on the following (simplified) test case:\n\nInput: age below 18\nExpected output: The system assigns a children's discount\n\nA test analyst creates the following (simplified) test script using keyword-driven testing:\nEnterAge(17)\nVerifyChildrenDiscountApplied(yes)\nEnterAge(18)\nVerifyChildrenDiscountApplied(no)\n\nIn which test activity does this action take place?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "Test analysis"
+        },
+        {
+          "letter": "b",
+          "text": "Test design"
+        },
+        {
+          "letter": "c",
+          "text": "Test implementation"
+        },
+        {
+          "letter": "d",
+          "text": "Test execution"
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. In test analysis, the test analyst defines test conditions, not test scripts.",
+        "b": "Incorrect. In test design, the test analyst designs test cases. Here the test case is already given.",
+        "c": "Correct. A test script implements a test case during test implementation.",
+        "d": "Incorrect. Test scripts are an input to test execution, not an outcome of it."
+      }
+    },
+    {
+      "id": "4",
+      "section": "main",
+      "lo": "TA-1.3.3",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "A medical application has an interface for a health card reader. As a test analyst, you require a simulator for the health card reader to replace the hardware devices in the system test environment. You state the following requirements for the simulator:\n- The simulator shall implement the exact interface specification to the medical information system as the real devices.\n- Testers with access to the system test environment shall be able to edit and manage the virtual health cards.\n- The simulator shall be available during system test implementation and execution of all increments.\n\nWhich of the following information is missing and should be added?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "A copy of the health card reader interface specification"
+        },
+        {
+          "letter": "b",
+          "text": "The specific period of time during which the simulator is needed"
+        },
+        {
+          "letter": "c",
+          "text": "A specific backup and restore procedure for the virtual health cards"
+        },
+        {
+          "letter": "d",
+          "text": "The organizational unit which shall provide and maintain the simulator"
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. A reference to the existing interface specification is sufficient and already included in the first requirement item.",
+        "b": "Incorrect. The third requirement item already indicates that the simulator is needed during test implementation and execution; the specific time periods can be derived from the test schedule.",
+        "c": "Incorrect. Backup and restore procedures are overarching needs of the test environment; individual components like the simulator do not need specific backup and restore procedures.",
+        "d": "Correct. The responsibility for making the simulator available is one of the needed information items listed in the syllabus (unique identifier, description, responsibility, period needed, fidelity)."
+      }
+    },
+    {
+      "id": "5",
+      "section": "main",
+      "lo": "TA-1.3.4",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "A mobile network operator's existing rating and billing system will be replaced by new software. As rating and billing rules are very complex, the project test strategy plans to test the functional correctness with several days of live network traffic.\n\nAs a test analyst, you want to solve the test oracle problem of generating the details of expected bills for a large amount of traffic with a pseudo-oracle. Which of the following solutions can serve as a pseudo-oracle?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "Run the existing in-house rating and billing system in the test environment to generate the expected results"
+        },
+        {
+          "letter": "b",
+          "text": "Use test scripts to generate expected results in simple test cases and accept all other actual results"
+        },
+        {
+          "letter": "c",
+          "text": "Run automated scripts to verify the phone call counts, durations, and types on the bills based on the traffic data"
+        },
+        {
+          "letter": "d",
+          "text": "Selectively change the call durations in the live network traffic and verify that the bills change accordingly"
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Correct. The legacy system was developed independently to fulfill the same specifications, so it can serve as a ready-made pseudo-oracle.",
+        "b": "Incorrect. Restricting the test oracle to simple data and letting everything else pass is not an appropriate approach to testing functional correctness; complex test cases often induce high risk.",
+        "c": "Incorrect. This is property-based testing because it only verifies the consistency of inputs and outputs, not the complete correctness of the results.",
+        "d": "Incorrect. This is metamorphic testing."
+      }
+    },
+    {
+      "id": "6",
+      "section": "main",
+      "lo": "TA-1.3.5",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Which of the following statements about anonymized test data is MOST likely to be true?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "Test data may lack the variability required for thorough testing"
+        },
+        {
+          "letter": "b",
+          "text": "Test data will be restricted to input data only"
+        },
+        {
+          "letter": "c",
+          "text": "Test data will be outdated as it is time-sensitive"
+        },
+        {
+          "letter": "d",
+          "text": "Test data will primarily serve as keywords for keyword-driven testing"
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Correct. Anonymized data comes from production data, which may lack the variability required for thorough testing of various scenarios, including negative testing.",
+        "b": "Incorrect. Anonymized data comes from production data, which is not limited to input data; it can also contain expected results and configuration data.",
+        "c": "Incorrect. There is no direct connection between anonymization and time sensitivity or data aging.",
+        "d": "Incorrect. Anonymized production data may be used as values for keyword parameters rather than keywords themselves; keywords are usually defined based on business processes."
+      }
+    },
+    {
+      "id": "7",
+      "section": "main",
+      "lo": "TA-1.3.6",
+      "kLevel": "K3",
+      "points": 2,
+      "stem": "You are testing a queueing system using keyword-driven testing. The following keywords are available:\n- Start() - creates an empty queue\n- Enqueue(e) - inserts element e at the end of the queue\n- Dequeue() - removes an element from the beginning of the queue\n- CreateQueue(e1, e2, ..., en) - a composite keyword equivalent to Enqueue(e1), Enqueue(e2), ..., Enqueue(en)\n- AssertFirstElement(e) - checks if there is an element e at the beginning of the queue; if not, the system returns an error message\n- AssertEmpty() - checks if the queue is empty; if not, the system returns an error message\n\nYou have designed the following test scripts:\ni) Start(); Enqueue(A); Enqueue(B); Dequeue(); AssertFirstElement(A)\nii) Start(); Enqueue(A); Enqueue(B); Dequeue(); AssertNonempty()\niii) Start(); Enqueue(A); Dequeue(); Enqueue(B); AssertFirstElement(B)\niv) Start(); CreateQueue(A, B); Dequeue(); Dequeue(); AssertEmpty()\nv) Start(); CreateQueue(A, B); Dequeue(); AssertFirstElement(B)\n\nWhich of these test scripts verify the following acceptance criterion using the available keywords: \"If more elements were added to the queue than removed, the queue is not empty\"?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "i), ii) and iii)"
+        },
+        {
+          "letter": "b",
+          "text": "ii), iv), and v)"
+        },
+        {
+          "letter": "c",
+          "text": "iii) and v)"
+        },
+        {
+          "letter": "d",
+          "text": "ii) and iv)"
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Script i)'s verification is wrong because the remaining element is B, not A; and script ii) uses the keyword AssertNonempty(), which is not available and must be specified before use.",
+        "b": "Incorrect. Script ii) uses an unavailable keyword (AssertNonempty()); and script iv) verifies that the queue is empty when inserts equal removals, which is not what the acceptance criterion says.",
+        "c": "Correct. Script iii) inserts A, removes it, then inserts B, so the queue is not empty and contains B (verified by AssertFirstElement(B)). Script v) inserts A and B, then removes one, leaving the queue non-empty with first element B (verified by AssertFirstElement(B)). Both verify the acceptance criterion.",
+        "d": "Incorrect. Script ii) uses an unavailable keyword, and script iv) checks that the queue is empty, not non-empty."
+      }
+    },
+    {
+      "id": "8",
+      "section": "main",
+      "lo": "TA-1.3.7",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "As a test analyst in an incremental-iterative development process, how can you BEST support the management of testware in the test management tool?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "Defining a standard severity classification for failures in test execution"
+        },
+        {
+          "letter": "b",
+          "text": "Specifying the pseudonymization procedure for test data extracted from the live system"
+        },
+        {
+          "letter": "c",
+          "text": "Managing the configuration of the test environments"
+        },
+        {
+          "letter": "d",
+          "text": "Selecting the most suitable set of test cases for regression testing"
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. A severity classification supports defect management rather than the test management tool; setting up defect management is the responsibility of the test manager.",
+        "b": "Incorrect. A pseudonymization procedure supports test data management rather than the test management tool.",
+        "c": "Incorrect. Managing the configuration of the test environments supports configuration management rather than the test management tool.",
+        "d": "Correct. Selecting the suitable set of test cases for regression testing is a typical task of the test analyst related to testware management in the test management tool, which is crucial in incremental and iterative development models."
+      }
+    },
+    {
+      "id": "9",
+      "section": "main",
+      "lo": "TA-2.1.1",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Which of the following are examples of how a test analyst can contribute to product risk analysis?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "Interviewing business analysts about what can go wrong with the application"
+        },
+        {
+          "letter": "b",
+          "text": "Determining the scope of regression testing by performing an impact analysis"
+        },
+        {
+          "letter": "c",
+          "text": "Identifying and assessing new product risks that occur during test execution"
+        },
+        {
+          "letter": "d",
+          "text": "Estimating the damage that each product risk may cause when it occurs"
+        },
+        {
+          "letter": "e",
+          "text": "Applying the most suitable test techniques for each product risk"
+        }
+      ],
+      "correct": [
+        "a",
+        "d"
+      ],
+      "selectCount": 2,
+      "rationales": {
+        "a": "Correct. This is the contribution of the test analyst during risk identification, which is part of risk analysis.",
+        "b": "Incorrect. This is a contribution during risk control, not risk analysis.",
+        "c": "Incorrect. This task belongs to risk monitoring, not risk analysis.",
+        "d": "Correct. This is the contribution of the test analyst during risk assessment, which is part of risk analysis.",
+        "e": "Incorrect. Applying test techniques is a risk mitigation activity that is not part of risk analysis."
+      }
+    },
+    {
+      "id": "10",
+      "section": "main",
+      "lo": "TA-2.2.1",
+      "kLevel": "K4",
+      "points": 3,
+      "stem": "You are given traceability information about implemented functions (F1-F5), identified risks (R1-R5), and regression test cases (TC1-TC6) in the matrices below.\n\nAll six test cases were executed in the last test cycle. Then you are informed that the implementation of F3 has changed. You follow risk-based testing and apply an impact analysis, which allows executing only the test cases affected by code changes since the last test execution. During the next regression test suite execution, which test case should be executed LAST?",
+      "diagram": "**Functions → Risks**\n\n| Function | R1 | R2 | R3 | R4 | R5 |\n|---|:--:|:--:|:--:|:--:|:--:|\n| F1 | X |  |  |  |  |\n| F2 | X | X |  |  |  |\n| F3 |  | X |  | X | X |\n| F4 | X |  | X | X |  |\n| F5 | X |  |  |  | X |\n\n**Risks → Test cases**\n\n| Risk | TC1 | TC2 | TC3 | TC4 | TC5 | TC6 |\n|---|:--:|:--:|:--:|:--:|:--:|:--:|\n| R1 | X | X |  |  |  |  |\n| R2 | X |  | X |  |  |  |\n| R3 | X |  |  | X |  |  |\n| R4 |  |  | X |  | X |  |\n| R5 | X |  |  |  |  | X |\n\n**Risk levels**\n\n| Risk | Risk level |\n|---|---|\n| R1 | $15,000 |\n| R2 | $10,000 |\n| R3 | $2,000 |\n| R4 | $5,000 |\n| R5 | $20,000 |",
+      "options": [
+        {
+          "letter": "a",
+          "text": "TC4"
+        },
+        {
+          "letter": "b",
+          "text": "TC5"
+        },
+        {
+          "letter": "c",
+          "text": "TC1"
+        },
+        {
+          "letter": "d",
+          "text": "TC3"
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. TC4 covers R3, which is not traced from F3, so it is not affected by the change.",
+        "b": "Correct. F3 traces to R2, R4, R5, which trace to TC1, TC3, TC5, TC6. Prioritising by risk level (R5 > R2 > R4): execute TC1 and TC6 (R5), then TC3 (R2), then TC5 (R4) last.",
+        "c": "Incorrect. TC1 covers the highest-risk R5 and is executed first, not last.",
+        "d": "Incorrect. TC3 covers R2 and is executed before TC5."
+      }
+    },
+    {
+      "id": "11",
+      "section": "main",
+      "lo": "TA-2.2.1",
+      "kLevel": "K4",
+      "points": 3,
+      "stem": "You are system-testing a mobile banking application. A backend team (experienced, resolves defects quickly and reliably) builds the server business logic; a frontend team (high staff turnover) builds the GUI and the mobile app.\n\nRecently, critical failures occurred in production and were resolved in the previous release:\n- Payments rejected due to invalid bank account numbers (root cause: insufficient validation of bank accounts on the mobile devices).\n- Incorrectly displayed GUI elements on some screen sizes/resolutions that obstructed users when entering payments.\n\nThe next release contains:\n- A new feature to make payments by taking a photo of an invoice.\n- A fix for a major defect in the calculation of the account balance.\n- A redesigned navigation bar in the GUI to comply with accessibility standards.\n\nYou have a comprehensive regression suite categorized by the impact of potential failures. With limited resources you cannot run them all, so you chose the history-based regression testing strategy. Which TWO test objectives suit this scenario THE BEST?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "Execute all regression tests for the bank account validation using both photo-based and manually entered invoice payments"
+        },
+        {
+          "letter": "b",
+          "text": "Execute all regression tests for the settlement of payments and other features related to balance calculations"
+        },
+        {
+          "letter": "c",
+          "text": "Execute all regression tests with a critical or major risk impact of potential failures"
+        },
+        {
+          "letter": "d",
+          "text": "Execute the regression tests of the GUI containing the navigation bar on mobile devices with various displays, prioritized by the device distribution statistics"
+        },
+        {
+          "letter": "e",
+          "text": "Execute at least one regression test for each requirement, prioritizing the most frequently used scenarios"
+        }
+      ],
+      "correct": [
+        "a",
+        "d"
+      ],
+      "selectCount": 2,
+      "rationales": {
+        "a": "Correct. Historical data shows bank account validation has a high likelihood of failure and critical impact, and photographic recognition of bank accounts adds further risk.",
+        "b": "Incorrect. The impact of a balance-calculation failure is major, but the reliable backend team makes regression likelihood very low, so executing all tests there is not justified.",
+        "c": "Incorrect. For features unrelated to the changes, failure likelihood is very low; with limited resources, regression should be limited to critical-impact tests not related to the changes, and major-impact ones can be omitted.",
+        "d": "Correct. Historical data shows incorrect display of dialog elements on various devices is highly likely to fail; the navigation-bar change affects such elements, so the GUI regression risk is high.",
+        "e": "Incorrect. 100% coverage of the requirements would be coverage-based regression testing, not history-based."
+      }
+    },
+    {
+      "id": "12",
+      "section": "main",
+      "lo": "TA-3.1.1",
+      "kLevel": "K3",
+      "points": 2,
+      "stem": "A code complexity evaluation system takes two integers as input: cyclomatic complexity (CC) and number of variables (VAR). It checks: IF (CC >= 10) AND (VAR >= 8) THEN RETURN \"the code is complex\". The domain is the set of integer points (CC, VAR). You want to test the functional correctness of this domain implementation using domain testing.\n\nWhich set of test points could result from using the SIMPLIFIED domain coverage to test the correctness of this domain implementation?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "(12, 7), (12, 8), (9, 10), (10, 10)"
+        },
+        {
+          "letter": "b",
+          "text": "(6, 5), (10, 8), (13, 10)"
+        },
+        {
+          "letter": "c",
+          "text": "(11, 8), (11, 9), (9, 11), (10, 11)"
+        },
+        {
+          "letter": "d",
+          "text": "(10, 10), (12, 8), (15, 11)"
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Correct. In simplified domain coverage each inequality border needs an ON and an OFF point. (12, 8) and (12, 7) are ON and OFF for VAR >= 8; (10, 10) and (9, 10) are ON and OFF for CC >= 10. These four points form a valid set.",
+        "b": "Incorrect. (10, 8) is ON for both borders, but each ON point for a border should be an IN point for the other borders; OFF points for both borders are missing, and (6, 5) is neither ON nor OFF for any border.",
+        "c": "Incorrect. An OFF point for the border VAR >= 8 is missing, and (11, 9) is neither ON nor OFF for any border.",
+        "d": "Incorrect. (15, 11) is neither ON nor OFF for any border, and OFF points are missing for both borders."
+      }
+    },
+    {
+      "id": "13",
+      "section": "main",
+      "lo": "TA-3.1.1",
+      "kLevel": "K3",
+      "points": 2,
+      "stem": "The requirements for brewing espresso are: pressure shall be at least 9 bars; temperature shall be at least 90C and at most 96C. You test the controller that opens the hot water valve when P >= 9 AND T >= 90 AND T <= 96, and shuts it otherwise (P < 9 OR T < 90 OR T > 96). The barometer measures pressure with precision 0.1 bar; the thermometer with precision 0.5C. Your test suite executes the inputs (P, T) shown below. Which of the following inputs is missing for 100% reliable domain coverage?",
+      "diagram": "| Input | P (bar) | T (°C) |\n|:--:|:--:|:--:|\n| A | 9 | 90 |\n| B | 9 | 96 |\n| C | 8.9 | 93 |\n| D | 10 | 96.5 |\n| E | 10 | 93 |\n| F | 8 | 89 |\n| G | 10 | 98 |",
+      "options": [
+        {
+          "letter": "a",
+          "text": "(8, 93)"
+        },
+        {
+          "letter": "b",
+          "text": "(9.7, 90.5)"
+        },
+        {
+          "letter": "c",
+          "text": "(10.9, 89.5)"
+        },
+        {
+          "letter": "d",
+          "text": "(10, 90)"
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. (8, 93) does not provide the missing coverage item.",
+        "b": "Incorrect. (9.7, 90.5) does not provide the missing coverage item.",
+        "c": "Correct. EP1 (P>=9 AND T>=90 AND T<=96) has three closed borders; reliable domain coverage requires ON, OFF, IN, and OUT points for each. The missing item is the OFF point for T>=90 (which is also the ON point for T<90): (10.9, 89.5), since 89.5 is closest to the border at the given precision of 0.5C.",
+        "d": "Incorrect. (10, 90) does not provide the missing coverage item."
+      }
+    },
+    {
+      "id": "14",
+      "section": "main",
+      "lo": "TA-3.1.2",
+      "kLevel": "K3",
+      "points": 2,
+      "stem": "You are testing functional correctness across environments described by: operating system (Windows, Linux, iOS), RAM (16GB, 32GB, 64GB), and USB-C port (yes, no). Market research says the most common configuration is Windows + 16GB + USB-C (the base choice). You have already prepared tests for:\n- Windows, 16GB, USB-C\n- iOS, 16GB, USB-C\n- Windows, 32GB, USB-C\n- Windows, 64GB, USB-C\n- Linux, 16GB, no USB-C\n\nConsider the following new configurations:\ni) Windows, 16GB, no USB-C\nii) Linux, 16GB, USB-C\niii) Linux, 64GB, no USB-C\niv) iOS, 32GB, no USB-C\nv) iOS, 64GB, USB-C\n\nWhich of them should be added to the existing set to fully achieve the BASE CHOICE coverage criterion?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "i) and ii)"
+        },
+        {
+          "letter": "b",
+          "text": "iii) and iv)"
+        },
+        {
+          "letter": "c",
+          "text": "ii), iv), and v)"
+        },
+        {
+          "letter": "d",
+          "text": "i), iii), and v)"
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Correct. Base choice coverage needs the base configuration (Win, 16, USB-C) plus each single-element replacement: (Linux,16,USB-C), (iOS,16,USB-C), (Win,32,USB-C), (Win,64,USB-C), (Win,16,no USB-C). Four of these already exist; the missing two are ii) Linux,16,USB-C and i) Windows,16GB,no USB-C.",
+        "b": "Incorrect. iii) and iv) change more than one element from the base configuration, so they are not base-choice cases.",
+        "c": "Incorrect. iv) and v) change more than one element from the base; only ii) is a valid base-choice case.",
+        "d": "Incorrect. iii) and v) change more than one element from the base; only i) is a valid base-choice case."
+      }
+    },
+    {
+      "id": "15",
+      "section": "main",
+      "lo": "TA-3.1.2",
+      "kLevel": "K3",
+      "points": 2,
+      "stem": "A company offering house insurance policies has policy options depending on:\n- Building type: house, semi-detached, apartment building, cottage (4 values)\n- Material: wood, concrete, brick, mixed (4 values)\n- Location: city, suburb, countryside (3 values)\n\nUsing pairwise testing, how many test cases are required to achieve 100% pairwise coverage?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "16"
+        },
+        {
+          "letter": "b",
+          "text": "12"
+        },
+        {
+          "letter": "c",
+          "text": "64"
+        },
+        {
+          "letter": "d",
+          "text": "4"
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Correct. The largest pairing (building type x material) needs 4x4 = 16 combinations. All building-type/location and material/location pairs can be accommodated within those 16 test cases, so 16 is sufficient.",
+        "b": "Incorrect. 12 test cases cannot cover all 16 building-type/material pairs.",
+        "c": "Incorrect. 64 is the number of all combinations (4x4x4), not the minimum for pairwise coverage.",
+        "d": "Incorrect. 4 test cases are far too few to cover all pairs."
+      }
+    },
+    {
+      "id": "16",
+      "section": "main",
+      "lo": "TA-3.1.3",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Which difficulty of random testing can be addressed by using GUIDED random testing?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "Lack of well-defined coverage criteria"
+        },
+        {
+          "letter": "b",
+          "text": "Dependence on an automated test oracle"
+        },
+        {
+          "letter": "c",
+          "text": "Redundancy of selected test data"
+        },
+        {
+          "letter": "d",
+          "text": "Neglecting data semantics"
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. A lack of well-defined coverage criteria makes random testing difficult regardless of the type used.",
+        "b": "Incorrect. Without an automated test oracle, guided random testing is as ineffective as unguided random testing.",
+        "c": "Correct. Redundancy of selected test data can be avoided by modifying the probability distribution to draw each element from those not yet drawn, so no two drawn elements repeat.",
+        "d": "Incorrect. Data semantics does not depend on whether guided or unguided testing is used."
+      }
+    },
+    {
+      "id": "17",
+      "section": "main",
+      "lo": "TA-3.2.1",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Which of the following is an example of CRUD testing?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "Verifying that a user, after creating an account and defining a password, can modify the account password"
+        },
+        {
+          "letter": "b",
+          "text": "Verifying that a system accepts, as a password, any of 1,000 randomly generated strings of various lengths"
+        },
+        {
+          "letter": "c",
+          "text": "Verifying that the time from requesting a password change to verifying that change is less than 10 milliseconds"
+        },
+        {
+          "letter": "d",
+          "text": "Checking whether a new user can use a password that another user has already used"
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Correct. One variant of CRUD testing verifies that all possible operations occur with a given entity; here it checks the Update operation for the password entity.",
+        "b": "Incorrect. This is an example of random testing and has nothing to do with create/read/update/delete operations.",
+        "c": "Incorrect. This is an example of performance testing.",
+        "d": "Incorrect. This test has nothing to do with create/read/update/delete operations on an entity."
+      }
+    },
+    {
+      "id": "18",
+      "section": "main",
+      "lo": "TA-3.2.2",
+      "kLevel": "K3",
+      "points": 2,
+      "stem": "You are testing a system implementing a circuit breaker pattern, modeled by the state transition diagram below (End is the final state). All potential round trips are feasible. You have already designed the test case exercising the sequence of states: Closed, Open, HalfOpen, Closed, Open, HalfOpen, Open, End. What is the round trip coverage achieved by this test case?",
+      "diagram": "```mermaid\nstateDiagram-v2\n    [*] --> Closed\n    Closed --> End: ok\n    Closed --> Open: fail\n    Open --> End: fail\n    Open --> HalfOpen: timeout\n    HalfOpen --> Closed: ok\n    HalfOpen --> Open: fail\n    End --> [*]\n```",
+      "options": [
+        {
+          "letter": "a",
+          "text": "100%"
+        },
+        {
+          "letter": "b",
+          "text": "50%"
+        },
+        {
+          "letter": "c",
+          "text": "60%"
+        },
+        {
+          "letter": "d",
+          "text": "80%"
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. The test case does not cover all five round trips.",
+        "b": "Incorrect. The test case covers more than half of the round trips.",
+        "c": "Incorrect. The coverage is higher than 60%.",
+        "d": "Correct. There are 5 round trips: RT1 (Closed, Open, HalfOpen, Closed), RT2 (Open, HalfOpen, Closed, Open), RT3 (HalfOpen, Closed, Open, HalfOpen), RT4 (Open, HalfOpen, Open), RT5 (HalfOpen, Open, HalfOpen). The sequence covers RT1-RT4 (4/5 = 80%)."
+      }
+    },
+    {
+      "id": "19",
+      "section": "main",
+      "lo": "TA-3.2.2",
+      "kLevel": "K3",
+      "points": 2,
+      "stem": "You design state-based tests for a component managing the lifecycle of insurance claims, modeled by the state diagram below. The variable x holds the claim resolution type ('acc' for accepted, 'act' for active); the guarded transitions out of Closed depend on it. How many different 1-switches must be exercised by the test suite to achieve 100% 1-switch coverage?",
+      "diagram": "```mermaid\nstateDiagram-v2\n    [*] --> Applied\n    Applied --> Accepted: accept\n    Accepted --> Activated: activate\n    Activated --> Accepted: goBack\n    Accepted --> Closed: close, set x=acc\n    Activated --> Closed: close, set x=act\n    Closed --> Accepted: goBack when x=acc\n    Closed --> Activated: goBack when x=act\n    Closed --> Archived: archive\n```",
+      "options": [
+        {
+          "letter": "a",
+          "text": "16"
+        },
+        {
+          "letter": "b",
+          "text": "14"
+        },
+        {
+          "letter": "c",
+          "text": "8"
+        },
+        {
+          "letter": "d",
+          "text": "15"
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. 16 is the count of all 1-switches before removing infeasible ones.",
+        "b": "Correct. There are 16 possible 1-switches in general, but two are infeasible due to the guard conditions (Accepted > Closed > Activated, and Activated > Closed > Accepted). 16 - 2 = 14.",
+        "c": "Incorrect. 8 undercounts the feasible 1-switches.",
+        "d": "Incorrect. Two 1-switches are infeasible, not one, so the answer is 14, not 15."
+      }
+    },
+    {
+      "id": "20",
+      "section": "main",
+      "lo": "TA-3.2.3",
+      "kLevel": "K3",
+      "points": 2,
+      "stem": "You test a food ordering scenario based on this use case (main scenario steps 1-12):\n1. Customer opens app and logs in. 2. Browses menu and selects items. 3. Adds items to cart. 4. Proceeds to checkout. 5. App displays order summary. 6. Customer confirms order. 7. App asks if saved payment method should be used. 8. Customer confirms saved method. 9. App processes payment. 10. App sends confirmation. 11. App forwards order to restaurant. 12. App updates order status to Confirmed.\n\nAlternative scenarios:\n4A. Customer goes back to browsing the menu (back to step 2).\n6A. Customer goes back to browsing the menu (back to step 2).\n7A. No payment method saved; system asks for card details; customer fills in data; go to step 9.\n7B. More than one payment method saved; system asks customer to select one; go to step 9.\nException:\n9A. Payment fails; system informs customer; the use case ends.\n\nThe test strategy requires testing the main scenario and all alternatives and exceptions. More than one alternative may be tested within a single test case, but an alternative and an exception must not occur together in the same test case. What is the MINIMUM number of test cases that cover all scenarios?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "2"
+        },
+        {
+          "letter": "b",
+          "text": "3"
+        },
+        {
+          "letter": "c",
+          "text": "4"
+        },
+        {
+          "letter": "d",
+          "text": "5"
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Two test cases cannot cover the exception plus all alternatives under the constraints.",
+        "b": "Incorrect. Three test cases are insufficient because 7A and 7B cannot share a test case.",
+        "c": "Correct. Four test cases: (1) main scenario; (2) exception 9A alone (no alternatives allowed with it); (3) alternatives 4A and 7A combined; (4) alternatives 6A and 7B combined. 7A and 7B cannot be in the same case, so four are required.",
+        "d": "Incorrect. Five is more than the minimum; the alternatives can be combined into fewer cases."
+      }
+    },
+    {
+      "id": "21",
+      "section": "main",
+      "lo": "TA-3.2.3",
+      "kLevel": "K3",
+      "points": 2,
+      "stem": "Consider the activity diagram below. What is the MINIMUM number of test cases to exercise all scenarios defined by this diagram?",
+      "diagram": "```mermaid\nflowchart TD\n    S([Start]) --> R[Receive order]\n    R --> FK{{fork}}\n    FK --> FO[Fill order]\n    FK --> SI[Send invoice]\n    FO --> D{priority?}\n    D -->|priority| PD[Arrange priority delivery]\n    D -->|regular| RD[Arrange regular delivery]\n    PD --> MG{{merge}}\n    RD --> MG\n    SI --> RP[Receive payment]\n    MG --> JN{{join}}\n    RP --> JN\n    JN --> E([End])\n```",
+      "options": [
+        {
+          "letter": "a",
+          "text": "2"
+        },
+        {
+          "letter": "b",
+          "text": "3"
+        },
+        {
+          "letter": "c",
+          "text": "6"
+        },
+        {
+          "letter": "d",
+          "text": "4"
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Correct. There are two scenarios: one with the priority order and one with the regular order. In both, sending the invoice and receiving payment run in parallel, so two test cases are enough.",
+        "b": "Incorrect. Three test cases are more than the minimum.",
+        "c": "Incorrect. The parallel branches do not multiply into six distinct scenarios.",
+        "d": "Incorrect. Four test cases are more than the minimum needed."
+      }
+    },
+    {
+      "id": "22",
+      "section": "main",
+      "lo": "TA-3.3.1",
+      "kLevel": "K3",
+      "points": 2,
+      "stem": "You are testing an ATM payment system. Payment can be by debit card (D) or cash (C); acceptability depends on PIN, requested amount, and location. The full decision table is shown below. What is the MINIMUM number of columns this decision table can have after minimization?",
+      "diagram": "| ID | Condition | R1 | R2 | R3 | R4 | R5 | R6 | R7 | R8 | R9 | R10 | R11 | R12 |\n|---|---|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|\n| C1 | Payment type | D | D | D | D | D | D | D | D | C | C | C | C |\n| C2 | PIN OK | Y | Y | Y | Y | N | N | N | N | n/a | n/a | n/a | n/a |\n| C3 | Requested amount OK | Y | Y | N | N | Y | Y | N | N | Y | Y | N | N |\n| C4 | Location OK | Y | N | Y | N | Y | N | Y | N | Y | N | Y | N |\n| A1 | Process payment | X | X |  |  |  |  |  |  | X | X |  |  |\n| A2 | Inform bank |  | X |  | X |  |  |  |  |  |  |  |  |\n| A3 | Inform client |  | X | X | X | X | X | X | X |  |  | X | X |",
+      "options": [
+        {
+          "letter": "a",
+          "text": "4"
+        },
+        {
+          "letter": "b",
+          "text": "5"
+        },
+        {
+          "letter": "c",
+          "text": "6"
+        },
+        {
+          "letter": "d",
+          "text": "7"
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. 4 columns cannot represent all action-distinct rule groups.",
+        "b": "Incorrect. 5 columns is too few after merging action-equivalent rules.",
+        "c": "Incorrect. 6 columns is still fewer than the minimized table allows.",
+        "d": "Correct. After merging action-equivalent rules using the don't-care operator (e.g., R5-R8 collapse to one column, R9-R10 and R11-R12 each collapse), the minimized table has 7 columns."
+      }
+    },
+    {
+      "id": "23",
+      "section": "main",
+      "lo": "TA-3.3.1",
+      "kLevel": "K3",
+      "points": 2,
+      "stem": "Consider the minimized decision table below.\n\nMatch the rules (1-4) with their characteristics (A-D):\n1. Rule R2   2. Rule R3   3. Rule R4   4. Rule R5\nA. Its checksum is 1\nB. Its checksum is 2 and it is consistent with the other rules\nC. Its checksum is 8\nD. It is inconsistent with the rule R1",
+      "diagram": "| ID | Condition | R1 | R2 | R3 | R4 | R5 |\n|---|---|:--:|:--:|:--:|:--:|:--:|\n| C1 | Registered customer | T | T | T | T | F |\n| C2 | Longterm customer | T | - | - | T | - |\n| C3 | Credit card expired | F | T | F | F | - |\n| C4 | Purchase <= 500 € | T | T | T | F | - |\n| A1 | Credit card option offered | X |  | X | X |  |\n| A2 | Instant transfer option offered | X | X | X |  | X |\n| A3 | Direct debit option offered | X | X |  |  |  |",
+      "options": [
+        {
+          "letter": "a",
+          "text": "1D, 2A, 3C, 4B"
+        },
+        {
+          "letter": "b",
+          "text": "1B, 2D, 3A, 4C"
+        },
+        {
+          "letter": "c",
+          "text": "1B, 2C, 3A, 4D"
+        },
+        {
+          "letter": "d",
+          "text": "1D, 2B, 3C, 4A"
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. R2 is not inconsistent with R1; its checksum is 2.",
+        "b": "Correct. R2 has one '-' so its checksum is 2 and it is consistent (1B). R3 matches combination TTFT, also represented by R1, but they are not action-equivalent, so R3 is inconsistent with R1 (2D). R4 has no '-' so its checksum is 1 (3A). R5 has three '-' so its checksum is 2x2x2 = 8 (4C).",
+        "c": "Incorrect. R3 has checksum issues and is inconsistent with R1 (D), not C; and R5 has checksum 8 (C), not D.",
+        "d": "Incorrect. R2 is consistent with checksum 2 (B), not inconsistent with R1 (D)."
+      }
+    },
+    {
+      "id": "24",
+      "section": "main",
+      "lo": "TA-3.3.2",
+      "kLevel": "K3",
+      "points": 2,
+      "stem": "You test a function that searches for hotels by a given criteria. Input: search area (A), minimum (Min) and maximum (Max) price per night. Output: list (L) of hotels meeting the criteria. Let A1, Min1, Max1 produce expected output L1 (source test case); A2, Min2, Max2 produce L2 (follow-up test case).\n\nWhich of the following describes a CORRECT metamorphic relation between the source and follow-up test cases for the search function?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "If A1 = A2 and Max1 - Min1 > Max2 - Min2, then L2 contains all hotels from L1"
+        },
+        {
+          "letter": "b",
+          "text": "If Min2 < Min1 and Max2 > Max1, then L2 has at least as many elements as L1"
+        },
+        {
+          "letter": "c",
+          "text": "If A1 and A2 are disjoint, then L1 and L2 are disjoint"
+        },
+        {
+          "letter": "d",
+          "text": "If A2 is contained in A1, then L1 contains all hotels from L2"
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. A wider price range can correspond to two disjoint intervals, so L2 need not contain all of L1.",
+        "b": "Incorrect. Widening the price range does not guarantee more elements unless the areas are the same; the relation ignores the areas.",
+        "c": "Correct. No hotel can exist in two different locations, so if A1 and A2 are disjoint, the search results L1 and L2 must also be disjoint.",
+        "d": "Incorrect. The relation between L1 and L2 depends not only on the areas but also on the price ranges, which may differ."
+      }
+    },
+    {
+      "id": "25",
+      "section": "main",
+      "lo": "TA-3.3.2",
+      "kLevel": "K3",
+      "points": 2,
+      "stem": "A route planning system has an API with inputs: start coordinates X, destination Y, and optimization criterion O (S = shortest route, T = fastest travel time). It returns the optimal route length in km. You test it with these metamorphic relations:\n- MR1: If the criterion changes from S to T with X and Y unchanged, the calculated distance cannot decrease.\n- MR2: For criterion S, the sum of route lengths X->Y and Y->Z cannot be lower than the length of route X->Z.\n\nSource test cases:\n- TC1. X = Rome, Y = Pisa, O = S. Output: 335 km.\n- TC2. X = Pisa, Y = Milan, O = S. Output: 282 km.\n\nWhich follow-up test case causes a failure by violating at least one of MR1 or MR2?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "Input: X = Rome, Y = Rome, O = S. Output: 335 km"
+        },
+        {
+          "letter": "b",
+          "text": "Input: X = Pisa, Y = Milan, O = T. Output: 282 km"
+        },
+        {
+          "letter": "c",
+          "text": "Input: X = Milan, Y = Pisa, O = S. Output: 283 km"
+        },
+        {
+          "letter": "d",
+          "text": "Input: X = Rome, Y = Milan, O = S. Output: 630 km"
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Paired with TC1 or TC2 it does not fulfill the assumptions of MR1 or MR2, so neither relation can be violated.",
+        "b": "Incorrect. Paired with TC2 it fulfills MR1's assumptions, but MR1 holds because 282 km >= 282 km.",
+        "c": "Incorrect. It does not fulfill the assumptions of MR1, and the assumptions for MR2 are not fulfilled, so neither can be violated.",
+        "d": "Correct. Paired with TC1 and TC2 it fulfills MR2's assumptions, but MR2 is violated: the route Rome->Milan (O=S) should be <= 335 + 282 = 617 km, yet it equals 630 km."
+      }
+    },
+    {
+      "id": "26",
+      "section": "main",
+      "lo": "TA-3.4.1",
+      "kLevel": "K3",
+      "points": 2,
+      "stem": "You are the test analyst for a new e-commerce platform with augmented reality (AR) features (virtual try-on of clothing/accessories). Key factors for the upcoming iteration:\n- The UI must be intuitive and responsive across various web browsers, with particular attention to the AR features and their integration with the overall user experience.\n- The platform must be compatible with the most popular headsets.\n- The core e-shopping functions (browsing, cart, ordering, payment) reuse existing, proven mechanisms from a previous platform.\n\nExploratory testers are experienced e-shopping users who now understand the product. Which test charter BEST addresses the issues in this scenario?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "Explore the checkout process With various payment methods To Discover security vulnerabilities"
+        },
+        {
+          "letter": "b",
+          "text": "Explore the augmented reality \"Product Visualization\" feature With Firefox web browser To Discover user experience problems"
+        },
+        {
+          "letter": "c",
+          "text": "Explore the payment process With various devices and screen sizes To Discover compatibility problems regarding various headset types"
+        },
+        {
+          "letter": "d",
+          "text": "Explore the augmented reality \"Fitting Room\" feature With various web browsers To Discover usability problems"
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Security is not the highest-priority concern, and the payment process reuses proven mechanisms, so this charter fails to address the proper test objectives.",
+        "b": "Incorrect. Restricting to a single browser ignores that adaptability across various browsers is key; the scope is too narrow.",
+        "c": "Incorrect. The payment process reuses proven software, and it is unlikely to need an AR headset; this charter targets the wrong objective.",
+        "d": "Correct. This charter addresses the proper objective: AR features tested across various environments to find user experience problems related to the AR features."
+      }
+    },
+    {
+      "id": "27",
+      "section": "main",
+      "lo": "TA-3.4.1",
+      "kLevel": "K3",
+      "points": 2,
+      "stem": "An e-commerce company is about to launch a new web application whose success depends on a flawless payment system. Your task is to verify the payment system's functional correctness and usability. The team deployed the payment system's core features to a staging environment (a replica of production, isolated for testing). It handles credit card payments, simplified mobile payments, and direct bank transfers, and a comprehensive set of synthetic test data (dummy cards, accounts, transactions) is available.\n\nWhich is the MOST appropriate test charter for verifying functional correctness and usability of the payment system?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "Explore the payment system on an external network with penetration testing by simulating attacks to discover if it has any potential system vulnerabilities"
+        },
+        {
+          "letter": "b",
+          "text": "Explore the e-commerce web application on the production server with various personas and usage scenarios to discover system-wide functional and performance issues"
+        },
+        {
+          "letter": "c",
+          "text": "Explore the payment system on the staging server with synthetic test data to evaluate the usability of the payment procedure, the accuracy of results, and to detect areas for improvement"
+        },
+        {
+          "letter": "d",
+          "text": "Explore the graphical user interface of the payment system with user experience design guidelines to discover the intuitiveness and aesthetics of the user interface"
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Penetration testing targets security, not the functional correctness and usability objectives required here.",
+        "b": "Incorrect. Using the production server is inappropriate for testing, and the scope (whole application, performance) does not match the objective.",
+        "c": "Correct. This charter targets the payment system, uses the right resources (staging server, synthetic test data), and the right information to discover (usability, accuracy of results, areas for improvement).",
+        "d": "Incorrect. It focuses only on the user interface, excluding the core functional testing of the payment process."
+      }
+    },
+    {
+      "id": "28",
+      "section": "main",
+      "lo": "TA-3.4.2",
+      "kLevel": "K3",
+      "points": 2,
+      "stem": "Your organization develops an astronomy quiz app: 24 questions are randomly selected from a pool and presented one by one. Each question has four answers (one correct). When the player selects an answer, the quiz indicates whether it is correct or incorrect; the player can then proceed to the next question. After all 24 questions, the quiz displays the score.\n\nAs the test analyst, you designed a checklist for experience-based functional system testing. Which checklist item is MOST appropriate for verifying the correct FLOW of user interactions?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "When the application displays a question, are four different answers displayed and selectable?"
+        },
+        {
+          "letter": "b",
+          "text": "For each question, does the application indicate which answer is correct and which answers are incorrect?"
+        },
+        {
+          "letter": "c",
+          "text": "When the player selects an incorrect answer to a question, does the application mark the incorrect answer red and the correct answer (not selected) green?"
+        },
+        {
+          "letter": "d",
+          "text": "How long does an astronomy amateur require, on average, to answer the 24 questions?"
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Correct. This item is specific, unambiguous, consistent, relevant, maintainable, actionable, measurable, and can be answered with yes/no, fitting the criteria for checklist items verifying the interaction flow.",
+        "b": "Incorrect. This item is ambiguous, because the application should only indicate correctness once the user has selected an answer.",
+        "c": "Incorrect. This item is inconsistent with the specification, which does not state that correctness is indicated by colors.",
+        "d": "Incorrect. This item cannot be answered with yes/no and concerns timing, not the interaction flow."
+      }
+    },
+    {
+      "id": "29",
+      "section": "main",
+      "lo": "TA-3.4.2",
+      "kLevel": "K3",
+      "points": 2,
+      "stem": "You are system-testing a web-based single-player game and have used a checklist in previous versions, including these items for interrupting the game:\n- INTERRUPT-01: Can the player interrupt the game at any time?\n- INTERRUPT-02: Are the user actions that interrupt the game consistent across all web pages?\n- INTERRUPT-03: Does the application show the same warning with the two buttons (confirm interruption / continue) every time it is interrupted?\n\nThe next increment focuses on accessibility for players with various disabilities, WITHOUT changing functionality. Which TWO checklist items should you add to address the new features?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "Given the interrupt warning, if the player clicks the 'Continue game' button, does the application resume the game where it was left?"
+        },
+        {
+          "letter": "b",
+          "text": "Is the game vulnerable to security attacks when players with disabilities interrupt it on purpose or unintentionally?"
+        },
+        {
+          "letter": "c",
+          "text": "Is the readability of the interrupt warning text and the captions of the buttons at a maximum of 5th-grade school English?"
+        },
+        {
+          "letter": "d",
+          "text": "Are the colors of the buttons on the interrupt warning clearly distinguishable for players with red-green color deficiency?"
+        },
+        {
+          "letter": "e",
+          "text": "Which is the highest grade of color blindness with which players can still differentiate the colors of the buttons of the interrupt warning?"
+        }
+      ],
+      "correct": [
+        "c",
+        "d"
+      ],
+      "selectCount": 2,
+      "rationales": {
+        "a": "Incorrect. This is a functional-correctness item; functionality is unchanged, so it does not address the accessibility changes.",
+        "b": "Incorrect. This is a security item; there is no reason to believe disabled players' behavior impacts vulnerability.",
+        "c": "Correct. This verifies the accessibility of the interrupt situation for players with reading difficulties.",
+        "d": "Correct. This verifies the accessibility of the interrupt situation for players with visual disabilities.",
+        "e": "Incorrect. This is not a valid checklist item because the answer cannot be given as yes/no/not applicable."
+      }
+    },
+    {
+      "id": "30",
+      "section": "main",
+      "lo": "TA-3.4.3",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Which of the following BEST utilizes the advantages of crowd testing?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "Designing test cases with a test analyst"
+        },
+        {
+          "letter": "b",
+          "text": "Performing beta testing with diverse users"
+        },
+        {
+          "letter": "c",
+          "text": "Executing the same test scripts repeatedly"
+        },
+        {
+          "letter": "d",
+          "text": "Reviewing the GUI design with many reviewers"
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Crowd testing is dynamic testing, not test case design.",
+        "b": "Correct. Crowd testing distributes tests among internal or external testers with diverse backgrounds and locations, making it a good fit for beta testing.",
+        "c": "Incorrect. Repeatedly executing the same scripts does not use crowd testing's advantages of variability and real user perspective.",
+        "d": "Incorrect. Crowd testing is dynamic testing, not static review."
+      }
+    },
+    {
+      "id": "31",
+      "section": "main",
+      "lo": "TA-3.5.1",
+      "kLevel": "K4",
+      "points": 3,
+      "stem": "You are a test analyst on a Scrum project for a route-finding application for drivers (combining iterative and incremental elements). Three features are under test this iteration: an interactive map interface, turn-by-turn navigation with real-time updates, and voice guidance. The app targets both iOS and Android. Test analysts perform system testing on the fully integrated app each iteration.\n\nTest analysis revealed it may be difficult or impossible to assess whether the route found is optimal. The risk analysis identified this very high-level risk: \"The application fails to work correctly on all potential configurations of mobile devices (network settings, phone type, operating system, display settings, time and date settings).\"\n\nConsidering only this scenario, which TWO test techniques will be MOST useful for designing test cases?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "Domain analysis"
+        },
+        {
+          "letter": "b",
+          "text": "Metamorphic testing"
+        },
+        {
+          "letter": "c",
+          "text": "CRUD testing"
+        },
+        {
+          "letter": "d",
+          "text": "Decision table testing"
+        },
+        {
+          "letter": "e",
+          "text": "Pairwise testing"
+        }
+      ],
+      "correct": [
+        "b",
+        "e"
+      ],
+      "selectCount": 2,
+      "rationales": {
+        "a": "Incorrect. The scenario gives no information suggesting a high defect risk in domain implementation.",
+        "b": "Correct. The scenario implies there is no test oracle (route optimality is hard to assess), and metamorphic testing addresses the test oracle problem.",
+        "c": "Incorrect. The scenario does not suggest a need to verify the lifecycle of entities.",
+        "d": "Incorrect. The scenario does not describe any rule-related issues.",
+        "e": "Correct. The risk that the app fails on some device configurations is addressed well by pairwise testing of the many parameters."
+      }
+    },
+    {
+      "id": "32",
+      "section": "main",
+      "lo": "TA-3.5.1",
+      "kLevel": "K4",
+      "points": 3,
+      "stem": "A new AI-based system claims to improve thunderstorm prediction accuracy by an order of magnitude. The number of input parameters and their values is potentially very high. The system is insufficiently specified (the test basis is incomplete and ambiguous), but a proper set of test cases created by a subject matter expert (who has since left) exists. Management is pressing to deliver soon.\n\nWhich TWO test techniques should be applied in this context?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "State-based testing"
+        },
+        {
+          "letter": "b",
+          "text": "Metamorphic testing"
+        },
+        {
+          "letter": "c",
+          "text": "Scenario-based testing"
+        },
+        {
+          "letter": "d",
+          "text": "Combinatorial testing"
+        },
+        {
+          "letter": "e",
+          "text": "CRUD testing"
+        }
+      ],
+      "correct": [
+        "b",
+        "d"
+      ],
+      "selectCount": 2,
+      "rationales": {
+        "a": "Incorrect. There is no indication the test object assumes states that could be checked.",
+        "b": "Correct. A set of source test cases exists but the test basis is weak (likely no usable oracle), so determining metamorphic relations for the source test cases is a good choice.",
+        "c": "Incorrect. There is no hint that scenarios are available.",
+        "d": "Correct. Combinatorial testing is viable: it handles a large number of parameters and values with relatively little effort.",
+        "e": "Incorrect. There is no indication that CRUD lifecycle functionality is relevant."
+      }
+    },
+    {
+      "id": "33",
+      "section": "main",
+      "lo": "TA-3.5.2",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Which of the following is a benefit of test design automation and why?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "Improved defect prevention due to early modeling of test conditions"
+        },
+        {
+          "letter": "b",
+          "text": "Effective defect detection due to repeatable, automated test scripts"
+        },
+        {
+          "letter": "c",
+          "text": "Efficient maintenance of test scripts due to configuration management"
+        },
+        {
+          "letter": "d",
+          "text": "Faster analysis of anomalies due to automated failure recognition"
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Correct. Early modeling of test conditions from the testing perspective is effective quality control of the test basis, preventing defects in work products produced in later SDLC phases.",
+        "b": "Incorrect. Repeatable, automated test scripts are a benefit of test execution automation, not test design automation.",
+        "c": "Incorrect. Configuration management is not part of test design automation.",
+        "d": "Incorrect. Automated failure recognition is unrelated to test design automation."
+      }
+    },
+    {
+      "id": "34",
+      "section": "main",
+      "lo": "TA-4.1.1",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "You are testing this user story for an e-shop app:\nAs a registered customer\nI want to filter for a specific category of items\nSo that I don't have to browse through the entire assortment of the store\n\nWhich of the following is an example of functional CORRECTNESS testing for this user story?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "Verifying that the filtering mechanism lists those categories for which the shop offers items"
+        },
+        {
+          "letter": "b",
+          "text": "Verifying that filtering by a particular category shows items belonging to this and only this category"
+        },
+        {
+          "letter": "c",
+          "text": "Verifying that the category tree is loaded correctly from a customer relations management system"
+        },
+        {
+          "letter": "d",
+          "text": "Verifying that the filtering function is easy to learn and its GUI is simple and aesthetically pleasing"
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. This is functional appropriateness testing (whether the listed categories are helpful for the users).",
+        "b": "Correct. This verifies the functional correctness of the filtering mechanism (correct results for valid input).",
+        "c": "Incorrect. This focuses on the interaction between two systems, i.e., interoperability testing.",
+        "d": "Incorrect. This is usability testing (ease of learning and aesthetics), not functional correctness."
+      }
+    },
+    {
+      "id": "35",
+      "section": "main",
+      "lo": "TA-4.2.1",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "An organization is developing a new in-house application to support all staff. The product owner engaged external user experience consultants to perform usability test sessions. Which of the following is the BEST contribution the organization's test analyst can make?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "Selecting the participants from the user group with the most experience with the business process"
+        },
+        {
+          "letter": "b",
+          "text": "Participating in the usability test sessions to evaluate the efficiency of working with the application"
+        },
+        {
+          "letter": "c",
+          "text": "Helping the participants during the test sessions to enter the right data and find the right buttons"
+        },
+        {
+          "letter": "d",
+          "text": "Describing the most likely patterns of use of the application by various personas within the organization"
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Selecting only the most experienced users ignores the characteristics of the target user groups that should be involved.",
+        "b": "Incorrect. Usability test session participants must be users in the organization, not test analysts.",
+        "c": "Incorrect. Participants should be observed, not corrected or guided; helping them prevents a correct evaluation of effectiveness and efficiency.",
+        "d": "Correct. The test analyst can use knowledge of operational profiles (patterns of use) and personas to create scenarios reflecting real-life uses of the system."
+      }
+    },
+    {
+      "id": "36",
+      "section": "main",
+      "lo": "TA-4.3.1",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Which of the following activities can a test analyst use to BEST contribute to the adaptability testing of a cloud-based web application?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "Evaluating the extent to which users with disabilities can adapt to the application's usage scenarios"
+        },
+        {
+          "letter": "b",
+          "text": "Designing tests covering the data exchange between the web client and the cloud server components"
+        },
+        {
+          "letter": "c",
+          "text": "Analyzing operational profiles and describing the expected number of concurrent users of the application"
+        },
+        {
+          "letter": "d",
+          "text": "Designing tests that evaluate whether the server components can be transferred to various cloud service platforms"
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. This supports accessibility testing; adaptability is about adapting the system to its environments, not users adapting to the system.",
+        "b": "Incorrect. This supports interoperability testing rather than adaptability testing.",
+        "c": "Incorrect. This supports load/scalability testing rather than adaptability testing.",
+        "d": "Correct. Adaptability testing includes adaptation to various cloud service platforms; the test analyst supports it by identifying target environments and designing tests covering combinations of them."
+      }
+    },
+    {
+      "id": "37",
+      "section": "main",
+      "lo": "TA-4.4.1",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Which of the following is the BEST example of a test analyst's contribution to interoperability testing of an online store?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "To verify that the user can access and use the online store seamlessly on various devices and web browsers"
+        },
+        {
+          "letter": "b",
+          "text": "To verify that the online store can integrate with third-party payment gateways and exchange payment data correctly"
+        },
+        {
+          "letter": "c",
+          "text": "To validate that users with diverse cultural backgrounds can use the online store effectively and efficiently"
+        },
+        {
+          "letter": "d",
+          "text": "To verify that the discount system strictly follows the specified rules and returns accurate results"
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. This is an example of adaptability testing.",
+        "b": "Correct. Interoperability is the degree to which two or more components or systems can exchange information and use the exchanged information.",
+        "c": "Incorrect. This is an example of usability testing.",
+        "d": "Incorrect. This is an example of functional correctness testing with a focus on accuracy."
+      }
+    },
+    {
+      "id": "38",
+      "section": "main",
+      "lo": "TA-5.1.1",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "Which of the following activities is LEAST effective in defect prevention?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "Dynamic testing"
+        },
+        {
+          "letter": "b",
+          "text": "Risk analysis"
+        },
+        {
+          "letter": "c",
+          "text": "Reviewing an architectural design"
+        },
+        {
+          "letter": "d",
+          "text": "Root cause analysis"
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Correct. Dynamic testing is the least effective for defect prevention because it primarily detects defects that already exist rather than preventing them.",
+        "b": "Incorrect. Risk analysis helps identify potential issues early and select approaches to mitigate risks, supporting defect prevention.",
+        "c": "Incorrect. Reviewing an architectural design lets testers find and address issues early, preventing defects from propagating.",
+        "d": "Incorrect. Root cause analysis identifies underlying causes so teams can prevent similar defects from recurring."
+      }
+    },
+    {
+      "id": "39",
+      "section": "main",
+      "lo": "TA-5.2.1",
+      "kLevel": "K3",
+      "points": 2,
+      "stem": "For a discount system, two business rules apply:\n- Customers with a loyalty card OR whose last purchase was at least $1,000 receive a 10% discount. Otherwise, they receive a 5% discount if they subscribe to the newsletter.\n- If a customer has not signed up for the newsletter, they receive no discount.\n\nThe requirements are modeled with the decision table below. What problem (if any) with the requirements can you discover by analyzing this decision table?",
+      "diagram": "| Conditions | Rule 1 | Rule 2 | Rule 3 | Rule 4 |\n|---|:--:|:--:|:--:|:--:|\n| Has a loyalty card? | YES | - | NO | - |\n| Last purchase >= $1000? | - | YES | NO | - |\n| Subscribed to the newsletter? | - | - | YES | NO |\n| **Action: Discount** | **10%** | **10%** | **5%** | **0%** |",
+      "options": [
+        {
+          "letter": "a",
+          "text": "Inconsistency - there is at least one feasible combination of conditions for which the specification describes two contradicting actions"
+        },
+        {
+          "letter": "b",
+          "text": "Incompleteness - there is at least one feasible combination of conditions for which the specification predicts no behavior at all"
+        },
+        {
+          "letter": "c",
+          "text": "Overlapping rules - there are at least two action-equivalent columns that match the same combination of conditions"
+        },
+        {
+          "letter": "d",
+          "text": "There is no problem - the decision table models the requirements correctly, and there are no anomalies"
+        }
+      ],
+      "correct": [
+        "a"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Correct. The combination (loyalty card = YES, last purchase >= $1000 = YES, not subscribed) fits both Rule 1 (10%) and Rule 4 (0%), which give different discounts - a contradiction (inconsistency).",
+        "b": "Incorrect. The rules cover each combination of conditions, so there is no incompleteness.",
+        "c": "Incorrect. Rule 1 and Rule 2 give the same discount but model one business rule; this is not the overlap problem.",
+        "d": "Incorrect. There is a contradiction, so the requirements are not anomaly-free."
+      }
+    },
+    {
+      "id": "40",
+      "section": "main",
+      "lo": "TA-5.2.1",
+      "kLevel": "K3",
+      "points": 2,
+      "stem": "You review the requirements for a beverage vending machine's coin controller (which collects, validates, and counts coins). Relevant requirements:\n- Req201: For each transaction, the coin controller distinguishes modes empty, partially inserted, and sufficient, to identify whether the user has paid enough to start delivery.\n- Req215: If the user has paid enough, the controller shall immediately return any further inserted coins.\n- Req235: The controller shall validate inserted coins and immediately return invalid coins with an error message.\n- Req236: The controller changes its mode to sufficient as soon as the user inserts enough coins.\n- Req237: The user shall be able to cancel before delivery and get coins returned; the controller is empty after cancel.\n- Req243: The controller shall display a message when the user has inserted enough coins and sum up any further coins inserted.\n- Req253: When an inserted coin does not reach the required amount, the controller remains in partially inserted mode and adds the coin value to the intermediate amount.\n- Req267: If in sufficient mode and the user triggers delivery, it shall deliver the beverage.\n\nYou model the coin controller behavior with a state machine. Which anomaly will be MOST LIKELY detected by the modeling?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "It is not clear which event will trigger the coin controller to switch from the partially inserted mode to the sufficient mode"
+        },
+        {
+          "letter": "b",
+          "text": "The specification is ambiguous when the coin controller is in the partially inserted mode. The same event triggers returning the coins and delivering the beverage"
+        },
+        {
+          "letter": "c",
+          "text": "The specification is incomplete because there is no event defined for returning an invalid coin"
+        },
+        {
+          "letter": "d",
+          "text": "The specification is ambiguous in the sufficient mode. The same event is supposed to trigger two competing outcomes, i.e., summing up the coins and immediately returning the coins"
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Req236 specifies the event (inserting enough coins); the ambiguity of 'enough coins' is not noticeable in a state transition model.",
+        "b": "Incorrect. Returning coins (Req237) and delivering the beverage (Req267) are triggered by different events.",
+        "c": "Incorrect. Returning an invalid coin (Req235) is an expected result, not an event in itself.",
+        "d": "Correct. Req215 and Req243 describe the same event (inserting a coin) for the same precondition (sufficient mode) but require two competing outcomes (return the coin vs sum it up); modeling with a state machine easily detects this nondeterminism."
+      }
+    },
+    {
+      "id": "41",
+      "section": "main",
+      "lo": "TA-5.2.2",
+      "kLevel": "K3",
+      "points": 2,
+      "stem": "A company adds a feature to guide new customers on its online shopping website. The use case 'Familiarize the customer with the website and purchasing' is shown below.\n\nYou review the use case using a scenario-based reviewing technique. Which of the following defects submitted during your review is a FALSE-POSITIVE result?",
+      "diagram": "| Customer | System |\n|---|---|\n| 1. The user visits the website. | 2. The system shows a promotion banner prompting customers to access the new customer guide. |\n| 3. The user clicks on the prompt. | 4. The system opens the guide. |\n| 5. The user navigates through the guide's introductory section, learning about the website's features and layout. |  |\n| 6. The user follows the guide's instructions to make a successful purchase. | 7. The system shows the successful completion of the purchase. |\n| 8. The user closes the prompt. | 9. The system closes the guide. |",
+      "options": [
+        {
+          "letter": "a",
+          "text": "The system should offer experienced users an option to dismiss the guide permanently"
+        },
+        {
+          "letter": "b",
+          "text": "In step 4: Once the user has responded to the promotion, the system should hide the promotion banner"
+        },
+        {
+          "letter": "c",
+          "text": "The system should provide an option for the user to reopen the guide whenever they are interested"
+        },
+        {
+          "letter": "d",
+          "text": "After step 5, the system should automatically close the guide, assuming that it is no longer needed"
+        }
+      ],
+      "correct": [
+        "d"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect (a valid finding). Experienced users already know the website, so repeatedly seeing the guide can be intrusive; offering a permanent dismiss is reasonable.",
+        "b": "Incorrect (a valid finding). Hiding the promotion banner after the user responds avoids being intrusive and lets the user focus on the guide.",
+        "c": "Incorrect (a valid finding). Providing an option to reopen the guide gives users flexibility and keeps the information available.",
+        "d": "Correct (this is the false positive). Closing the guide without the user's consent removes their control and can be intrusive; users may still find the guide helpful after step 5."
+      }
+    },
+    {
+      "id": "42",
+      "section": "main",
+      "lo": "TA-5.2.2",
+      "kLevel": "K3",
+      "points": 2,
+      "stem": "Match the review technique descriptions (1-4) with the correct technique names (A-D).\nDescriptions:\n1. Reviewers simulate processes using use cases or activity diagrams and may explore beyond documented scenarios.\n2. Reviewers use fictional personas (e.g., administrators or end users) to focus on specific user roles.\n3. Unstructured reviewing with no guidance, risking duplicate defect reports.\n4. Uses predefined checklists to guide reviewers but encourages exploration beyond listed items.\nTechniques:\nA. Ad hoc reviewing\nB. Checklist-based reviewing\nC. Scenario-based reviewing\nD. Role-based reviewing",
+      "options": [
+        {
+          "letter": "a",
+          "text": "1-C, 2-D, 3-B, 4-A"
+        },
+        {
+          "letter": "b",
+          "text": "1-D, 2-C, 3-A, 4-B"
+        },
+        {
+          "letter": "c",
+          "text": "1-C, 2-D, 3-A, 4-B"
+        },
+        {
+          "letter": "d",
+          "text": "1-A, 2-B, 3-C, 4-D"
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. It pairs 3 with B (ad hoc is not checklist-based) and 4 with A.",
+        "b": "Incorrect. It swaps Scenario-based (C) and Role-based (D) for descriptions 1 and 2.",
+        "c": "Correct. 1-C (scenario-based: dry runs of processes), 2-D (role-based: personas), 3-A (ad hoc: unstructured, duplicate reports), 4-B (checklist-based: predefined prompts, exploration allowed).",
+        "d": "Incorrect. It is entirely mismatched (e.g., 1-A mislabels scenario-based as ad hoc)."
+      }
+    },
+    {
+      "id": "43",
+      "section": "main",
+      "lo": "TA-5.3.1",
+      "kLevel": "K4",
+      "points": 3,
+      "stem": "You work in an incremental development model; each increment has four sequential phases (requirements, design, implementation, testing), each ending with a test activity, and each increment ends with a release. After the last increment, the client raised no defects in operation. The table below shows the number of defects introduced (rows) versus the phase in which they were detected (columns) for the last increment.\n\nUsing defect detection percentage (DDP) as the test effectiveness measure per phase, which phase and test activity should you select for improvement actions?",
+      "diagram": "Detection phases — Requirements: modeling & review · Design: modeling & review · Implementation: static analysis & component testing · Testing: system & acceptance testing.\n\n| Introduced ↓ / Detected → | Requirements | Design | Implementation | Testing | Operation | Total introduced |\n|---|:--:|:--:|:--:|:--:|:--:|:--:|\n| Requirements | 10 | 10 | 40 | 20 | 0 | 80 |\n| Design |  | 10 | 90 | 30 | 0 | 130 |\n| Implementation |  |  | 10 | 90 | 0 | 100 |\n| Testing |  |  |  | 0 | 0 | 0 |\n| **Total detected** | **10** | **20** | **140** | **140** | **0** |  |",
+      "options": [
+        {
+          "letter": "a",
+          "text": "Requirements - modeling and review"
+        },
+        {
+          "letter": "b",
+          "text": "Design - modeling and review"
+        },
+        {
+          "letter": "c",
+          "text": "Implementation - static analysis and component testing"
+        },
+        {
+          "letter": "d",
+          "text": "Testing - system testing and acceptance testing"
+        }
+      ],
+      "correct": [
+        "b"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. DDP for requirements = 10 / (10+10+40+20) = 12.5%, higher than the design phase.",
+        "b": "Correct. DDP for design = (10+10) / (10+10+40+90+20+30) = 10%, the lowest of all phases, so it should be selected for improvement.",
+        "c": "Incorrect. DDP for implementation = (40+90+10) / (40+90+10+20+30+90) = 50%.",
+        "d": "Incorrect. DDP for testing = (20+30+90+0) / (20+30+90+0) = 100%, the highest."
+      }
+    },
+    {
+      "id": "44",
+      "section": "main",
+      "lo": "TA-5.3.1",
+      "kLevel": "K4",
+      "points": 3,
+      "stem": "A home security system has four components: control panel, user interface, cloud-based backend system, and event processing engine. In similar projects, a strong correlation was observed between component size and defects found in component testing: on average one defect per 50 lines of code (LOC). You use this model to predict defects. The actual test results are shown below.\n\nUsing defect cluster analysis, which component, when tested more rigorously, will probably reveal more defects?",
+      "diagram": "| Component | Lines of code | Defects found |\n|---|:--:|:--:|\n| Control panel | 600 | 14 |\n| User interface | 2000 | 45 |\n| Backend system | 400 | 17 |\n| Event processing engine | 500 | 8 |",
+      "options": [
+        {
+          "letter": "a",
+          "text": "Control panel"
+        },
+        {
+          "letter": "b",
+          "text": "User interface"
+        },
+        {
+          "letter": "c",
+          "text": "Backend system"
+        },
+        {
+          "letter": "d",
+          "text": "Event processing engine"
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. Control panel: predicted 12 (600/50), actual 14 - close to prediction.",
+        "b": "Incorrect. User interface: predicted 40 (2000/50), actual 45 - close to prediction.",
+        "c": "Correct. Backend system: predicted 8 (400/50), actual 17 - more than twice the prediction. The defect-clustering principle suggests this defect-prone component likely contains more defects.",
+        "d": "Incorrect. Event processing engine: predicted 10 (500/50), actual 8 - below prediction."
+      }
+    },
+    {
+      "id": "45",
+      "section": "main",
+      "lo": "TA-5.3.2",
+      "kLevel": "K2",
+      "points": 1,
+      "stem": "How does defect classification support root cause analysis (RCA)?",
+      "options": [
+        {
+          "letter": "a",
+          "text": "It allows RCA to be carried out early, before static testing and dynamic testing, because RCA may be based on abstract categories of defects rather than on specific individual defects"
+        },
+        {
+          "letter": "b",
+          "text": "It allows RCA to be combined with test techniques because defect classification uses the same software development lifecycle models as test techniques"
+        },
+        {
+          "letter": "c",
+          "text": "It makes RCA more efficient because the analysis focuses not on individual defects but on groups of defects with similar characteristics"
+        },
+        {
+          "letter": "d",
+          "text": "It makes RCA more effective because defect classification allows for a deeper analysis of defects and the discovery of more root causes"
+        }
+      ],
+      "correct": [
+        "c"
+      ],
+      "selectCount": 1,
+      "rationales": {
+        "a": "Incorrect. RCA can only be applied once specific defects or failures are present, so some testing must precede it.",
+        "b": "Incorrect. RCA has nothing inherently in common with test techniques.",
+        "c": "Correct. Because the number of defects is usually very large, classifying them into patterns and performing RCA per pattern (rather than per individual defect) makes RCA more efficient.",
+        "d": "Incorrect. Defect classification raises the analysis to a more general level, so it is unlikely to enable a deeper analysis discovering more root causes."
+      }
+    }
+  ]
+}

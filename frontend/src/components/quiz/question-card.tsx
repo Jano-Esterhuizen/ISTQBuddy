@@ -4,6 +4,7 @@ import { Check, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { QuestionDiagram } from "./question-diagram";
 import type { QuestionDto } from "@/types";
 
 interface QuestionCardProps {
@@ -35,7 +36,9 @@ export function QuestionCard({
   onReattempt,
 }: QuestionCardProps) {
   const isMulti = question.selectCount > 1;
-  const kVariant = question.kLevel === "K1" ? "k1" : question.kLevel === "K2" ? "k2" : "k3";
+  const kVariant = (
+    { K1: "k1", K2: "k2", K3: "k3", K4: "k4" } as const
+  )[question.kLevel];
 
   const correctIds = new Set(question.options.filter((o) => o.isCorrect).map((o) => o.id));
   const isCorrect = revealed && correctIds.size > 0 && setsEqual(selected, correctIds);
@@ -64,6 +67,7 @@ export function QuestionCard({
       <p className="mb-5 whitespace-pre-wrap font-serif text-lg leading-relaxed text-foreground">
         {question.stem}
       </p>
+      {question.diagram && <QuestionDiagram markdown={question.diagram} className="mb-5" />}
       <p className="mb-3.5 text-xs font-bold uppercase tracking-[0.12em] text-brand-navy">
         {isMulti ? `Select ${question.selectCount} options` : "Select one option"}
       </p>

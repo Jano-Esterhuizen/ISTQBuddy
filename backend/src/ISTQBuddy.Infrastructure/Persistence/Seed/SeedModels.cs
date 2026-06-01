@@ -32,6 +32,7 @@ public class SeedQuestion
     public string KLevel { get; set; } = "K1";
     public int Points { get; set; } = 1;
     public string Stem { get; set; } = string.Empty;
+    public string? Diagram { get; set; }                  // optional Markdown/mermaid block
     public int SelectCount { get; set; } = 1;
     public List<SeedOption> Options { get; set; } = new();
     public List<string> Correct { get; set; } = new();    // option letters

@@ -12,6 +12,7 @@ const badgeVariants = cva(
         k1: "bg-brand-green-soft text-brand-green",
         k2: "bg-brand-amber-soft text-brand-amber",
         k3: "bg-brand-red-soft text-brand-red",
+        k4: "bg-brand-navy-soft text-brand-navy",
         green: "bg-brand-green-soft text-brand-green",
         red: "bg-brand-red-soft text-brand-red",
       },

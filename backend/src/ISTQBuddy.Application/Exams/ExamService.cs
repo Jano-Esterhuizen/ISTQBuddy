@@ -69,6 +69,7 @@ public class ExamService(IAppDbContext db, IEntitlementService entitlements) : I
                     KLevel = q.KLevel.ToString(),
                     Points = q.Points,
                     Stem = q.Stem,
+                    Diagram = q.Diagram,
                     SelectCount = q.SelectCount,
                     OrderIndex = q.OrderIndex,
                     Options = q.Options

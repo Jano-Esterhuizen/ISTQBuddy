@@ -59,9 +59,10 @@ export interface QuestionDto {
   externalId: string;
   section: string;
   learningObjective: string;
-  kLevel: "K1" | "K2" | "K3";
+  kLevel: "K1" | "K2" | "K3" | "K4";
   points: number;
   stem: string;
+  diagram?: string | null;
   selectCount: number;
   orderIndex: number;
   options: OptionDto[];
@@ -98,9 +99,10 @@ export interface ResultQuestionDto {
   externalId: string;
   section: string;
   learningObjective: string;
-  kLevel: "K1" | "K2" | "K3";
+  kLevel: "K1" | "K2" | "K3" | "K4";
   points: number;
   stem: string;
+  diagram?: string | null;
   selectCount: number;
   isCorrect: boolean;
   pointsAwarded: number;

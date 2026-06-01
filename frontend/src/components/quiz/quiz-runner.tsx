@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { toast } from "sonner";
 import { AxiosError } from "axios";
-import { ArrowLeft, BookOpen, GraduationCap } from "lucide-react";
+import { ArrowLeft, BookOpen } from "lucide-react";
 import { getExam, startAttempt, submitAttempt } from "@/lib/api";
 import type { AttemptResultDto, ExamDetailDto, QuestionDto } from "@/types";
 import { cn } from "@/lib/utils";
@@ -13,24 +13,27 @@ import { Card, CardContent } from "@/components/ui/card";
 import { QuestionCard } from "./question-card";
 
 type Phase = "loading" | "intro" | "running" | "locked" | "error";
-type Mode = "study" | "exam";
-type SectionFilter = "all" | "main" | "additional";
-type KFilter = "all" | "K1" | "K2" | "K3";
+type KFilter = "all" | "K1" | "K2" | "K3" | "K4";
 
 function setsEqual(a: Set<string>, b: Set<string>) {
   return a.size === b.size && [...a].every((x) => b.has(x));
 }
 
+/** Chapter number from a learning objective, e.g. "TA-1.3.6" or "FL-2.1.1" -> "1" / "2". */
+function chapterOf(lo: string): string | null {
+  const m = lo.match(/-(\d+)\./) ?? lo.match(/-(\d+)$/);
+  return m ? m[1] : null;
+}
+
 export function QuizRunner({ examId }: { examId: string }) {
   const [phase, setPhase] = useState<Phase>("loading");
   const [exam, setExam] = useState<ExamDetailDto | null>(null);
-  const [mode, setMode] = useState<Mode>("study");
   const [attemptId, setAttemptId] = useState<string | null>(null);
 
   const [order, setOrder] = useState<string[]>([]);
   const [selections, setSelections] = useState<Record<string, Set<string>>>({});
   const [revealed, setRevealed] = useState<Set<string>>(new Set());
-  const [sectionFilter, setSectionFilter] = useState<SectionFilter>("all");
+  const [chapterFilter, setChapterFilter] = useState<string>("all");
   const [kFilter, setKFilter] = useState<KFilter>("all");
 
   const [finished, setFinished] = useState(false);
@@ -54,22 +57,29 @@ export function QuizRunner({ examId }: { examId: string }) {
     return map;
   }, [exam]);
 
+  // Chapters present in this exam, sorted, with question counts.
+  const chapters = useMemo(() => {
+    const counts = new Map<string, number>();
+    exam?.questions.forEach((q) => {
+      const c = chapterOf(q.learningObjective);
+      if (c) counts.set(c, (counts.get(c) ?? 0) + 1);
+    });
+    return [...counts.entries()]
+      .sort((a, b) => Number(a[0]) - Number(b[0]))
+      .map(([value, count]) => ({ value, count }));
+  }, [exam]);
+
   const visible = useMemo(
     () =>
       order
         .map((id) => questionsById.get(id))
         .filter((q): q is QuestionDto => !!q)
-        .filter((q) => sectionFilter === "all" || q.section === sectionFilter)
+        .filter((q) => chapterFilter === "all" || chapterOf(q.learningObjective) === chapterFilter)
         .filter((q) => kFilter === "all" || q.kLevel === kFilter),
-    [order, questionsById, sectionFilter, kFilter],
+    [order, questionsById, chapterFilter, kFilter],
   );
 
-  const counts = useMemo(() => {
-    const main = exam?.questions.filter((q) => q.section === "main").length ?? 0;
-    const additional = exam?.questions.filter((q) => q.section === "additional").length ?? 0;
-    return { total: exam?.questions.length ?? 0, main, additional };
-  }, [exam]);
-
+  const total = exam?.questions.length ?? 0;
   const answeredCount = visible.filter((q) => (selections[q.id]?.size ?? 0) > 0).length;
   const correctCount = visible.filter((q) => {
     if (!revealed.has(q.id)) return false;
@@ -96,20 +106,19 @@ export function QuizRunner({ examId }: { examId: string }) {
     });
   }
 
-  async function begin(selectedMode: Mode) {
+  async function start() {
     try {
-      // Study mode needs the answers in the payload for instant feedback.
-      const detail = selectedMode === "study" ? await getExam(examId, true) : exam!;
+      // Fetch the answers so each question can give instant feedback, and open an attempt.
+      const detail = await getExam(examId, true);
       const attempt = await startAttempt(examId);
       setExam(detail);
       setOrder(detail.questions.map((q) => q.id));
-      setMode(selectedMode);
       setAttemptId(attempt.attemptId);
       setPhase("running");
     } catch (err) {
       const status = (err as AxiosError).response?.status;
       if (status === 403) setPhase("locked");
-      else toast.error("Could not start the exam.");
+      else toast.error("Could not start practicing.");
     }
   }
 
@@ -141,7 +150,7 @@ export function QuizRunner({ examId }: { examId: string }) {
   function reset() {
     setSelections({});
     setRevealed(new Set());
-    setSectionFilter("all");
+    setChapterFilter("all");
     setKFilter("all");
     setFinished(false);
     setResult(null);
@@ -160,8 +169,7 @@ export function QuizRunner({ examId }: { examId: string }) {
       }));
       const res = await submitAttempt(attemptId, answers);
 
-      // Merge revealed correctness/rationale back into the questions so every card
-      // can show its answer + rationale (needed for exam mode, harmless for study).
+      // Merge correctness/rationale back into the questions so every card shows its answer.
       const optionMeta = new Map(
         res.questions.flatMap((q) => q.options.map((o) => [o.id, o] as const)),
       );
@@ -226,32 +234,25 @@ export function QuizRunner({ examId }: { examId: string }) {
             <ArrowLeft className="h-4 w-4" /> Back to {exam.certificationName}
           </Link>
         </Button>
-        <Masthead exam={exam} counts={counts} />
+        <Masthead exam={exam} />
         <Card>
           <CardContent className="space-y-5 pt-6">
-            <div>
-              <h2 className="font-serif text-xl font-semibold">Choose how you want to practice</h2>
-              <p className="mt-1 text-sm text-muted-foreground">
-                You can reset and switch any time from the dashboard.
-              </p>
+            <div className="flex items-start gap-3">
+              <div className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-navy-soft text-brand-navy">
+                <BookOpen className="h-5 w-5" />
+              </div>
+              <div>
+                <h2 className="font-serif text-xl font-semibold">Practice these {total} questions</h2>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Check each answer as you go and see the rationale immediately. Filter by syllabus
+                  section or K-level, shuffle the order, and finish any time to see your score.
+                </p>
+              </div>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <ModeCard
-                icon={<BookOpen className="h-5 w-5" />}
-                title="Study mode"
-                body="Check each answer as you go and see the rationale immediately."
-                cta="Start studying"
-                onClick={() => begin("study")}
-              />
-              <ModeCard
-                icon={<GraduationCap className="h-5 w-5" />}
-                title="Exam mode"
-                body="Answer everything, then submit to see your score and rationales."
-                cta="Start exam"
-                onClick={() => begin("exam")}
-              />
+            <div className="flex flex-wrap gap-2">
+              <Button onClick={start}>Start practicing</Button>
+              <Button asChild variant="ghost" size="sm"><Link href="/dashboard">Cancel</Link></Button>
             </div>
-            <Button asChild variant="ghost" size="sm"><Link href="/dashboard">Cancel</Link></Button>
           </CardContent>
         </Card>
       </div>
@@ -268,19 +269,18 @@ export function QuizRunner({ examId }: { examId: string }) {
           <ArrowLeft className="h-4 w-4" /> Back to {exam.certificationName}
         </Link>
       </Button>
-      <Masthead exam={exam} counts={counts} mode={mode} />
+      <Masthead exam={exam} />
 
       {/* Controls */}
       <Card>
-        <CardContent className="grid gap-5 pt-6 sm:grid-cols-2">
+        <CardContent className="grid gap-5 pt-6">
           <FilterGroup
             label="Section"
-            value={sectionFilter}
-            onChange={(v) => setSectionFilter(v as SectionFilter)}
+            value={chapterFilter}
+            onChange={setChapterFilter}
             options={[
-              { value: "all", label: `All ${counts.total}` },
-              { value: "main", label: `Main · ${counts.main}` },
-              { value: "additional", label: `Additional · ${counts.additional}` },
+              { value: "all", label: `All ${total}` },
+              ...chapters.map((c) => ({ value: c.value, label: `Section ${c.value} · ${c.count}` })),
             ]}
           />
           <FilterGroup
@@ -292,9 +292,10 @@ export function QuizRunner({ examId }: { examId: string }) {
               { value: "K1", label: "K1" },
               { value: "K2", label: "K2" },
               { value: "K3", label: "K3" },
+              { value: "K4", label: "K4" },
             ]}
           />
-          <div className="flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5 sm:col-span-2">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5">
             <div className="flex items-center gap-3.5 text-xs font-semibold text-muted-foreground">
               <span className="whitespace-nowrap">{answeredCount} / {visible.length} answered</span>
               <div className="h-2 w-28 overflow-hidden rounded-full bg-secondary">
@@ -337,7 +338,7 @@ export function QuizRunner({ examId }: { examId: string }) {
             selected={selections[q.id] ?? new Set()}
             onToggle={(optId) => toggleOption(q, optId)}
             revealed={revealed.has(q.id)}
-            interactive={mode === "study" && !finished}
+            interactive={!finished}
             onCheck={() => checkQuestion(q.id)}
             onReattempt={() => reattempt(q.id)}
           />
@@ -350,7 +351,7 @@ export function QuizRunner({ examId }: { examId: string }) {
           id="summary"
           className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-navy to-brand-navy-deep p-8 text-white shadow-lg md:p-10"
         >
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/60">Examination complete</p>
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/60">Practice complete</p>
           <h2 className="mt-2 font-serif text-4xl font-semibold">Results</h2>
           <div className="mt-5 flex items-baseline gap-2 font-serif">
             <span className="text-6xl font-bold">{result.score}</span>
@@ -370,15 +371,7 @@ export function QuizRunner({ examId }: { examId: string }) {
   );
 }
 
-function Masthead({
-  exam,
-  counts,
-  mode,
-}: {
-  exam: ExamDetailDto;
-  counts: { total: number; main: number; additional: number };
-  mode?: Mode;
-}) {
+function Masthead({ exam }: { exam: ExamDetailDto }) {
   // Emphasize the last word of the title (e.g. "Sample Exam A" -> A in red).
   const words = exam.title.split(" ");
   const last = words.pop();
@@ -390,7 +383,6 @@ function Masthead({
           <span className="h-1.5 w-1.5 rounded-full bg-brand-red" />
           {exam.certificationName}
         </span>
-        {mode && <span>{mode === "study" ? "Study mode" : "Exam mode"}</span>}
       </div>
       <h1 className="font-serif text-4xl font-semibold tracking-tight md:text-5xl">
         {words.join(" ")} <em className="not-italic text-brand-red">{last}</em>
@@ -401,31 +393,6 @@ function Masthead({
         </p>
       )}
     </header>
-  );
-}
-
-function ModeCard({
-  icon,
-  title,
-  body,
-  cta,
-  onClick,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  body: string;
-  cta: string;
-  onClick: () => void;
-}) {
-  return (
-    <div className="flex flex-col rounded-2xl border border-border bg-background p-5">
-      <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-brand-navy-soft text-brand-navy">
-        {icon}
-      </div>
-      <h3 className="font-serif text-lg font-semibold">{title}</h3>
-      <p className="mt-1 flex-1 text-sm text-muted-foreground">{body}</p>
-      <Button className="mt-4 w-full" onClick={onClick}>{cta}</Button>
-    </div>
   );
 }
 

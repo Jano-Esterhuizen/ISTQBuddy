@@ -49,6 +49,7 @@ public class QuestionConfiguration : IEntityTypeConfiguration<Question>
         b.Property(q => q.LearningObjective).HasMaxLength(40).IsRequired();
         b.Property(q => q.KLevel).HasConversion<string>().HasMaxLength(4);
         b.Property(q => q.Stem).IsRequired();
+        b.Property(q => q.Diagram);
 
         b.HasIndex(q => new { q.ExamId, q.OrderIndex });
         b.HasIndex(q => new { q.ExamId, q.ExternalId }).IsUnique();

@@ -7,6 +7,7 @@ import { getAttemptResult } from "@/lib/api";
 import type { AttemptResultDto } from "@/types";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { QuestionDiagram } from "./question-diagram";
 
 export function ResultView({ attemptId }: { attemptId: string }) {
   const [result, setResult] = useState<AttemptResultDto | null>(null);
@@ -59,6 +60,7 @@ export function ResultView({ attemptId }: { attemptId: string }) {
           </header>
 
           <p className="mb-4 whitespace-pre-wrap font-serif text-lg leading-relaxed">{q.stem}</p>
+          {q.diagram && <QuestionDiagram markdown={q.diagram} className="mb-4" />}
 
           <div className="flex flex-col gap-2.5">
             {q.options.map((opt) => (

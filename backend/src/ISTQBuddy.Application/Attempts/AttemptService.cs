@@ -151,6 +151,7 @@ public class AttemptService(
                 KLevel = q.KLevel.ToString(),
                 Points = q.Points,
                 Stem = q.Stem,
+                Diagram = q.Diagram,
                 SelectCount = q.SelectCount,
                 IsCorrect = answer?.IsCorrect ?? false,
                 PointsAwarded = answer?.PointsAwarded ?? 0,

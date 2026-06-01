@@ -106,8 +106,24 @@ static async Task ApplyStartupTasksAsync(WebApplication app)
 
     if (config.GetValue<bool>("Database:ApplyMigrationsOnStartup"))
     {
-        var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-        await db.Database.MigrateAsync();
+        // Migrations are happiest over a session-mode connection (Supabase pooler port 5432),
+        // which supports the advisory lock EF takes. If ConnectionStrings:Migrations is set we
+        // use it for the migrate step; the app itself keeps using Default (transaction pooler).
+        var migrationsConn = config.GetConnectionString("Migrations");
+        if (!string.IsNullOrWhiteSpace(migrationsConn))
+        {
+            var options = new DbContextOptionsBuilder<AppDbContext>()
+                .UseNpgsql(migrationsConn,
+                    npgsql => npgsql.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName))
+                .Options;
+            await using var migrationDb = new AppDbContext(options);
+            await migrationDb.Database.MigrateAsync();
+        }
+        else
+        {
+            var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+            await db.Database.MigrateAsync();
+        }
     }
 
     if (config.GetValue<bool>("Database:SeedOnStartup"))

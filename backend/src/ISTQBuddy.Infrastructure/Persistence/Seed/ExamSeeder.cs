@@ -64,11 +64,12 @@ public class ExamSeeder(AppDbContext db, ILogger<ExamSeeder> logger)
             .Include(e => e.Questions).ThenInclude(q => q.Options)
             .FirstOrDefaultAsync(e => e.Slug == data.Exam.Slug, ct);
 
-        // Already seeded with the expected number of questions → no-op. This keeps normal
-        // restarts cheap (a single SELECT) and avoids a large delete/re-insert on the pooler.
-        if (exam is not null && exam.Questions.Count == data.Questions.Count)
+        // Already seeded AND content unchanged → no-op. Comparing a content signature
+        // (not just the question count) means edits to stems, diagrams, options, or
+        // rationales are picked up on the next startup without manual DB surgery.
+        if (exam is not null && BuildStoredSignature(exam) == BuildSeedSignature(data))
         {
-            logger.LogInformation("Exam '{Title}' already seeded ({Count} questions); skipping.",
+            logger.LogInformation("Exam '{Title}' already up to date ({Count} questions); skipping.",
                 exam.Title, exam.Questions.Count);
             return;
         }
@@ -107,6 +108,7 @@ public class ExamSeeder(AppDbContext db, ILogger<ExamSeeder> logger)
                 KLevel = Enum.TryParse<KLevel>(sq.KLevel, true, out var k) ? k : KLevel.K1,
                 Points = sq.Points,
                 Stem = sq.Stem,
+                Diagram = sq.Diagram,
                 SelectCount = sq.SelectCount,
                 OrderIndex = qOrder++
             };
@@ -134,4 +136,36 @@ public class ExamSeeder(AppDbContext db, ILogger<ExamSeeder> logger)
         logger.LogInformation("Seeded exam '{Title}' ({Count} questions, {Points} pts).",
             exam.Title, exam.QuestionCount, exam.TotalPoints);
     }
+
+    // --- Content signatures: equal strings ⇒ stored content matches the seed file ---
+
+    private const char FieldSep = (char)0x1f;
+    private const char QuestionSep = (char)0x1e;
+    private const char OptionSep = (char)0x1d;
+
+    private static string BuildSeedSignature(SeedFile data)
+    {
+        var correctByQuestion = data.Questions
+            .Select(q => q.Correct.Select(c => c.ToLowerInvariant()).ToHashSet())
+            .ToList();
+
+        return string.Join(QuestionSep, data.Questions.Select((q, i) => string.Join(FieldSep,
+            q.Id, q.KLevel, q.Lo, q.Points.ToString(), q.SelectCount.ToString(),
+            q.Stem, q.Diagram ?? "",
+            string.Join(OptionSep, q.Options.Select(o => string.Join("=",
+                o.Letter,
+                o.Text,
+                correctByQuestion[i].Contains(o.Letter.ToLowerInvariant()) ? "1" : "0",
+                q.Rationales.TryGetValue(o.Letter, out var r) ? r : ""))))));
+    }
+
+    private static string BuildStoredSignature(Domain.Entities.Exam exam) =>
+        string.Join(QuestionSep, exam.Questions.OrderBy(q => q.OrderIndex).Select(q => string.Join(FieldSep,
+            q.ExternalId, q.KLevel.ToString(), q.LearningObjective, q.Points.ToString(), q.SelectCount.ToString(),
+            q.Stem, q.Diagram ?? "",
+            string.Join(OptionSep, q.Options.OrderBy(o => o.OrderIndex).Select(o => string.Join("=",
+                o.Label,
+                o.Text,
+                o.IsCorrect ? "1" : "0",
+                o.Rationale ?? ""))))));
 }

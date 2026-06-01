@@ -2025,9 +2025,804 @@ const CTAL_AT: Syllabus = {
   ],
 };
 
+const CTAL_TA: Syllabus = {
+  version: "CTAL-TA v4.0",
+  chapters: [
+    {
+      id: "ch-1",
+      number: 1,
+      title: "The Tasks of the Test Analyst in the Test Process",
+      sections: [
+        {
+          id: "1-1",
+          number: "1.1",
+          title: "Testing in the Software Development Lifecycle",
+          keyTakeaways: [
+            "The Test Analyst (TA) owns the business-facing testing role — focused on functional suitability plus user-facing non-functional characteristics (usability, adaptability, installability, interoperability), using black-box and experience-based techniques rather than white-box.",
+            "The TA mainly works at system, acceptance, and system integration test levels.",
+            "The chosen SDLC shapes when and how the TA's tasks happen — sequential, incremental, and iterative models each organise the work differently.",
+            "In sequential models the TA's tasks change over time: early test planning support, then analysis, design and implementation in parallel with development, then execution late.",
+            "In incremental/iterative models the TA repeats all activities per increment/iteration, with heavy emphasis on regression as change risk rises.",
+            "Good practice across every SDLC: involve the TA from the initial phases.",
+          ],
+          studyGuide: [
+            {
+              heading: "Before you dive in — the CTAL-TA exam shape",
+              body:
+                "CTAL-TA v4.0 is a major rewrite of the old Test Analyst syllabus, and it is far more practical than Foundation. There are 36 learning objectives — 22 at K2 (Understand), 11 at K3 (Apply), and 3 at K4 (Analyze) — and no K1 recall objectives (though you must still remember keyword definitions). The training time tells you where the weight sits: Chapter 3 (Test Analysis and Test Design) gets 615 of 1215 minutes — more than half the whole syllabus — and it holds almost every K3 'apply a technique' objective. Chapters 1 and 5 are 225 minutes each; Chapter 2 is 90; Chapter 4 is only 60. Translation: spend the bulk of your practice on Chapter 3's techniques (domain, combinatorial, state transition, scenario, decision table, metamorphic), give Chapters 1 and 5 solid attention, and skim Chapters 2 and 4 for understanding.",
+            },
+            {
+              heading: "Who the Test Analyst is",
+              body:
+                "The Foundation syllabus splits testing into a test management role and a testing role. The TA is the person in the testing role responsible for the software's business aspects. The TA focuses more on the customer's business needs than on technical detail, performs mainly functional testing but contributes to user-focused non-functional testing (usability, adaptability, installability, interoperability), uses black-box and experience-based techniques rather than white-box, and improves testing effectiveness through defect prevention. In test-level terms, the TA concentrates on system testing, acceptance testing, and system integration testing.",
+            },
+            {
+              heading: "Sequential development models",
+              body:
+                "Activities run in phases with little overlap, so the TA's tasks change over time. Early on the TA supports test planning. Test analysis begins once the test basis is being produced. Test design and test implementation then run in parallel with software design and implementation. Finally the TA executes the tests and supports test completion in the late phases.",
+            },
+            {
+              heading: "Incremental and iterative development models",
+              body:
+                "Incremental models split the software into manageable increments, each developed and tested independently — so the TA performs the full set of activities (analysis, design, implementation, execution, management support) for every increment, with particular attention to refactoring and assembling regression suites because regression risk is higher. Iterative models are cyclical: repeated prototyping, testing, refining, and deploying. Here the TA's role is dynamic and adaptive, collaborating closely with developers and business representatives, continuously adapting test conditions and test cases, and feeding back process improvements each iteration. The more frequent the iterations, the more critical ongoing regression maintenance becomes. Agile combines iterative and incremental aspects, and a good practice common to every SDLC is that the TA should be involved from the initial phases.",
+            },
+            {
+              heading: "Exam tip",
+              body:
+                "TA-1.1.1 is a K2 'summarise' objective. Expect a scenario that names an SDLC (or describes it) and asks how the TA's involvement differs. Lock in the two contrasts: in sequential models the TA's tasks change over the timeline (plan → analyse → design/implement → execute); in incremental/iterative models the TA repeats the same tasks every cycle with regression front-of-mind.",
+            },
+          ],
+          cheatSheet: [
+            { term: "Test Analyst (TA)", meaning: "Testing role for the software's business aspects" },
+            { term: "TA test levels", meaning: "System, acceptance, system integration testing" },
+            { term: "TA techniques", meaning: "Black-box + experience-based (not white-box)" },
+            { term: "Sequential model", meaning: "Tasks change over time; little phase overlap" },
+            { term: "Incremental model", meaning: "Repeat all tasks per increment; high regression risk" },
+            { term: "Iterative model", meaning: "Cyclical; adapt test conditions/cases each iteration" },
+            { term: "Good practice", meaning: "Involve the TA from the initial SDLC phases" },
+          ],
+          lastUpdated: LAST_UPDATED,
+        },
+        {
+          id: "1-2",
+          number: "1.2",
+          title: "Involvement in Test Activities",
+          keyTakeaways: [
+            "Of the seven test process activities, the TA focuses on four: test analysis, test design, test implementation, and test execution.",
+            "Test analysis: check the test basis for completeness and testability, give early feedback, determine test oracles, and define + prioritise traceable test conditions driven by product risk.",
+            "Test design: decide where high-level vs low-level test cases fit, set clear pass/fail criteria, capture traceability, and define test environment and test data requirements.",
+            "Test implementation: build the testware — organise procedures/scripts into suites, set up preconditions/postconditions/reset steps, prioritise for execution, and verify the environment with a smoke test.",
+            "Test execution: run tests manually (exploratory, procedures, regression, confirmation), analyse anomalies for likely causes, log results, report defects, and evaluate results for new risks and improvements.",
+          ],
+          studyGuide: [
+            {
+              heading: "Test analysis — what to test",
+              body:
+                "During analysis the TA checks the completeness of the test basis (documentation and verbal information alike) and confirms entry criteria: planning is done, scope/objectives/approach are clear, the test basis is defined, and identified product risks are evaluated. The TA evaluates the test basis to find defects and assess testability — often by modelling the system behaviour for the techniques to be applied — providing early feedback to product owners, and determines the test oracles needed. Then the TA defines and prioritises test conditions for each test item: they must address the test objectives, be traceable to the test basis, and reflect product risks. The TA can work in stages, from high-level conditions ('functionality of screen x') to detailed ones ('screen x rejects account numbers one digit too short'), and involves stakeholders in reviewing them.",
+            },
+            {
+              heading: "Test design — how to test",
+              body:
+                "Design describes how testing achieves the objectives, usually via test cases. The TA decides where low-level vs high-level test cases are appropriate (see 1.3.1), always identifying clear pass/fail criteria, and designs cases for new or changed conditions per the quality criteria (1.3.2). For regression, selecting existing high-level cases or adapting low-level ones is usually enough. The TA captures traceability between test basis, conditions, and cases, defines the test environment requirements (1.3.3), and identifies/creates/specifies test data (1.3.5). Exit criteria from planning — plus residual risk and project constraints — tell the TA when enough cases are designed. Design should stay tool- and technology-agnostic, and cases must be understandable to other testers, developers, and auditors.",
+            },
+            {
+              heading: "Test implementation — assembling the testware",
+              body:
+                "The TA provides the testware needed for execution: organising procedures and scripts into suites or flagging cases for automation, identifying constraints and dependencies that influence execution order, and adding steps for preconditions (e.g. loading test data), verifying expected results and postconditions, and resetting afterwards. The TA prioritises procedures/scripts using risk-based criteria, identifies which to run on the current build, updates traceability, and can help the test manager build a test execution schedule. Crucially, the TA verifies the environment is ready — best done by designing and running a smoke test — so it reveals defects, behaves normally otherwise, and replicates production where required.",
+            },
+            {
+              heading: "Test execution — running and evaluating",
+              body:
+                "Execution follows the schedule: run tests, compare actual to expected, analyse anomalies, report defects, log results. The TA executes manually — exploratory testing, test procedures, regression, confirmation — and may run automated scripts, though running/analysing automation is often the TTA's or TAE's job. Anomalies are not always defects in the test object: missing preconditions, bad test data, faulty scripts or environment, or misread specs all cause them. Beyond the basics, the TA evaluates results: recognise defect clusters, re-run failed automated tests manually to rule out false positives, suggest additional tests, identify new risks, and propose improvements to design, implementation, the regression suite, or even the system under test.",
+            },
+            {
+              heading: "Exam tip",
+              body:
+                "TA-1.2.1 through 1.2.4 are all K2 'summarise the tasks' objectives — expect to match a described activity to the right test process step, or to pick which tasks belong to which. The classic trap is confusing analysis (define test conditions = what to test) with design (define test cases = how to test). Also remember verifying the test environment via a smoke test sits in implementation, not execution.",
+            },
+          ],
+          cheatSheet: [
+            { term: "TA's four activities", meaning: "Analysis, design, implementation, execution" },
+            { term: "Test analysis", meaning: "Define/prioritise traceable test conditions; find test oracles" },
+            { term: "Test design", meaning: "Create test cases + pass/fail criteria; define env & data needs" },
+            { term: "Test implementation", meaning: "Build testware, set pre/postconditions, smoke-test the env" },
+            { term: "Test execution", meaning: "Run, compare, analyse anomalies, log, report defects" },
+            { term: "Anomaly ≠ defect", meaning: "May be bad data, env, scripts, or misread spec" },
+            { term: "Smoke test", meaning: "Confirms the test environment is ready for execution" },
+          ],
+          lastUpdated: LAST_UPDATED,
+        },
+        {
+          id: "1-3",
+          number: "1.3",
+          title: "Tasks Related to Work Products",
+          keyTakeaways: [
+            "High-level (abstract/logical) test cases state which conditions are covered without concrete data; low-level (concrete/physical) cases add specific preconditions, inputs, expected results, and postconditions. Many real cases are hybrid.",
+            "Test case quality criteria: correctness, feasibility, necessity, understandability, traceability, consistency, precision, completeness, conciseness.",
+            "Test environment requirements describe items (hardware, software, network, tools, etc.) each with an ID, description, responsibility, period needed, and fidelity to production.",
+            "A test oracle determines expected results. When a cost-effective oracle is unavailable, that's the test oracle problem — solutions include pseudo-oracles, model-based testing, property-based testing, metamorphic testing, and human oracles.",
+            "Test data considerations: similarity to production, confidentiality, purpose, coverage criteria, format, traceability, maintainability, dependencies, availability, and time sensitivity.",
+            "Keyword-driven testing: the TA specifies keywords (action/verification, across domain and test-interface layers) and writes keyword test scripts; implementation is the TTA/TAE/developer's job.",
+            "Testware tools: test management, defect management, test data management, configuration management, requirements management.",
+          ],
+          studyGuide: [
+            {
+              heading: "High-level vs low-level test cases (TA-1.3.1)",
+              body:
+                "A high-level test case (also abstract or logical) describes the circumstances under examination by indicating which test conditions are covered, with no concrete data — e.g. 'order more than one book, with the order price resulting in a discount; expected: discount assigned'. They're ideal for ensuring all conditions are covered. A low-level test case (also concrete or physical) is the detailed refinement: specific preconditions, inputs, expected results, postconditions — e.g. 'order B1 ($10) and B2 ($20), total $30; expected: 10% discount, total $27'. One high-level case can spawn several low-level ones; the transition from conceptual to technical is often deferred to implementation. In practice many cases are hybrid — concrete in some aspects, abstract in others — trading off maintainability against comprehensibility.",
+            },
+            {
+              heading: "Quality criteria for test cases (TA-1.3.2)",
+              body:
+                "Nine criteria: Correctness (accurately verifies its conditions), Feasibility (can actually be executed), Necessity (covers a clear objective, no duplicates, nothing tested that shouldn't be), Understandability (readable by non-authors without explaining the obvious; split complex cases), Traceability (to conditions, requirements, risks), Consistency (uniform language/format/structure — a glossary helps), Precision (one interpretation only; avoid vague words like 'suitable' or 'several'), Completeness (all necessary attributes incl. test data and a clear expected result), and Conciseness (granularity matching the basis — smaller focused cases ease debugging and combine flexibly). Format and detail depend on context and should be agreed within the team.",
+            },
+            {
+              heading: "Test environment & test oracles (TA-1.3.3, TA-1.3.4)",
+              body:
+                "A test that passes/fails in the test environment should give the same result in production. The TA derives environment requirements from test conditions/cases/data, test levels and types, and component availability (which may force test doubles like stubs/drivers). Each environment item gets a unique identifier, description, responsibility, period needed, and fidelity to production. For oracles: an oracle determines expected results in dynamic testing, ideally from the test basis or human knowledge. When no cost-effective oracle exists — due to data complexity, non-determinism (AI), probabilistic behaviour, or vague requirements — that's the test oracle problem. Known solutions: pseudo-oracles (independent systems meeting the same spec), model-based testing, property-based testing, metamorphic testing, and human oracles. Assertions in test or product code implement automated oracles.",
+            },
+            {
+              heading: "Test data requirements (TA-1.3.5)",
+              body:
+                "Key aspects: Similarity with production data (real data lacks variability; synthetic data adds controlled variability; personas help build realistic profiles); Confidentiality (protect sensitive data via pseudonymisation/anonymisation; observe GDPR, HIPAA); Purpose (drives preconditions, expected results, permissions, relations); Coverage criteria (valid and invalid data, including for negative tests); Data format (structured CSV/JSON/XML/DB for API testing); Traceability and Maintainability (separate test logic from test data — avoid hard-coding); Dependencies (dependent data needs setup steps); Availability (service virtualisation simulates missing services); and Time sensitivity / data aging (outdated time-sensitive data can skew behaviour).",
+            },
+            {
+              heading: "Keyword-driven testing & testware tools (TA-1.3.6, TA-1.3.7)",
+              body:
+                "In keyword-driven testing the TA creates test scripts using keywords; the TTA, TAE, or a developer implements them. Keywords are action (interact with the test object/environment/other systems) or verification (assert actual vs expected), and live on at least two abstraction layers: the domain layer (business terminology) and the test-interface layer (lowest level, talks to the object). Keywords can be atomic or composite. Each keyword must contain a verb (+noun) in imperative form, be unique in meaning, documented, domain-reflective, and reusable. Even manual testing benefits from keywords and eases a later move to automation. For managing testware, know the five tool types: test management (repository, traceability matrix, results, reporting), defect management, test data management, configuration management, and requirements management.",
+            },
+            {
+              heading: "Exam tip",
+              body:
+                "TA-1.3.6 is the only K3 in Chapter 1 — be ready to actually specify keywords from a user story/acceptance criteria (e.g. action keyword 'Authenticate Member' with parameter 'member card', verification keyword 'Verify Access') and place them on the right abstraction layer. The rest of 1.3 is K2: memorise the nine test-case quality criteria, the five environment-item attributes (ID, description, responsibility, period, fidelity), and the five named test-oracle solutions.",
+            },
+          ],
+          cheatSheet: [
+            { term: "High-level test case", meaning: "Abstract/logical — covers conditions, no concrete data" },
+            { term: "Low-level test case", meaning: "Concrete/physical — specific inputs & expected results" },
+            { term: "9 quality criteria", meaning: "Correct, Feasible, Necessary, Understandable, Traceable, Consistent, Precise, Complete, Concise" },
+            { term: "Env item attributes", meaning: "ID, description, responsibility, period needed, fidelity" },
+            { term: "Test oracle problem", meaning: "No cost-effective way to know the expected result" },
+            { term: "Oracle solutions", meaning: "Pseudo-oracle, MBT, property-based, metamorphic, human" },
+            { term: "Keyword types", meaning: "Action (interact) + verification (assert)" },
+            { term: "Keyword layers", meaning: "Domain layer + test-interface layer" },
+          ],
+          lastUpdated: LAST_UPDATED,
+        },
+      ],
+    },
+    {
+      id: "ch-2",
+      number: 2,
+      title: "The Tasks of the Test Analyst in Risk-Based Testing",
+      sections: [
+        {
+          id: "2-1",
+          number: "2.1",
+          title: "Risk Analysis",
+          keyTakeaways: [
+            "Risk-based testing prioritises test effort by risk level. The test manager sets the approach; the TA plays an active role implementing it.",
+            "Risk analysis = risk identification + risk assessment. Because risks change, risk-based testing also needs regular risk monitoring.",
+            "In risk identification the TA contributes experience and knowledge to retrospectives, risk workshops, brainstorming, checklists, and stakeholder interviews.",
+            "In risk assessment the TA helps estimate risk level from factors like frequency/criticality of features, business-objective criticality, financial/environmental/reputational damage, test-basis quality, and legal/safety needs.",
+            "The TA categorises product risks by impacted quality characteristic (e.g. ISO/IEC 25010), breaks the test object into test items, and proposes test activities to mitigate each risk — favouring the earliest mitigation (shift left).",
+          ],
+          studyGuide: [
+            {
+              heading: "Why the TA matters in risk analysis",
+              body:
+                "Risk-based testing is a test approach that prioritises test effort based on the risk levels of test items. The test manager determines the approach, but the TA actively implements it. The TA often has unique knowledge of the system plus an intuitive sense of what usually goes wrong, what impact it has, and how testing mitigates it — which makes the TA a valuable stakeholder in product risk analysis. Risk-based testing comprises risk analysis and risk control, and because risks and risk levels change over time it also requires regular risk monitoring (per iteration in iterative lifecycles, or as set by the risk owner otherwise). The TA contributes by updating the risk register and adjusting mitigation actions.",
+            },
+            {
+              heading: "Risk identification",
+              body:
+                "Risk analysis splits into identification and assessment. In identification the TA brings their own experience and knowledge to retrospectives, risk workshops, brainstorming sessions, and the creation of checklists. The TA can also interview stakeholders to understand which risks they consider most significant from their perspective.",
+            },
+            {
+              heading: "Risk assessment",
+              body:
+                "During assessment the TA, with other stakeholders, helps determine the risk level by estimating factors such as: frequency of use and criticality of the affected features; criticality of affected business objectives; financial, environmental, and reputational damage; quality of the test basis; and legal or safety needs. The TA helps categorise product risks by the quality characteristics impacted (e.g. using the ISO/IEC 25010 product quality model). Because risk is rarely uniform across the test object, the TA breaks it into test items (components, interfaces, features) and assesses each separately. Finally the TA proposes suitable mitigating test activities — static and dynamic — indicating the required test levels, types, techniques, independence, and thoroughness, and in the spirit of shift left points to the activities that mitigate each risk earliest to minimise effort.",
+            },
+            {
+              heading: "Exam tip",
+              body:
+                "TA-2.1.1 is K2 'summarise the TA's contribution'. Expect to identify which risk-analysis activities the TA participates in and which factors feed the risk level. Remember the structure: risk analysis = identification + assessment, and risk-based testing as a whole = analysis + control + (ongoing) monitoring. 'Shift left' here means proposing the earliest possible mitigation.",
+            },
+          ],
+          cheatSheet: [
+            { term: "Risk-based testing", meaning: "Prioritise test effort by risk level" },
+            { term: "Risk analysis", meaning: "Risk identification + risk assessment" },
+            { term: "Risk identification", meaning: "Retrospectives, workshops, brainstorming, checklists, interviews" },
+            { term: "Risk level factors", meaning: "Use frequency, business criticality, damage, basis quality, legal/safety" },
+            { term: "Test item", meaning: "Component, interface, or feature risk is assessed against" },
+            { term: "Shift left", meaning: "Mitigate each risk as early as possible" },
+          ],
+          lastUpdated: LAST_UPDATED,
+        },
+        {
+          id: "2-2",
+          number: "2.2",
+          title: "Risk Control",
+          keyTakeaways: [
+            "Risk control = risk mitigation + risk monitoring. The TA contributes to mitigation via reviews, appropriate techniques/coverage, appropriate test types, and regression testing.",
+            "Regression testing builds confidence after a change, but you usually can't run everything — so you must select regression tests by criteria, reviewing the scope every cycle.",
+            "For automated tests, impact analysis (tool-supported, via configuration management) is the most reliable selection technique — it picks tests that touch changed configuration items.",
+            "For manual tests there's no clearly superior technique. Common ones: risk-based selection, history-based testing, coverage-based testing, requirement traceability matrix, operational-profile testing, and impact analysis.",
+            "Usually combine techniques, balancing coverage against a manageable suite size, and use test-result analysis to keep the effective techniques and drop the rest.",
+          ],
+          studyGuide: [
+            {
+              heading: "What risk control covers",
+              body:
+                "Risk control consists of risk mitigation and risk monitoring. Because the TA understands the system's functionality and its risks, the TA is crucial to several mitigation actions: performing reviews (Section 5.2.2), applying appropriate test techniques and coverage levels (Section 3.5), applying appropriate test types (Chapter 4), and performing regression testing (the focus of this section).",
+            },
+            {
+              heading: "The regression-testing problem",
+              body:
+                "Regression testing's main objective is confidence in quality after a change. But constraints (time, budget, environment, data) usually make it impossible to run every regression test — a concern for manual tests and also for automated tests when cycles are short and suites are long. So you must select appropriate regression tests by specific criteria, and review the scope every test cycle; the review may conclude the suite needs adjusting.",
+            },
+            {
+              heading: "Selecting automated regression tests — impact analysis",
+              body:
+                "For automated tests the most reliable selection technique is impact analysis, which tools can support via an automated configuration management system. The tools register which configuration items each test case activates; when a change occurs they track which items changed and select the regression tests that interact with them. This focuses testing on the areas most likely to reveal failures after a change.",
+            },
+            {
+              heading: "Selecting manual regression tests",
+              body:
+                "For manual execution no technique is clearly superior, so the TA chooses by situation. Common techniques: Risk-based test selection (keep the suite traceable to the risk register; adjust to cover the highest risks when it updates); History-based testing (re-run tests that previously exposed defects or were sensitive to similar changes, plus some long-dormant tests); Coverage-based testing (pick a small set maximising coverage, balancing coverage gain per test); Requirement traceability matrix (assess how requirement changes impact tests, covering directly affected and related features — in Agile, the acceptance criteria of changed user stories); Testing based on operational profiles (select by patterns of use; prioritise critical, frequent flows); and Impact analysis (also usable manually if the TA knows which tests touch the changed items). Usually you combine techniques, balance coverage with suite size, and after each cycle analyse results to retain effective techniques and replace ineffective ones — continuously improving selection.",
+            },
+            {
+              heading: "Exam tip",
+              body:
+                "TA-2.2.1 is one of only three K4 'analyse' objectives — phrased 'analyse the impact of changes to determine the scope of regression testing'. Expect a change scenario where you must reason about which tests to select and why. Anchor on the rule of thumb: impact analysis is the most reliable for automated tests; for manual tests, match the technique to the situation and combine several. Don't pick 'run the entire suite' — the whole point is constrained selection.",
+            },
+          ],
+          cheatSheet: [
+            { term: "Risk control", meaning: "Risk mitigation + risk monitoring" },
+            { term: "Regression goal", meaning: "Confidence in quality after a change" },
+            { term: "Impact analysis", meaning: "Most reliable for selecting automated regression tests" },
+            { term: "Risk-based selection", meaning: "Trace suite to risk register; cover highest risks" },
+            { term: "History-based", meaning: "Re-run tests that found defects before" },
+            { term: "Operational profiles", meaning: "Select tests by real patterns of use" },
+            { term: "Combine + review", meaning: "Mix techniques; review scope every cycle" },
+          ],
+          lastUpdated: LAST_UPDATED,
+        },
+      ],
+    },
+    {
+      id: "ch-3",
+      number: 3,
+      title: "Test Analysis and Test Design",
+      sections: [
+        {
+          id: "3-1",
+          number: "3.1",
+          title: "Data-Based Test Techniques",
+          keyTakeaways: [
+            "Black-box techniques split into three families by what the underlying model represents: data-based, behavior-based, rule-based. Data-based techniques verify the implementation handles specific domain areas correctly.",
+            "Three data-based techniques beyond CTFL's EP and BVA: domain testing, combinatorial testing, random testing.",
+            "Domain testing extends EP/BVA to multi-parameter, complex partitions using ON, OFF, IN, OUT points. Coverage: simplified domain coverage vs the stronger reliable domain coverage.",
+            "Combinatorial testing reveals interaction failures. Coverage criteria: base choice coverage and pairwise coverage. ~97% of failures involve only one or two interacting conditions.",
+            "Random testing selects inputs by a probability distribution (operational profiles for validation; usage-agnostic for verification), usually needs an automated oracle, has no recognised coverage criteria, and can be guided or unguided.",
+          ],
+          studyGuide: [
+            {
+              heading: "Domain testing — ON, OFF, IN, OUT points",
+              body:
+                "Domain testing verifies behaviour on the domain's equivalence partitions and at their borders, where partitions are defined by atomic conditions combined with Boolean operators across one or more interacting variables. Closed borders use ≤, ≥, = (the boundary value belongs to the partition); open borders use <, >, ≠. The four point types: an ON point lies on a closed border (or just inside, for an open border); an OFF point lies just outside a closed border (or on an open border); an IN point is inside the partition and not an ON point; an OUT point is outside and not an OFF point. Simplified domain coverage requires one ON + one OFF per inequality border (special handling for = and ≠). Reliable domain coverage adds an IN and an OUT point per inequality border — slightly more coverage items, but it detects considerably more domain defects.",
+            },
+            {
+              heading: "Combinatorial testing — base choice & pairwise",
+              body:
+                "Some failures arise only from specific combinations of parameter values (interaction failures); combinatorial testing explores those combinations. Two approaches: combine configuration parameters (one test case each) or combine input data values (becoming part of complete test cases). Base choice coverage picks a base value per parameter, forms a base coverage item, then varies one parameter at a time through its non-base values. Pairwise coverage exercises every pair of parameter-value pairs across any two parameters — tools generate these, though finding a minimal set is hard. For parameters with many values, apply EP first to reduce the count (classification trees or feature models help). The key insight: most failures are triggered by one or two interacting parameters — empirically ~97% — which is why pairwise testing is effective.",
+            },
+            {
+              heading: "Random testing",
+              body:
+                "Random testing selects inputs randomly from the domain by a specified probability distribution: operational-profile-based for validation, usage-agnostic for verification (to avoid bias). It most often needs an automated oracle. It can be unguided (fixed distribution) or guided (e.g. adaptive random testing, which adjusts the distribution over time to cover the domain better). It has no recognised coverage criteria, so exit criteria rely on number of tests, time, or similar. It's valuable when domain knowledge is limited or large volumes of data are needed, is cost-effective, gives probabilistic reliability insight, and avoids human bias — but it neglects data semantics, can miss meaning-related defects, generate redundant tests, and depend on an automated oracle. It's used in fuzz testing and chaos engineering, and recent studies show it can outperform other data-based techniques under the right conditions.",
+            },
+            {
+              heading: "Exam tip",
+              body:
+                "Both domain testing (TA-3.1.1) and combinatorial testing (TA-3.1.2) are K3 — you must apply them. Practise deriving ON/OFF/IN/OUT points for a given inequality and counting coverage items for simplified vs reliable domain coverage; and practise building base-choice and pairwise sets from a parameter table. Random testing (TA-3.1.3) is only K2 — know its benefits and limitations and that it lacks coverage criteria, rather than applying it.",
+            },
+          ],
+          cheatSheet: [
+            { term: "Closed border", meaning: "≤, ≥, = — boundary value is inside the partition" },
+            { term: "Open border", meaning: "<, >, ≠ — boundary value is outside the partition" },
+            { term: "ON / OFF points", meaning: "On the border / just across it" },
+            { term: "IN / OUT points", meaning: "Inside (not ON) / outside (not OFF)" },
+            { term: "Reliable domain cov.", meaning: "Adds IN+OUT per border — more defects than simplified" },
+            { term: "Base choice coverage", meaning: "Base item, then vary one parameter at a time" },
+            { term: "Pairwise coverage", meaning: "Every value-pair for any two parameters" },
+            { term: "Random testing", meaning: "Distribution-driven inputs; usually needs an automated oracle" },
+          ],
+          lastUpdated: LAST_UPDATED,
+        },
+        {
+          id: "3-2",
+          number: "3.2",
+          title: "Behavior-Based Test Techniques",
+          keyTakeaways: [
+            "Behavior-based techniques derive test cases from specifications of dynamic (state-dependent) behavior. This syllabus covers CRUD, state transition, and scenario-based testing.",
+            "CRUD testing verifies data-entity lifecycles (Create, Read, Update, Delete) via a CRUD matrix. Completeness testing (static) checks every operation exists per entity; consistency testing (dynamic) checks functions handle entities correctly, including negative tests.",
+            "State transition testing adds two stronger criteria beyond CTFL: N-switch coverage (sequences of N+1 transitions; 0-switch = valid transitions) and round-trip coverage (loops where start = end state).",
+            "Scenario-based testing evaluates behavior in realistic workflows using activity diagrams or use cases. Use cases have a main scenario, extensions, and exceptions.",
+            "When a scenario model has loops, apply simple loop coverage: zero, one, more-than-one, and maximum iterations.",
+          ],
+          studyGuide: [
+            {
+              heading: "CRUD testing",
+              body:
+                "CRUD testing verifies the lifecycle of data entities through the four basic operations. The CRUD matrix has entities as columns and functions as rows, marked C/R/U/D where a function performs that operation on an entity — give special attention to the read operation, which is often implicitly tied to C-U-D. It has two parts: completeness testing (static — verify every operation occurs for every entity; a missing operation is an anomaly to investigate) and consistency testing (dynamic — verify functions interact correctly when handling an entity, covering all matrix operations plus negative tests like reading a not-yet-created entity, designing cases per entity to cover its whole lifecycle). CRUD coverage = operations executed / total operations in the matrix; it's used mainly at system level to catch data-integrity, access-control, and consistency defects.",
+            },
+            {
+              heading: "State transition testing",
+              body:
+                "Stateful systems react to events based on current state. In state-based models, nodes are states and edges are transitions triggered by events, possibly with guards and actions. Beyond CTFL's criteria, two stronger ones with proven defect-detection effectiveness: N-switch coverage applies to valid sequences of N+1 consecutive transitions (a 0-switch equals valid transitions coverage; a 1-switch is an incoming+outgoing transition pair at a state). 0- and 1-switch are common in practice; 100% 2-switch or higher is reserved for high failure risk from unexpected event sequences, because N-switch counts can grow exponentially. Round-trip coverage applies to loops where the start and end states are the same and no other state repeats; the round trips are the coverage items. State transition testing suits model-based testing automation and contributes to defect prevention by surfacing specification defects during modelling.",
+            },
+            {
+              heading: "Scenario-based testing",
+              body:
+                "Scenario-based testing evaluates the test item in realistic scenarios — workflows through the item — modelled with activity diagrams (workflow graphs supporting concurrency: start/end, actions, transitions, decision/merge/fork/join nodes, swim lanes) or use cases. A use case has exactly one main scenario (the 'happy path'), one or more extensions (alternative paths that still reach the goal), and exceptions (paths that fail to reach the goal due to abnormal use or invalid input). The TA designs cases to cover scenarios, often risk-prioritised; with no loops, each scenario can be a separate test case. When loops exist (potentially infinite paths), apply simple loop coverage: zero iterations (skipped), exactly one, more than one (typical), and the maximum if possible. Scenario coverage = executed scenarios / identified scenarios; one scenario may need multiple cases (e.g. adding EP or BVA on its variables). It's common in system/acceptance testing as end-to-end testing.",
+            },
+            {
+              heading: "Exam tip",
+              body:
+                "CRUD (TA-3.2.1) is K2 — explain it and read a CRUD matrix. State transition (TA-3.2.2) and scenario-based (TA-3.2.3) are K3 — apply them. For state transition, practise listing 0-switch and 1-switch sequences and identifying round trips. For scenarios, practise deriving test cases from a use case (main + extensions + exceptions) and applying the four simple-loop cases. Don't confuse N-switch numbering: 0-switch = single valid transitions, 1-switch = a pair.",
+            },
+          ],
+          cheatSheet: [
+            { term: "CRUD matrix", meaning: "Entities × functions marked C/R/U/D" },
+            { term: "Completeness testing", meaning: "Static — every operation exists per entity" },
+            { term: "Consistency testing", meaning: "Dynamic — functions handle entities correctly (+ negative)" },
+            { term: "0-switch", meaning: "Valid (single) transition coverage" },
+            { term: "1-switch", meaning: "Pair of incoming + outgoing transitions at a state" },
+            { term: "Round-trip coverage", meaning: "Loops where start = end state, no state repeats" },
+            { term: "Use case scenarios", meaning: "Main (happy path) + extensions + exceptions" },
+            { term: "Simple loop coverage", meaning: "0, 1, >1, and max iterations" },
+          ],
+          lastUpdated: LAST_UPDATED,
+        },
+        {
+          id: "3-3",
+          number: "3.3",
+          title: "Rule-Based Test Techniques",
+          keyTakeaways: [
+            "Rule-based techniques verify stateless behavior specified by rules valid regardless of state (e.g. business rules). Two techniques: decision table testing and metamorphic testing.",
+            "A full decision table has rules = product of condition value counts; it's minimised by merging action-equivalent rules that differ in one condition, using the don't-care operator '–'.",
+            "Review decision tables for consistency, feasibility, completeness, correctness, and (ideally) non-overlap. The checksum procedure detects gaps and overlaps after minimisation.",
+            "Metamorphic testing generates follow-up test cases from a source test case using a metamorphic relation (MR) — a property describing how an input change maps to an expected-result change.",
+            "MT is powerful when there's a test oracle problem (e.g. AI systems), pairs well with random testing, and is preferred for AI-based systems; it has no recognised coverage measures.",
+          ],
+          studyGuide: [
+            {
+              heading: "Decision table testing — minimisation",
+              body:
+                "Build a full decision table (rules = product of each condition's value count) or analyse an existing one. Because rule count grows exponentially, minimise: merge action-equivalent rules that differ in exactly one condition and cover all its values, replacing the differing value with the don't-care operator '–'. Disregard or remove infeasible rules first. The result of systematic minimisation can depend on column order and may not be optimal, so the TA checks for further minimisation. Review the table for consistency (rules on the same condition values are action-equivalent), feasibility (no infeasible rules), completeness (no feasible combination missing), correctness (rules match intended behaviour), and ideally non-overlap (at most one rule per combination).",
+            },
+            {
+              heading: "Decision table — checksum and coverage",
+              body:
+                "The checksum procedure detects gaps and overlaps: for each minimised rule, count the original rules it represents — a rule with no '–' scores 1, and each '–' multiplies the score by that condition's value count. Sum the scores. If the checksum is less than the original's, the minimised table is incomplete; if higher, rules overlap or extra rules exist; if equal, minimisation was likely correct (though equality alone doesn't guarantee equivalence). Decision table coverage = columns exercised / total feasible columns. When implementing a rule, the TA decides how to instantiate '–' (it represents at least two values); for high-risk tables, refrain from minimising and measure coverage on the full table's feasible columns.",
+            },
+            {
+              heading: "Metamorphic testing (MT)",
+              body:
+                "MT generates follow-up test cases from a source test case using a metamorphic relation — a property of the test item describing how a change in inputs is reflected in expected results. The TA combines source and follow-up cases into a test procedure with a joint evaluation: if they satisfy the MR, it passes; otherwise it fails (then debugging finds which case failed). Example — an average function: one MR says any permutation of the numbers gives the same average; another says multiplying every number by x multiplies the result by x. You can combine MRs (permute and multiply). MT shines under a test oracle problem because individual expected results aren't needed — e.g. an AI actuarial model where 'more cigarettes → lower predicted age of death'. It pairs well with random testing to mass-generate cases, applies to functional and non-functional testing, and is preferred for AI-based systems. There are no recognised coverage measures (covering each MR once is insufficient).",
+            },
+            {
+              heading: "Exam tip",
+              body:
+                "Both decision table testing (TA-3.3.1) and metamorphic testing (TA-3.3.2) are K3. For decision tables, practise minimising with '–' and running the checksum to spot gaps/overlaps — and remember that for high-risk tables you should NOT minimise. For MT, practise stating a valid metamorphic relation for a given function and generating follow-up cases; the key idea to internalise is that MT verifies a relation between cases, not an absolute expected value, which is why it survives the oracle problem.",
+            },
+          ],
+          cheatSheet: [
+            { term: "Full decision table", meaning: "Rules = product of condition value counts" },
+            { term: "Don't-care '–'", meaning: "Condition value irrelevant; used to merge rules" },
+            { term: "Table review criteria", meaning: "Consistent, feasible, complete, correct, (non-overlap)" },
+            { term: "Checksum procedure", meaning: "Detects gaps (low) and overlaps (high) after minimising" },
+            { term: "High-risk table", meaning: "Don't minimise — cover full feasible columns" },
+            { term: "Metamorphic relation", meaning: "How an input change maps to an expected-result change" },
+            { term: "MT + oracle problem", meaning: "Verifies a relation, not an absolute result (great for AI)" },
+          ],
+          lastUpdated: LAST_UPDATED,
+        },
+        {
+          id: "3-4",
+          number: "3.4",
+          title: "Experience-Based Testing",
+          keyTakeaways: [
+            "Experience-based testing leverages the TA's expertise. This section covers test charters for session-based testing, checklists, and crowd testing.",
+            "A test charter gives a session its mission (scope + objectives) but does not specify the test suites to run. A popular mission format: 'Explore [target] With [resources] To discover [information]'.",
+            "Charter design is influenced by customer/requirement factors, product factors, and project-management factors; more detail means less tester flexibility.",
+            "Checklists prevent overlooking critical areas and add consistency. Read-do checklists give concrete steps; do-confirm checklists guide the thought process. Items should be questions answerable yes/no/N-A and are never finalised.",
+            "Crowd testing distributes tests to diverse internal/external testers — benefits include diverse environments, flexibility, cost, rapid feedback, real-user perspective, and variability; limitations include unreliable quality, communication, security, and documentation challenges.",
+          ],
+          studyGuide: [
+            {
+              heading: "Test charters for session-based testing",
+              body:
+                "In exploratory testing a test charter provides the mission of a session — its scope, objectives, and information like limitations, timelines, and risks — acting as a roadmap that keeps the TA focused while allowing exploration. Crucially, it does not specify the test suites to be executed. Charter design is shaped by customer and requirement factors (requirements, business use cases, quality requirements, user journey maps), product factors (functional flows, product goals, features, design, interfaces), and project-management factors (time constraints, purpose, estimated effort, business value). A popular lightweight mission format is 'Explore [target] With [resources] To discover [information]'. Charters may also include organisational info, test objectives, test scope, entry criteria, product info, limitations (what the product must never do), the environment, data sources/tools, historical info, and constraints/risks. During the session the TA records logs (questions, observations, ideas, results) in a session sheet. More detail in the charter lowers false-positive reporting but reduces flexibility.",
+            },
+            {
+              heading: "Checklists for experience-based testing",
+              body:
+                "Checklist-based testing is widely used for its adaptability, simplicity, and effectiveness; it ensures coverage of known essential aspects, adds consistency across cycles and testers, and records past experience with failures. To build one: first decide scope, objectives, and format — a read-do checklist gives concrete elements to check (e.g. specific invalid inputs), while a do-confirm checklist guides the thought process (e.g. 'are the search results relevant?'). Next, gather information from experienced professionals, defect libraries/taxonomies, documentation, and risk/scenario analysis; items should be clear, specific, unambiguous, consistent, relevant, maintainable, actionable, measurable, prioritised, and phrased as yes/no/not-applicable questions. Then structure items into logical groups. Use templates/standards where possible. A checklist is never finalised — review and refine it continually, and share it to promote consistency and collaboration.",
+            },
+            {
+              heading: "Crowd testing",
+              body:
+                "Crowd testing distributes tests among a diverse group of internal or external testers in different locations — a cost-effective way to validate usability and cover functional and non-functional characteristics. Benefits: diverse test environments (many devices, browsers, networks), more flexibility (scalable), cost-effectiveness, rapid feedback, real-user perspective (valuable in UAT), and variability (less repeatable but wider coverage). Limitations: unreliable quality (varies by tester skill), communication challenges (time zones, culture, language), security (sharing software externally risks confidentiality), and documentation/reporting challenges (managing many findings, duplicates, false positives). Crowd testing doesn't replace the TA applying test techniques — it complements them by increasing environment coverage.",
+            },
+            {
+              heading: "Exam tip",
+              body:
+                "Test charters (TA-3.4.1) and checklists (TA-3.4.2) are K3 — practise preparing each. For a charter, be able to write a mission in the 'Explore… With… To discover…' format and pick relevant additional information. For checklists, distinguish read-do from do-confirm and phrase items as yes/no/N-A questions. Crowd testing (TA-3.4.3) is K2 — just give examples of its benefits and limitations. A recurring point: the charter does NOT list the test suites to be run.",
+            },
+          ],
+          cheatSheet: [
+            { term: "Test charter", meaning: "Session mission (scope + objectives); not a suite list" },
+            { term: "Mission format", meaning: "Explore [target] With [resources] To discover [information]" },
+            { term: "Session sheet", meaning: "Where the TA logs observations during a session" },
+            { term: "Read-do checklist", meaning: "Concrete steps/elements to check" },
+            { term: "Do-confirm checklist", meaning: "Guides the thought process; exploratory ideas" },
+            { term: "Checklist items", meaning: "Yes/no/N-A questions; never finalised" },
+            { term: "Crowd testing", meaning: "Diverse distributed testers; complements techniques" },
+          ],
+          lastUpdated: LAST_UPDATED,
+        },
+        {
+          id: "3-5",
+          number: "3.5",
+          title: "Applying the Most Appropriate Test Techniques",
+          keyTakeaways: [
+            "Selecting techniques is driven by many factors: test objectives, product risks (each technique targets specific defect types), risk analysis/approach, test basis, known recurring defects, tester knowledge, the SDLC, customer/contract requirements, regulatory requirements, and project constraints.",
+            "Data-based techniques find data/domain/calculation/parameter defects; behavior-based find requirement/communication/processing defects; rule-based find logic and control-flow defects.",
+            "Techniques are often combined (e.g. BVA for guard conditions in state transition testing; domain testing inside scenario-based testing).",
+            "Automating the test design means building a test model and generating testware from it (e.g. an MBT tool generating round-trip cases from a state model).",
+            "Benefits of automating test design include defect prevention, extended capability, comprehensibility, less repetitive work, less maintenance, less defective testware, better collaboration, traceability, and varied output formats — balanced against real risks.",
+          ],
+          studyGuide: [
+            {
+              heading: "Factors that drive technique selection",
+              body:
+                "Effective, efficient testing means choosing the right technique(s). Test objectives specify what to evaluate and depend on system type (e.g. domain testing for engineering calculations vs decision tables for credit-risk rules). Product risks point to techniques that detect the relevant defect types: data-based techniques find defects in data handling, domain implementation, UIs, calculations, and parameter combinations; behavior-based find user-requirement defects like missing features, communication and processing defects; rule-based find logic and control-flow defects. Risk analysis sets the approach — higher risk justifies more rigorous coverage (e.g. all-combinations over pairwise), while experience-based testing suits hard-to-define coverage, low risk, or tight schedules. Further factors: the test basis (model-based specs enable model-based techniques; a hard-to-derive oracle favours metamorphic or experience-based testing), known recurring defect types (favour checklist-based), tester knowledge and experience, the SDLC (sequential → formal techniques; iterative → lightweight or automatable ones), customer/contract requirements, regulatory requirements (e.g. ISO 26262 mandating EP/BVA/error guessing by ASIL), and project constraints like time and budget.",
+            },
+            {
+              heading: "Combining techniques",
+              body:
+                "Techniques are frequently combined to boost defect-detection efficiency and effectiveness. Examples: BVA can be used for guard conditions in state transition testing; domain testing can determine a condition's value within scenario-based testing or a decision table; scenario-based testing can combine with decision coverage (a white-box technique) to rigorously cover business-process decisions, or with round-trip coverage to address cyclical business-process risks.",
+            },
+            {
+              heading: "Automating the test design — benefits",
+              body:
+                "When automating the test design, the TA creates a test model and automatically generates testware from it — e.g. designing a state transition model and letting an MBT tool generate round-trip-coverage cases. Benefits: Defect prevention (modelling evaluates test-basis quality); Extended capability (apply complex techniques/criteria like combinatorial, random, or N-switch coverage); Improved comprehensibility (selection criteria map clearly to test conditions); Less repetitive work (testware is generated); Less maintenance effort (only the model is maintained as the single source of truth); Less defective testware (tool-generated work has higher quality); Enhanced team collaboration (stakeholders review the model); Enhanced traceability (model elements link to conditions, inherited by generated cases); and Various output formats.",
+            },
+            {
+              heading: "Automating the test design — risks",
+              body:
+                "The TA must also weigh the risks: overlooking test conditions not shown in the model, underestimating the model's maintenance effort, stakeholders finding the model hard to understand, and the generic risks of test automation. Automating design supports the test activities but does not remove the need for sound modelling judgement.",
+            },
+            {
+              heading: "Exam tip",
+              body:
+                "TA-3.5.1 is a K4 'select appropriate test techniques to mitigate product risks for a given situation' — expect a rich scenario where you analyse risks, constraints, and basis to justify a technique choice (or combination). TA-3.5.2 is K2 — just explain the benefits and risks of automating the test design. Map defect type → technique family (data/behavior/rule) and remember higher risk → more rigorous coverage.",
+            },
+          ],
+          cheatSheet: [
+            { term: "Data-based finds", meaning: "Data handling, domain, UI, calculation, parameter defects" },
+            { term: "Behavior-based finds", meaning: "Missing features, communication, processing defects" },
+            { term: "Rule-based finds", meaning: "Logic and control-flow defects" },
+            { term: "Higher risk →", meaning: "More rigorous coverage (e.g. all-combinations over pairwise)" },
+            { term: "Combine example", meaning: "BVA for guards in state transition testing" },
+            { term: "Automate test design", meaning: "Build a model; generate testware from it (e.g. MBT)" },
+            { term: "Model = single source", meaning: "Maintain only the model → less maintenance, better traceability" },
+          ],
+          lastUpdated: LAST_UPDATED,
+        },
+      ],
+    },
+    {
+      id: "ch-4",
+      number: 4,
+      title: "Testing Quality Characteristics",
+      sections: [
+        {
+          id: "4-1",
+          number: "4.1",
+          title: "Functional Testing",
+          keyTakeaways: [
+            "Functional testing is a core TA task. ISO/IEC 25010 splits functional suitability into three sub-characteristics: completeness, correctness, appropriateness.",
+            "Functional completeness: is everything that was asked for implemented? Address it early via requirements review / user-story discussion; behavior-based techniques (e.g. scenario-based) fit well.",
+            "Functional correctness: are the actual results correct (accurate, precise, consistent) for valid and invalid inputs? Needs an effective test oracle; testable at any level, ideally shifted left to component level.",
+            "Functional appropriateness: does what's implemented actually fulfil the users' needs/tasks? May include UI design reviews; exploratory and collaboration-based testing fit well.",
+            "Traceability between test basis, conditions, and cases is essential for judging functional completeness.",
+          ],
+          studyGuide: [
+            {
+              heading: "The three sub-characteristics of functional suitability",
+              body:
+                "This chapter uses the ISO/IEC 25010 product quality model as a guide. Functional testing is a core TA task, and although all three sub-characteristics of functional suitability can be assessed by functional testing, not every activity addresses them equally — the TA should select the right test levels and techniques per sub-characteristic.",
+            },
+            {
+              heading: "Completeness, correctness, appropriateness",
+              body:
+                "Functional completeness asks whether everything that was asked for is implemented; address it as early as possible by reviewing the requirements specification (sequential) or discussing user stories and acceptance criteria (Agile), and test it dynamically in system, system integration, and acceptance testing — behavior-based techniques like scenario-based testing fit well, and traceability is essential. Functional correctness asks whether actual results are correct (accurate, precise, consistent) for valid and invalid inputs; it's crucial to find an effective test oracle, it can be tested at any level, and in the spirit of shift left most of it should occur in component and component integration testing — all black-box, experience-based, and collaboration-based testing suit it. Functional appropriateness asks whether everything implemented fulfils the users' needs and tasks; it may include UI design reviews, with exploratory and collaboration-based testing most appropriate, complemented by behavior-based black-box techniques.",
+            },
+            {
+              heading: "Exam tip",
+              body:
+                "TA-4.1.1 is K2 'differentiate between functional correctness, appropriateness, and completeness testing'. Anchor on the three one-line questions: completeness = 'is everything asked for built?', correctness = 'are the results right for valid and invalid inputs?', appropriateness = 'does what's built actually meet the users' needs?'. Chapter 4 is only 60 minutes total — understand these distinctions, don't over-study.",
+            },
+          ],
+          cheatSheet: [
+            { term: "Functional suitability", meaning: "ISO 25010: completeness + correctness + appropriateness" },
+            { term: "Completeness", meaning: "Is everything that was asked for implemented?" },
+            { term: "Correctness", meaning: "Results accurate/precise/consistent (valid + invalid inputs)?" },
+            { term: "Appropriateness", meaning: "Does what's built fulfil the users' needs?" },
+            { term: "Correctness shift-left", meaning: "Most of it in component & component integration testing" },
+            { term: "Completeness fit", meaning: "Behavior-based (scenario-based) + traceability" },
+          ],
+          lastUpdated: LAST_UPDATED,
+        },
+        {
+          id: "4-2",
+          number: "4.2",
+          title: "Usability Testing",
+          keyTakeaways: [
+            "Usability covers interaction capability (ISO/IEC 25010) and beneficialness (ISO 25019). The TA evaluates interaction capability, user experience, and accessibility.",
+            "The TA contributes early using knowledge of target user groups, their goals, context of use, and likely difficulties.",
+            "Three principal usability evaluation techniques: usability reviews (by experts, informal to inspection), usability test sessions (users solving predefined tasks), and user questionnaires/surveys (e.g. SUMI, WAMMI).",
+            "Accessibility testing often verifies compliance with standards — WCAG defines three conformance levels (A, AA, AAA); national standards include the UK Equality Act and the US ADA.",
+            "The TA tailors review criteria, designs session scenarios from personas/profiles, and helps design and evaluate questionnaires.",
+          ],
+          studyGuide: [
+            {
+              heading: "What usability testing evaluates",
+              body:
+                "Usability is a broad concept of user-related quality, covering interaction capability from the ISO/IEC 25010 product quality model and beneficialness from the ISO 25019 quality-in-use model (note the syllabus keeps 'usability' terminology to align with the Usability Testing syllabus). It focuses on three aspects: interaction capability (completing tasks effectively, efficiently, satisfactorily in a context of use), user experience (users' perceptions before, during, and after interaction), and accessibility (users with disabilities, diverse backgrounds, or language barriers can use the system effectively and efficiently). The TA can collaborate early using their knowledge of target user groups, their goals, context of use, and potential difficulties or negative experiences.",
+            },
+            {
+              heading: "The three usability evaluation techniques",
+              body:
+                "Usability reviews are done by usability experts to find problems and deviations from criteria, ranging from informal reviews to inspections; the TA can tailor the review criteria (e.g. a generic usability checklist) to user-group needs, business priorities, and context of use. Usability test sessions have future users (or representatives) solving predefined tasks to evaluate effectiveness, efficiency, and satisfaction; the TA can design session scenarios per personas, user groups, or operational profiles. User questionnaires/surveys (e.g. SUMI, WAMMI) measure satisfaction via rating and feedback; the TA can help design the questionnaire and evaluate responses against the targeted users' goals and context.",
+            },
+            {
+              heading: "Accessibility testing",
+              body:
+                "A common accessibility objective is verifying compliance with standards. The international Web Content Accessibility Guidelines (WCAG) define three conformance levels — A, AA, AAA — of increasing accessibility. National standards include the UK's Equality Act and the US's Americans with Disabilities Act. The TA identifies the required compliance level and the intended target group's specific needs by analysing the context of use.",
+            },
+            {
+              heading: "Exam tip",
+              body:
+                "TA-4.2.1 is K2 'explain how the TA contributes to usability testing'. Memorise the three evaluation techniques (reviews, test sessions, questionnaires) and the three focus aspects (interaction capability, user experience, accessibility). Know WCAG's three levels (A/AA/AAA) and that SUMI/WAMMI are questionnaire examples. The TA contributes mainly by tailoring criteria, designing scenarios from personas, and helping with questionnaires.",
+            },
+          ],
+          cheatSheet: [
+            { term: "Usability scope", meaning: "Interaction capability, user experience, accessibility" },
+            { term: "Usability reviews", meaning: "Experts; informal → inspection; tailor the criteria" },
+            { term: "Usability test sessions", meaning: "Users solve predefined tasks (effective/efficient/satisfying)" },
+            { term: "Questionnaires", meaning: "Measure satisfaction — e.g. SUMI, WAMMI" },
+            { term: "WCAG levels", meaning: "A, AA, AAA (increasing accessibility)" },
+            { term: "National a11y laws", meaning: "UK Equality Act, US ADA" },
+          ],
+          lastUpdated: LAST_UPDATED,
+        },
+        {
+          id: "4-3",
+          number: "4.3",
+          title: "Flexibility Testing",
+          keyTakeaways: [
+            "Flexibility testing (formerly portability) verifies the test object can adapt to changes in context of use or environment. ISO/IEC 25010 sub-characteristics: adaptability, scalability, installability, replaceability.",
+            "The TA focuses on adaptability and installability; scalability and replaceability are technical (TTA/PT syllabi).",
+            "Adaptability testing verifies the object can be adapted/transferred to intended target hardware, software, or environments — combinatorial testing helps cover environment configurations.",
+            "Installability testing verifies the object installs, uninstalls, updates, and reconfigures correctly — beyond just running the installer to completion.",
+            "Good adaptability practice: define target environments early, use combinatorial testing, smoke-test new environments, and monitor environment-specific defects.",
+          ],
+          studyGuide: [
+            {
+              heading: "Adaptability testing",
+              body:
+                "Flexibility testing (a.k.a. portability testing) verifies the test object can be adapted to changes in its contexts of use or system environment, with ISO/IEC 25010 distinguishing adaptability, scalability, installability, and replaceability. The TA focuses on the two with non-technical aspects — adaptability and installability — while scalability and replaceability (technical) sit in the Performance Testing and Technical Test Analyst syllabi. Adaptability testing verifies the object can be adapted for or transferred to intended target hardware, software, or environments. The TA identifies the target environments (e.g. supported mobile OS versions and browser versions) and designs tests covering combinations — so combinatorial testing is often applied — and, depending on risk, designs smoke tests or a fuller suite to confirm correct adaptation. Good practices (define targets early, use combinatorial testing, smoke-test new environments, monitor environment-specific defects, support with automated cross-platform testing) catch defects that limit the software's lifespan and usability and lower maintenance cost.",
+            },
+            {
+              heading: "Installability testing",
+              body:
+                "Installability testing verifies the object can be installed, uninstalled, updated, and reconfigured correctly in specified environments — it goes beyond merely checking the installer runs to completion. Typical TA objectives: verify installation procedures run correctly under various environment parameter configurations (again, combinatorial testing helps); design and execute tests to confirm the object works properly after install or update; check how easy it is for users to install, uninstall, or update (including reviewing the installation documentation); and test permissions-related behaviour, particularly for mobile applications.",
+            },
+            {
+              heading: "Exam tip",
+              body:
+                "TA-4.3.1 is K2 'explain how the TA contributes to adaptability and installability testing'. Two things to lock in: the four flexibility sub-characteristics (adaptability, scalability, installability, replaceability) and which two the TA owns (adaptability + installability). Combinatorial testing is the recurring technique for both because both involve many environment configurations. Installability is more than 'the installer finished'.",
+            },
+          ],
+          cheatSheet: [
+            { term: "Flexibility", meaning: "Formerly portability; adapt to context/environment changes" },
+            { term: "Sub-characteristics", meaning: "Adaptability, scalability, installability, replaceability" },
+            { term: "TA owns", meaning: "Adaptability + installability (others are technical)" },
+            { term: "Adaptability testing", meaning: "Adapt/transfer to target HW/SW/environments" },
+            { term: "Installability testing", meaning: "Install, uninstall, update, reconfigure correctly" },
+            { term: "Key technique", meaning: "Combinatorial testing (many environment configs)" },
+          ],
+          lastUpdated: LAST_UPDATED,
+        },
+        {
+          id: "4-4",
+          number: "4.4",
+          title: "Compatibility Testing",
+          keyTakeaways: [
+            "Compatibility testing verifies a test object is compatible with other components/systems. ISO/IEC 25010 sub-characteristics: interoperability and coexistence.",
+            "The TA is usually responsible for interoperability testing (black-box functional); coexistence is technical (TTA syllabus).",
+            "Interoperability testing verifies two or more components/systems can exchange information and mutually use it — including verifying any data transformation in the exchange.",
+            "It's especially important in modern architectures: cloud, web services, microservices, containerisation, IoT. The TA must understand interactions (often from architecture/design docs) to define proper test conditions.",
+            "It can detect defects in data transformations, interpretation/use of exchanged data, communication flows/protocols, standards compliance, end-to-end functionality, and design documentation.",
+          ],
+          studyGuide: [
+            {
+              heading: "Interoperability vs coexistence",
+              body:
+                "Compatibility testing verifies whether a test object is compatible with other components or systems when used, and ISO/IEC 25010 splits it into interoperability and coexistence. Interoperability testing verifies compatibility with components/systems the object is intended to interact with — these are typically black-box functional tests, so the TA is usually responsible. Coexistence testing verifies the object can share its environment with others without interference — a technical type covered in the Technical Test Analyst syllabus.",
+            },
+            {
+              heading: "Interoperability testing in depth",
+              body:
+                "The goal is to verify that two or more components/systems can exchange information and mutually use the exchanged information; when the exchange involves a data transformation, interoperability testing must verify that transformation. It's particularly important when multiple systems collaborate, share data, or perform tasks together — especially in cloud solutions, web services, microservices, containerisation, and IoT. Interoperability happens at various architectural levels, and not all interactions are documented, so the TA may need to retrieve interaction information from architecture and design documentation to define proper test conditions. It can detect defects in data transformations, interpretation or use of exchanged data, communication flows and protocols, compliance with standards, end-to-end functionality, and design documentation. It's usually applied during integration testing; data-based techniques (for exchanged data), behavior-based techniques (for interpreting/using data), and end-to-end or rule-based techniques (for transformations) all suit it, complemented by experience-based testing — and tests from functional or adaptability testing may be reused.",
+            },
+            {
+              heading: "Exam tip",
+              body:
+                "TA-4.4.1 is K2 'explain how the TA contributes to interoperability testing'. Remember compatibility = interoperability + coexistence, and that the TA owns interoperability (black-box functional) while coexistence is technical (TTA). The defining phrase for interoperability is 'exchange information AND mutually use it' — and if a data transformation is involved, that transformation must be verified too.",
+            },
+          ],
+          cheatSheet: [
+            { term: "Compatibility", meaning: "Interoperability + coexistence (ISO 25010)" },
+            { term: "Interoperability (TA)", meaning: "Black-box functional; the TA is usually responsible" },
+            { term: "Coexistence (TTA)", meaning: "Share environment without interference — technical type" },
+            { term: "Interoperability goal", meaning: "Exchange information AND mutually use it" },
+            { term: "Verify transformation", meaning: "If exchange transforms data, test the transformation" },
+            { term: "Where it's key", meaning: "Cloud, web services, microservices, containers, IoT" },
+          ],
+          lastUpdated: LAST_UPDATED,
+        },
+      ],
+    },
+    {
+      id: "ch-5",
+      number: 5,
+      title: "Software Defect Prevention",
+      sections: [
+        {
+          id: "5-1",
+          number: "5.1",
+          title: "Defect Prevention Practices",
+          keyTakeaways: [
+            "Defect prevention reduces the likelihood of defects (re)occurring and stops them propagating to later SDLC phases. It's a whole-team responsibility the TA contributes to.",
+            "Three practice categories: prevent defect introduction (QA), prevent defects escaping to later phases (Section 5.2), prevent defects recurring (Section 5.3).",
+            "TA contributions: participate in risk analysis, review requirements/models/specs, join retrospectives, collect/evaluate defect data, and participate in root cause analysis.",
+            "The TA also assesses whether prevention measures worked, using metrics like Defect Removal Efficiency (DRE), Phase Containment Effectiveness (PCE), and cost of quality.",
+            "DRE = defects removed before release / total defects; PCE = defects introduced and removed in the same phase / total introduced in that phase.",
+          ],
+          studyGuide: [
+            {
+              heading: "What defect prevention is",
+              body:
+                "The goal of defect prevention is to implement actions that reduce the likelihood of defects (re)occurring in work products and mitigate their propagation to subsequent SDLC phases — yielding reduced cost and labour, increased productivity, and improved quality. It's the whole team's responsibility, and the TA contributes their specific knowledge and experience. Practices fall into three categories: preventing defect introduction (part of QA), preventing defects from escaping to later phases (Section 5.2), and preventing defects from recurring (Section 5.3).",
+            },
+            {
+              heading: "How the TA contributes",
+              body:
+                "The TA contributes using domain knowledge, test expertise, and analytical skills: Participating in risk analysis (ensuring identified risks are properly mitigated, e.g. selecting the most adequate techniques); Reviewing requirements, models, and specifications (early detection prevents defects escaping into code, slashing fix cost); Participating in retrospectives (identifying improvements in analysis, design, implementation, and execution to better prevent escapes); Defect data collection and evaluation (enabling classification and statistical analysis to support root cause analysis); and Participating in root cause analysis (proposing corrective actions for identified root causes).",
+            },
+            {
+              heading: "Measuring whether prevention worked",
+              body:
+                "Beyond participating, the TA (usually with the test manager) assesses whether measures achieved the desired effect, using metrics like: Defect Removal Efficiency (DRE) — defects removed before release / total defects; high DRE means fewer escapes, though it doesn't distinguish prevention from detection. Phase Containment Effectiveness (PCE) — defects introduced and removed in the same phase / total introduced in that phase; high PCE means fewer defects escape to later phases. And cost of quality, which illustrates the relationship between prevention, detection, and removal costs.",
+            },
+            {
+              heading: "Exam tip",
+              body:
+                "TA-5.1.1 is K2 'explain how the TA can contribute to defect prevention'. Memorise the five contribution types (risk analysis, reviews, retrospectives, defect data collection, RCA) and the three metrics (DRE, PCE, cost of quality). Know the difference: DRE is about removal before release overall; PCE is about catching defects in the same phase they were introduced.",
+            },
+          ],
+          cheatSheet: [
+            { term: "Defect prevention", meaning: "Reduce (re)occurrence + stop propagation to later phases" },
+            { term: "Three categories", meaning: "Prevent introduction, prevent escaping, prevent recurring" },
+            { term: "TA contributions", meaning: "Risk analysis, reviews, retrospectives, defect data, RCA" },
+            { term: "DRE", meaning: "Defects removed before release / total defects" },
+            { term: "PCE", meaning: "Defects caught in the same phase / total introduced there" },
+            { term: "Cost of quality", meaning: "Relates prevention, detection, and removal costs" },
+          ],
+          lastUpdated: LAST_UPDATED,
+        },
+        {
+          id: "5-2",
+          number: "5.2",
+          title: "Supporting Phase Containment",
+          keyTakeaways: [
+            "Phase containment = detect and remove defects in the same SDLC phase they were introduced; the TA contributes mainly by evaluating test-basis quality. Two options: modelling and reviewing.",
+            "Modelling can support phase containment three ways: detecting defects in specifications, detecting defects in existing models, and detecting defects in test objects via model-based testing.",
+            "Model families and what they expose: data-based (overlapping/empty partitions, coverage gaps, bad parameter combos), behavior-based (broken lifecycles/transitions, deadlocks, loops), rule-based (omissions, inconsistencies, redundancies in business rules).",
+            "Five review techniques the TA uses: ad hoc, checklist-based, scenario-based, role-based, and perspective-based reading.",
+            "Perspective-based reading reviews from various viewpoints and has reviewers attempt to generate the work product they'd derive — often the most effective at reducing duplicate anomalies.",
+          ],
+          studyGuide: [
+            {
+              heading: "Using models to detect defects (TA-5.2.1)",
+              body:
+                "Phase containment means detecting and removing defects in the same phase they were introduced (the Agile 'shift left' equivalent), reducing cost of quality — and since the test basis is a key input to analysis and design, the TA best contributes by evaluating its quality early. Modelling supports this three ways. Detecting defects in specifications: the TA formally models informal text, mapping test conditions to elements; formalisation and visualisation reveal incompleteness, inconsistencies, and ambiguities (and the TA helps find solutions). Data-based models (domain, combinatorial) expose overlapping/empty partitions, coverage gaps, and bad parameter combinations; behavior-based models (CRUD matrices, state-based, scenario) expose incomplete/inconsistent lifecycles, missing/faulty transitions, deadlocks, endless loops, and missing exception handling; rule-based models (decision tables, metamorphic relations) expose omissions, inconsistencies, ambiguities, redundancies, and error-prone scenarios. Detecting defects in existing models: analyse state transition diagrams (missing/wrong states, improper transitions), activity diagrams (unreachable/dead-end actions, bad guards, sync issues), and decision tables (overlapping/infeasible rules, incompleteness). Detecting defects via model-based testing: an MBT tool generates testware from a model and selection criteria, giving comprehensive coverage that surfaces specification anomalies.",
+            },
+            {
+              heading: "Applying review techniques (TA-5.2.2)",
+              body:
+                "Reviewing the test basis catches defects early. The TA selects the most appropriate technique based on goals, objectives, resources, basis type, risk, domain, and culture. Five techniques: Ad hoc reviewing (informal, little guidance, depends heavily on reviewer skill; can produce many duplicate reports). Checklist-based reviewing (evaluate against a predefined checklist that de-personalises the review; tailor it to basis type/risk/condition, update it with previously missed defects, but don't be limited to listed items). Scenario-based reviewing (simulate a process/activity — 'dry runs' — most effective when the basis is scenario-based like a use case or activity diagram; think beyond documented scenarios). Role-based reviewing (assign reviewers specific roles/personas — e.g. experienced/inexperienced user, administrator — so each focuses on specific aspects, ensuring coverage and avoiding duplicate anomalies). Perspective-based reading (review from various viewpoints — designer, tester, marketer, admin, end user — and have reviewers attempt to generate the work product they'd derive from the basis, e.g. a tester drafting acceptance tests from requirements; leads to deep individual review with less duplication).",
+            },
+            {
+              heading: "Exam tip",
+              body:
+                "Both objectives here are K3. TA-5.2.1 'use a model of the test object to detect defects in a specification' — practise modelling a snippet of informal spec (state model, decision table, CRUD matrix) and naming the defects it surfaces. TA-5.2.2 'apply a review technique to a test basis to find defects' — be able to pick and run the right one. Memorise the five review techniques and match them to context (scenario-based for use cases; perspective-based for least duplication; role-based for persona coverage).",
+            },
+          ],
+          cheatSheet: [
+            { term: "Phase containment", meaning: "Catch & fix defects in the phase they were introduced" },
+            { term: "Modelling uses", meaning: "Find defects in specs, in models, and via MBT" },
+            { term: "Ad hoc review", meaning: "Informal, little guidance, reviewer-skill dependent" },
+            { term: "Checklist-based", meaning: "Against a predefined, tailored, updated checklist" },
+            { term: "Scenario-based", meaning: "Dry runs; best for use cases / activity diagrams" },
+            { term: "Role-based", meaning: "Reviewers take roles/personas; less duplication" },
+            { term: "Perspective-based", meaning: "Multiple viewpoints; generate the derived work product" },
+          ],
+          lastUpdated: LAST_UPDATED,
+        },
+        {
+          id: "5-3",
+          number: "5.3",
+          title: "Mitigating the Recurrence of Defects",
+          keyTakeaways: [
+            "Two approaches: analyse test results to improve defect detection, and support root cause analysis (RCA) with defect classification.",
+            "Test-result analysis techniques: predicted-vs-actual defect cluster analysis, defect detection percentage (DDP) analysis, structural coverage analysis, test gap analysis, and defect arrival pattern analysis (e.g. the Rayleigh model).",
+            "Metrics aren't trivially read from results — the relation between test results and defects is many-to-many, and a critical test can fail on a cosmetic defect.",
+            "RCA finds underlying causes (not symptoms) to prevent recurrence, using tools like defect taxonomies, the five whys, cause-effect diagrams, and Pareto analysis.",
+            "Because analysing every defect is inefficient, classify defects then run RCA per type. Methods: ODC, IEEE 1044, severity-based, defect taxonomies — uniformly applied across the SDLC.",
+          ],
+          studyGuide: [
+            {
+              heading: "Analysing test results to improve detection (TA-5.3.1)",
+              body:
+                "Test results identify failures but also feed back to improve detection effectiveness. Predicted-vs-actual defect cluster analysis: a few components hold most defects, so after testing compare predicted and actual clusters and test the surprises more rigorously — using measurable criteria (defect density, severity), with severity weighted heavily (small clusters of critical defects beat large clusters of cosmetic ones). Defect detection percentage (DDP) analysis: one of the most important effectiveness measures per test level; count only escaped defects the level could have detected, set clear boundaries (temporal limits, exclusions), and treat a low DDP as ineffective detection to investigate — best split by severity. Structural coverage analysis: identify low-coverage areas (statement, branch, neuron) and target them, weighing risk. Test gap analysis: focus effort on recently changed but untested code rather than all low-coverage areas. Defect arrival pattern analysis: compare defect density over phases against theoretical distributions like the Rayleigh model (single peak, right-skewed) to infer test-case strength. Caution: metrics aren't trivially read — failed tests ≠ defects (the relation is many-to-many), and a critical test can fail on a cosmetic defect.",
+            },
+            {
+              heading: "Supporting RCA with defect classification (TA-5.3.2)",
+              body:
+                "Root cause analysis identifies and addresses the underlying causes of a defect rather than its symptoms, to prevent recurrence — using techniques like defect taxonomies, the five whys, cause-effect diagrams, and Pareto analysis. Because analysing every defect in detail is inefficient, classify defects first, then run RCA per defect type. Defect classification recognises that each defect carries information about the development process and the system; classifying turns it into a process measurement that reveals the kinds of errors made, bridging quantitative defect statistics and qualitative RCA. To support RCA effectively, classify defects uniformly across the whole SDLC, from early testing to production. Classification methods include: Orthogonal Defect Classification (ODC, mutually exclusive attributes captured at report and fix time); IEEE 1044 (standard classification for software anomalies); severity-based classification (critical/major/minor/trivial); and defect taxonomy models. Defects can also be mapped to quality attributes via models like ISO/IEC 25010 or FURPS. The TA should help standardise classification across the organisation.",
+            },
+            {
+              heading: "Exam tip",
+              body:
+                "TA-5.3.1 is K4 'analyse test results to identify potential improvements to defect detection' — expect a scenario with metrics/clusters where you reason about where to add or strengthen tests. TA-5.3.2 is K2 'explain how defect classification supports RCA'. Lock in the five analysis techniques (cluster, DDP, structural coverage, test gap, arrival pattern) and the four classification methods (ODC, IEEE 1044, severity-based, taxonomies). Remember the many-to-many caveat: failed tests are not the same as defects found.",
+            },
+          ],
+          cheatSheet: [
+            { term: "Cluster analysis", meaning: "Predicted vs actual defect clusters; weight by severity" },
+            { term: "DDP", meaning: "Defect detection percentage per test level (split by severity)" },
+            { term: "Test gap analysis", meaning: "Target recently changed but untested code" },
+            { term: "Defect arrival pattern", meaning: "Compare to distributions (e.g. Rayleigh model)" },
+            { term: "Failed tests ≠ defects", meaning: "Relation is many-to-many; critical test can fail on cosmetic bug" },
+            { term: "RCA tools", meaning: "Taxonomies, five whys, cause-effect, Pareto" },
+            { term: "Classification methods", meaning: "ODC, IEEE 1044, severity-based, taxonomies" },
+          ],
+          lastUpdated: LAST_UPDATED,
+        },
+      ],
+    },
+  ],
+};
+
 const SLUG_TO_SYLLABUS: Record<string, Syllabus> = {
   "istqb-foundation": CTFL,
   "istqb-advanced-agile-tester": CTAL_AT,
+  "istqb-advanced-test-analyst": CTAL_TA,
 };
 
 export function getSyllabus(slug: string): Syllabus {

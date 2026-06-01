@@ -232,7 +232,7 @@ const ALL: ExamInfo[] = [
     fullName: "Certified Tester Advanced Level Test Analyst",
     version: "v4.0",
     intro:
-      "Advanced Level for testers who design and run tests at the system level. Much more K3-heavy than Foundation — over half the questions require you to actively apply a technique.",
+      "The v4.0 Test Analyst is a major rewrite — far more practical than Foundation. It centres on the business-facing testing role: black-box and experience-based techniques, functional and user-facing non-functional testing, and defect prevention. There are no K1 recall questions; over half the marks require you to actively apply (K3) or analyse (K4) a technique. The syllabus spends 615 of its 1215 training minutes on Chapter 3 alone, which is exactly where the exam concentrates.",
     totalQuestions: 45,
     totalPoints: 78,
     passingPoints: 51,
@@ -247,30 +247,32 @@ const ALL: ExamInfo[] = [
     chapters: [
       {
         number: "1",
-        title: "The Test Analyst's Tasks in Risk-Based Testing",
+        title: "The Tasks of the Test Analyst in the Test Process",
         questionCount: 8,
         pointCount: 9,
         k2: 7,
         k3: 1,
+        note: "225 min. Mostly K2 tasks across analysis, design, implementation, execution. The one K3 is keyword-driven test scripting.",
       },
       {
         number: "2",
-        title: "Test Analysis and Design",
+        title: "The Tasks of the Test Analyst in Risk-Based Testing",
         questionCount: 3,
         pointCount: 7,
         k2: 1,
         k4: 2,
+        note: "90 min. Small, but point-rich — both K4 questions analyse change impact to scope regression testing.",
       },
       {
         number: "3",
-        title: "Test Analysis and Design Techniques",
+        title: "Test Analysis and Test Design",
         questionCount: 22,
         pointCount: 42,
         k2: 4,
         k3: 16,
         k4: 2,
         focus: true,
-        note: "Half the exam by point value. K3 across BVA, decision tables, state transition, classification trees, pairwise, use case, user story.",
+        note: "615 min — half the syllabus and 42 of 78 points. K3 apply-a-technique objectives dominate: domain, combinatorial, state transition, scenario, decision table, metamorphic, charters, checklists.",
       },
       {
         number: "4",
@@ -278,35 +280,38 @@ const ALL: ExamInfo[] = [
         questionCount: 4,
         pointCount: 4,
         k2: 4,
+        note: "60 min — the smallest chapter, all K2: functional, usability, flexibility, compatibility testing. Understand, don't over-study.",
       },
       {
         number: "5",
-        title: "Reviews",
+        title: "Software Defect Prevention",
         questionCount: 8,
         pointCount: 16,
         k2: 2,
         k3: 4,
         k4: 2,
         focus: true,
+        note: "225 min, 16 points. Two K3 (modelling for defects + reviews) and two K4 (analysing test results), plus defect prevention and RCA.",
       },
     ],
     focusHeadline:
-      "Chapter 3 alone is 42 out of 78 points — more than half the exam. Master every black-box technique listed in the syllabus before exam day.",
+      "Chapter 3 alone is 42 of 78 points — more than half the exam, and almost every K3 technique lives there. Master domain, combinatorial, state transition, scenario, decision table, and metamorphic testing before exam day.",
     strategyTips: [
-      "Note the point weighting: K3 questions are worth 2 points each, K4 questions worth 3. Not all questions are equal.",
-      "K4 means analyse — typically a scenario with multiple defects or design issues, and you have to compare/rank them. Slow down on these.",
-      "Time per question averages ~2.6 minutes. Don't get stuck — flag and move on.",
-      "Reviews chapter is small in questions (8) but heavy in points (16). Worth its own focused study session.",
+      "Point weighting: K2 = 1 point, K3 = 2 points (occasionally 1 or 3 at the author's discretion), K4 = 3 points (occasionally 2). Not all questions are equal — protect the high-value ones.",
+      "No K1 questions exist, but you still must remember the glossary definition of every keyword listed under a chapter heading — those underpin the K2 questions.",
+      "K4 means analyse — a scenario where you reason about change impact for regression (Ch2), select techniques to mitigate risk (Ch3), or interpret test results to improve detection (Ch5). Slow down; these 6 questions are worth 18 points.",
+      "Time per question averages ~2.7 minutes. Sweep the K2 questions first, then spend real time on the K3 technique work in Chapter 3.",
+      "Counts here match the official ISTQB CTAL-TA v4.1 sample exam (45 questions, 78 points) — the same one in the Practice Questions tab. Work it under timed conditions before exam day.",
     ],
     administrative: {
       registration:
-        "Requires CTFL as a prerequisite. Register via your member board.",
+        "Requires the CTFL Foundation certificate as a prerequisite. Register via your local ISTQB member board.",
       format:
-        "45 multiple-choice questions, 120 minutes. Closed book.",
+        "Multiple-choice, 120 minutes (150 with the +25% non-native-language allowance). Closed book. Minimum 40 questions per the Exam Structures & Rules; 65% of available points to pass.",
       retakes:
         "Varies by member board; typically a longer waiting period than Foundation exams.",
       prep:
-        "Plan 40-60 hours of study including hands-on technique practice. The K3/K4 load is real.",
+        "Plan 40-60 hours including hands-on technique practice. The K3/K4 load is real — drill the Chapter 3 techniques on worked examples, not just by reading.",
     },
   },
   {
